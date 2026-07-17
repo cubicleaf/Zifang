@@ -6268,6 +6268,38 @@ footer .footer-line {
    .hidden automatically — status reappears on its own. */
 .forge-status.hidden { display: none; }
 
+.forge-status.clarification {
+  background: rgba(200,75,49,0.04);
+  border: 1px solid rgba(200,75,49,0.2);
+  color: var(--ink-light);
+  display: block;
+  padding: 1rem 1.1rem 1rem 1.1rem;
+}
+.forge-clarify-q {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+.forge-clarify-opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.forge-clarify-btn {
+  background: var(--paper);
+  border: 1px solid var(--sand-border);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 0.35rem 0.75rem;
+  transition: background 0.15s, border-color 0.15s;
+}
+.forge-clarify-btn:hover {
+  background: rgba(200,75,49,0.06);
+  border-color: rgba(200,75,49,0.3);
+}
+
 .forge-status-close {
   position: absolute;
   top: 0.5rem;
@@ -11326,7 +11358,119 @@ function setupCategorySheetEvents() {
   document.getElementById('forge-review-close').addEventListener('click', hideForgeReview);
 }
 
-function generateNugget(word, provider) {
+let _forgeClarifyState = null;
+let _forgeInRetry = false;
+
+function validateNugget(d) {
+  const issues = [];
+
+  // Required fields
+  const required = ['traditional','simplified','pinyin','english','semanticNote','category','depth','pos','components','examples'];
+  const missing = required.filter(function(f) { return !d[f]; });
+  if (missing.length) issues.push('missing required fields: ' + missing.join(', '));
+
+  // Exactly 2 examples
+  if (!Array.isArray(d.examples)) {
+    issues.push('examples is not an array');
+  } else if (d.examples.length !== 2) {
+    issues.push('examples count is ' + d.examples.length + ', must be exactly 2');
+  }
+
+  // Each example has chinese/pinyin/english
+  if (Array.isArray(d.examples)) {
+    d.examples.forEach(function(ex, i) {
+      if (!ex.chinese) issues.push('example ' + (i+1) + ' missing chinese');
+      if (!ex.pinyin)  issues.push('example ' + (i+1) + ' missing pinyin');
+      if (!ex.english) issues.push('example ' + (i+1) + ' missing english');
+    });
+  }
+
+  // Pinyin token count must match Chinese character count (excluding punctuation)
+  if (Array.isArray(d.examples)) {
+    d.examples.forEach(function(ex, i) {
+      if (!ex.chinese || !ex.pinyin) return;
+      const chars = [...ex.chinese].filter(function(c) {
+        return /[一-鿿㐀-䶿豈-﫿]/.test(c);
+      });
+      const tokens = ex.pinyin.trim().split(/\s+/).filter(function(t) {
+        return /[a-zA-Zāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]/i.test(t);
+      });
+      if (chars.length !== tokens.length) {
+        issues.push('example ' + (i+1) + ' pinyin "' + ex.pinyin + '" has ' + tokens.length + ' tokens but Chinese "' + ex.chinese + '" has ' + chars.length + ' characters — use one space-separated syllable per character');
+      }
+    });
+  }
+
+  // Components array length must match headword character count
+  if (d.traditional && Array.isArray(d.components)) {
+    const hwLen = [...d.traditional].length;
+    if (d.components.length !== hwLen) {
+      issues.push('components length (' + d.components.length + ') ≠ headword length (' + hwLen + ') for ' + d.traditional);
+    }
+  }
+
+  // No particle repetition typos (e.g. 的的 from RECON 2.3)
+  // Skips broader consecutive-repeat check to avoid false positives on valid reduplications like 好好/慢慢
+  if (Array.isArray(d.examples)) {
+    d.examples.forEach(function(ex, i) {
+      if (!ex.chinese) return;
+      if (/的的|了了|嗎嗎|呢呢|吧吧|啊啊/.test(ex.chinese)) {
+        issues.push('example ' + (i+1) + ' has repeated particle (likely typo): ' + ex.chinese);
+      }
+    });
+  }
+
+  // Pinyin must use tone marks, not tone numbers
+  const allPinyin = [d.pinyin]
+    .concat((d.examples || []).map(function(e) { return e.pinyin; }))
+    .concat((d.components || []).map(function(c) { return c.pinyin; }))
+    .filter(Boolean).join(' ');
+  if (/[a-z][1-4](\s|$)/i.test(allPinyin)) {
+    issues.push('pinyin contains tone numbers instead of tone marks');
+  }
+
+  return issues.length ? { ok: false, issues: issues } : { ok: true };
+}
+
+function showForgeClarification(question, options, originalWord, provider) {
+  _forgeClarifyState = { options, originalWord, provider };
+  const statusDiv = document.getElementById('forge-status');
+  statusDiv.className = 'forge-status clarification';
+  let html = '<p class="forge-clarify-q">' + escapeHtml(question) + '</p><div class="forge-clarify-opts">';
+  options.forEach(function(opt, i) {
+    html += '<button class="forge-clarify-btn" onclick="resolveForgeClarification(' + i + ')">' + escapeHtml(opt) + '</button>';
+  });
+  html += '</div>';
+  statusDiv.innerHTML = html;
+}
+
+function resolveForgeClarification(idx) {
+  if (!_forgeClarifyState) return;
+  const { options, originalWord, provider } = _forgeClarifyState;
+  _forgeClarifyState = null;
+
+  const chosen = options[idx];
+
+  // "Yes — forge XXXX" → forge the full chengyu directly
+  const yesMatch = chosen.match(/^Yes\s*[—\-–]\s*forge\s+(.+)$/i);
+  if (yesMatch) {
+    generateNugget(yesMatch[1].trim(), provider);
+    return;
+  }
+
+  // "No — forge XXXX as-is" → force original, suppress pre-flight
+  const noMatch = chosen.match(/^No\s*[—\-–]\s*forge\s+(.+?)\s+as-is$/i);
+  if (noMatch) {
+    generateNugget(noMatch[1].trim(), provider, 'forge as-is, skip pre-flight check');
+    return;
+  }
+
+  // Reading specification: "cháng — long, length, duration"
+  generateNugget(originalWord, provider, 'user selected reading: ' + chosen);
+}
+
+function generateNugget(word, provider, clarification, attempt) {
+  attempt = attempt || 1;
   const statusDiv = document.getElementById('forge-status');
 
   let apiKey = '';
@@ -11368,13 +11512,49 @@ function generateNugget(word, provider) {
   }
 
   statusDiv.className = 'forge-status loading';
-  statusDiv.innerHTML = 'Forging ' + word + '...';
+  statusDiv.innerHTML = attempt > 1 ? 'Retrying with corrections...' : 'Forging ' + word + '...';
 
   // Disable button and show loading spinner during generation
   const forgeBtn = document.getElementById(provider === 'groq' ? 'forge-btn' : 'forge-opus-btn');
   if (forgeBtn) { forgeBtn.disabled = true; forgeBtn.classList.add('loading'); }
 
-  const sysPrompt = 'You are a Chinese language expert creating flashcard data. Given a Chinese word or phrase, generate a complete JSON object. Return ONLY valid JSON with no markdown fences, no explanation, no extra text.\n\nCRITICAL FORMAT RULES:\n- "depth" must be one of: "basic", "intermediate", "rich"\n- "category" must be one of: "vocab", "phrase", "idiom", "concept", "connector" (connector = grammar/sentence patterns, conjunctions, correlative structures like 雖然...但是)\n- "examples" must have fields: "chinese", "pinyin", "english"\n- "components" breaks down each individual character with char, pinyin, meaning\n- All Chinese text should use Traditional Chinese characters\n- Pinyin must use tone marks (not numbers)\n- Provide EXACTLY 2 example sentences — not 1, not 3, exactly 2\n- semanticNote should be 1-4 sentences of pure prose. Do NOT restate the character breakdown or definition. Instead: explain when/how this word is actually used, what register or feel it has (formal, casual, literary, internet slang, etc.), what it signals about the speaker, and briefly hint at 1-2 other usages if relevant. Each card type needs something different: vocab needs register and comparison to near-synonyms; phrases need situational context and vibe; idioms need when you drop them and whether they sound stiff or natural; concepts need how they show up in daily life beyond the philosophical meaning. Write like a scholar\'s margin note — specific, not generic.\n\nJSON structure:\n{\n  "traditional": "繁體字",\n  "simplified": "简体字",\n  "pinyin": "pīnyīn with tone marks",\n  "english": "concise English meaning",\n  "semanticNote": "Pure prose, 1-4 sentences. When/how it is used, register, what it signals. Hint at other usages briefly. No character breakdowns here.",\n  "category": "vocab|phrase|idiom|concept|connector",\n  "depth": "basic|intermediate|rich",\n  "pos": "noun|verb|adjective|adverb|conjunction|particle|phrase|idiom",\n  "components": [\n    {"char": "字", "pinyin": "zì", "meaning": "character, word"}\n  ],\n  "examples": [\n    {"chinese": "Traditional Chinese example sentence.", "pinyin": "Full pinyin with tone marks.", "english": "English translation."},\n    {"chinese": "Second example sentence.", "pinyin": "Full pinyin.", "english": "Translation."}\n  ],\n  "displayBreak": null\n}\n\ndisplayBreak is OPTIONAL. Only include it (as a positive integer) when the traditional/simplified string is 6+ characters AND a naive character-count midpoint would land awkwardly mid-word. Set it to the index of the character AFTER which the display should break onto a new line. For example, for 因為天氣很好 (6 chars), set displayBreak to 2 so 因為 | 天氣很好 — because 天氣 must stay together. For phrases where the midpoint is already linguistically clean (like 知之為知之不知為不知 splitting 5+5), omit or set to null.';
+  const sysPrompt = `You are a Chinese language expert creating flashcard data for Traditional Chinese (Taiwan context). Return ONLY valid JSON, no markdown fences, no extra text.
+
+PRE-FLIGHT: Before generating, check the query. If it matches a case below, return the clarification JSON instead of a card.
+
+Polysemous single characters — return exactly the JSON shown:
+- 長 → {"needsClarification":true,"question":"Which reading did you encounter?","options":["cháng — long, length, duration","zhǎng — to grow, to develop, elder"]}
+- 重 → {"needsClarification":true,"question":"Which reading did you encounter?","options":["zhòng — heavy, serious, important","chóng — again, repeat (重新, 重複)"]}
+- 行 → {"needsClarification":true,"question":"Which reading did you encounter?","options":["xíng — to walk, okay, will do","háng — row, profession (銀行, 行業)"]}
+- 得 → {"needsClarification":true,"question":"Which reading did you encounter?","options":["de — structural particle (看得見)","dé — to obtain, to get","děi — must, have to"]}
+- 著 → {"needsClarification":true,"question":"Which reading did you encounter?","options":["zhe — aspect marker (走著)","zhuó — to wear, to touch (著裝)","zhù — notable (著名, 著作)"]}
+
+Chengyu fragment: if the query is 2–3 characters that open a known chengyu, return:
+{"needsClarification":true,"question":"Are you thinking of [full chengyu] ([meaning])?","options":["Yes — forge [full chengyu]","No — forge [fragment] as-is"]}
+
+If the query includes a clarification context (e.g. "user selected reading: ..."), use that to generate the correct card and skip the pre-flight check.
+
+All other queries: generate the card.
+
+HARD RULES:
+- components[] pinyin = the reading of each character IN THIS COMPOUND, not its most common standalone form
+- Headword characters in components[] must use the same pinyin reading as those characters appear in every example sentence — no silent reading-switches mid-card
+- Every pinyin token in examples.pinyin must align one-to-one with the character at the same position in examples.chinese (skip punctuation) — one space-separated syllable per character, no compound tokens: write "diàn yǐng" not "diànyǐng", "jué de" not "juéde", "gōng zuò" not "gōngzuò"
+- semanticNote must only reference particles, words, or grammar structures that actually exist in standard Mandarin — do not invent compound particles or usages
+- Before outputting, check for contradictions: if any headword character appears in an example with a different reading than stated in components[], either fix the examples to match or return needsClarification — never output a card where headword and examples contradict each other
+- Exactly 2 example sentences
+- Traditional characters throughout
+- Pinyin with tone marks, not numbers
+
+DEPTH: Calibrate to the query:
+- Single character or basic vocab → essentials only; brief semanticNote; simple common examples
+- Phrase or idiom → lead with register and situational deployment; note if formal, casual, or stilted
+- Literary/classical/chengyu → one-line origin first, then modern usage range
+
+OUTPUT:
+{"traditional":"","simplified":"","pinyin":"","english":"","semanticNote":"1–4 sentences: register, feel, when/how used, near-synonyms if relevant. No character breakdowns. No invented usages.","category":"vocab|phrase|idiom|concept|connector (connector=grammar patterns, conjunctions, correlative pairs like 雖然...但是)","depth":"basic|intermediate|rich","pos":"noun|verb|adjective|adverb|conjunction|particle|phrase|idiom","components":[{"char":"","pinyin":"","meaning":""}],"examples":[{"chinese":"","pinyin":"","english":""},{"chinese":"","pinyin":"","english":""}],"displayBreak":null}
+
+displayBreak: positive integer only when 6+ chars AND a naive midpoint would split a word unit; set to index AFTER which to break. Otherwise null.`;
 
   let body = {};
   if (provider === 'groq') {
@@ -11382,7 +11562,7 @@ function generateNugget(word, provider) {
       model: 'llama-3.3-70b-versatile',
       messages: [
         {role: 'system', content: sysPrompt},
-        {role: 'user', content: 'Generate a complete flashcard for: ' + word}
+        {role: 'user', content: 'PRE-FLIGHT: polysemous single chars 長/重/行/得/著 → needsClarification. Chengyu fragment (2–3 char opening of known chengyu) → needsClarification. Otherwise forge.\n\nGenerate a complete flashcard for: ' + word + (clarification ? '\nContext: ' + clarification : '')}
       ],
       max_tokens: 2000,
       temperature: 0.3
@@ -11392,7 +11572,7 @@ function generateNugget(word, provider) {
       model: 'claude-sonnet-4-6',
       max_tokens: 2000,
       system: sysPrompt,
-      messages: [{role: 'user', content: 'Generate a complete flashcard for: ' + word}]
+      messages: [{role: 'user', content: 'PRE-FLIGHT: polysemous single chars 長/重/行/得/著 → needsClarification. Chengyu fragment (2–3 char opening of known chengyu) → needsClarification. Otherwise forge.\n\nGenerate a complete flashcard for: ' + word + (clarification ? '\nContext: ' + clarification : '')}]
     };
   }
 
@@ -11448,6 +11628,36 @@ function generateNugget(word, provider) {
     }
     if (jsonEnd === -1) throw new Error('Malformed JSON in response — unbalanced braces');
     const nuggetData = JSON.parse(cleanStr.slice(jsonStart, jsonEnd + 1));
+
+    // Clarification gate — model is asking which reading/form the user intended
+    if (nuggetData.needsClarification === true) {
+      if (forgeBtn) { forgeBtn.disabled = false; forgeBtn.classList.remove('loading'); }
+      showForgeClarification(
+        nuggetData.question || 'Which did you mean?',
+        Array.isArray(nuggetData.options) ? nuggetData.options : [],
+        word,
+        provider
+      );
+      return;
+    }
+
+    // Deterministic validator — catches structural errors before saving
+    const validation = validateNugget(nuggetData);
+    if (!validation.ok) {
+      if (attempt < 2) {
+        const retryMsg = 'Your previous response had these issues — fix all of them: ' + validation.issues.join('; ');
+        const retryContext = clarification ? clarification + '\n' + retryMsg : retryMsg;
+        _forgeInRetry = true;
+        generateNugget(word, provider, retryContext, 2);
+        return;
+      } else {
+        if (forgeBtn) { forgeBtn.disabled = false; forgeBtn.classList.remove('loading'); }
+        const closeBtn = '<button class="forge-status-close" onclick="this.parentElement.classList.add(\'hidden\')"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>';
+        statusDiv.className = 'forge-status error';
+        statusDiv.innerHTML = closeBtn + 'Forge couldn\'t produce a clean card for “' + word + '” — try a different query or be more specific.';
+        return;
+      }
+    }
 
     // Build a complete nugget object matching the NUGGETS format
     const userNuggets = JSON.parse(localStorage.getItem('user-nuggets') || '[]');
@@ -11523,7 +11733,10 @@ function generateNugget(word, provider) {
   })
   .finally(function() {
     clearTimeout(_forgeTimeout);
-    if (forgeBtn) { forgeBtn.disabled = false; forgeBtn.classList.remove('loading'); }
+    if (!_forgeInRetry) {
+      if (forgeBtn) { forgeBtn.disabled = false; forgeBtn.classList.remove('loading'); }
+    }
+    _forgeInRetry = false;
   });
 }
 

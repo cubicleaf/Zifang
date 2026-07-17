@@ -1,0 +1,1931 @@
+[
+  {
+    "id": 4001,
+    "traditional": "竟然",
+    "simplified": "竟然",
+    "pinyin": "jìngrán",
+    "english": "unexpectedly; surprisingly; actually (to one's surprise)",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "adverb",
+    "semanticNote": "Marks something contrary to expectation, often with a tone of surprise, disapproval, or wonder. Stronger and more emotional than 居然's neutral surprise. Sits before the verb. Compare 居然 (jūrán) — both mean 'unexpectedly' but 竟然 leans toward incredulity ('I can't believe it!'), while 居然 is more often deadpan astonishment.",
+    "components": [
+      { "char": "竟", "pinyin": "jìng", "meaning": "unexpectedly; in the end" },
+      { "char": "然", "pinyin": "rán", "meaning": "thus; in this way (adverb suffix)" }
+    ],
+    "examples": [
+      { "chinese": "他竟然把整個蛋糕吃完了。", "pinyin": "Tā jìngrán bǎ zhěnggè dàngāo chī wán le.", "english": "He actually ate the whole cake — can you believe it?" },
+      { "chinese": "我沒想到她竟然會說中文。", "pinyin": "Wǒ méi xiǎngdào tā jìngrán huì shuō Zhōngwén.", "english": "I had no idea she could actually speak Chinese." }
+    ]
+  },
+  {
+    "id": 4002,
+    "traditional": "況且",
+    "simplified": "况且",
+    "pinyin": "kuàngqiě",
+    "english": "moreover; besides; what's more",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "conjunction",
+    "semanticNote": "Adds an extra reason that strengthens the argument you've already made. Usually opens the second clause. Closer to English 'besides' or 'on top of that' than to 而且 (which just adds neutral info). Often pairs with 何況 in escalating arguments.",
+    "components": [
+      { "char": "況", "pinyin": "kuàng", "meaning": "situation; moreover" },
+      { "char": "且", "pinyin": "qiě", "meaning": "and; moreover" }
+    ],
+    "examples": [
+      { "chinese": "今天太冷了，況且我也沒時間。", "pinyin": "Jīntiān tài lěng le, kuàngqiě wǒ yě méi shíjiān.", "english": "It's too cold today, and besides, I don't have time." },
+      { "chinese": "他經驗豐富，況且做事認真。", "pinyin": "Tā jīngyàn fēngfù, kuàngqiě zuòshì rènzhēn.", "english": "He has lots of experience, and on top of that, he works diligently." }
+    ]
+  },
+  {
+    "id": 4003,
+    "traditional": "凡是",
+    "simplified": "凡是",
+    "pinyin": "fánshì",
+    "english": "any; every; all (without exception)",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "adverb / determiner",
+    "semanticNote": "Sets up a sweeping statement: 'any X that meets condition Y, then Z.' Almost always paired with 都 in the second clause. Used for rules, policies, or generalizations. More formal than 所有 (suǒyǒu, 'all') and adds a 'no exceptions' flavor.",
+    "components": [
+      { "char": "凡", "pinyin": "fán", "meaning": "ordinary; every; all" },
+      { "char": "是", "pinyin": "shì", "meaning": "to be" }
+    ],
+    "examples": [
+      { "chinese": "凡是想參加的人都歡迎報名。", "pinyin": "Fánshì xiǎng cānjiā de rén dōu huānyíng bàomíng.", "english": "Anyone who wants to take part is welcome to sign up." },
+      { "chinese": "凡是超過五百元的東西都要打折。", "pinyin": "Fánshì chāoguò wǔbǎi yuán de dōngxi dōu yào dǎzhé.", "english": "Anything over 500 dollars gets discounted." }
+    ]
+  },
+  {
+    "id": 4004,
+    "traditional": "即將",
+    "simplified": "即将",
+    "pinyin": "jíjiāng",
+    "english": "about to; on the verge of; soon will",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "adverb",
+    "semanticNote": "Formal/written register for 'about to.' Common in news, announcements, official notices ('the train is about to depart'). Spoken equivalent is 快要 or 就要. Sits directly before the verb.",
+    "components": [
+      { "char": "即", "pinyin": "jí", "meaning": "immediately; at once" },
+      { "char": "將", "pinyin": "jiāng", "meaning": "will; future marker (formal)" }
+    ],
+    "examples": [
+      { "chinese": "新的捷運線即將通車。", "pinyin": "Xīn de jiéyùn xiàn jíjiāng tōngchē.", "english": "The new MRT line is about to open for service." },
+      { "chinese": "他即將從大學畢業。", "pinyin": "Tā jíjiāng cóng dàxué bìyè.", "english": "He's about to graduate from university." }
+    ]
+  },
+  {
+    "id": 4005,
+    "traditional": "暫時",
+    "simplified": "暂时",
+    "pinyin": "zànshí",
+    "english": "temporarily; for the time being",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "adverb / adjective",
+    "semanticNote": "Signals a state that is not permanent — useful for hedging answers ('for now I don't know'), describing temporary closures, short-term arrangements. Compare 臨時 (línshí, 'on the spur of the moment / makeshift') — 暫時 emphasizes duration ('for now'), 臨時 emphasizes spontaneity ('not pre-planned').",
+    "components": [
+      { "char": "暫", "pinyin": "zàn", "meaning": "temporary; brief" },
+      { "char": "時", "pinyin": "shí", "meaning": "time" }
+    ],
+    "examples": [
+      { "chinese": "這家店暫時不營業。", "pinyin": "Zhè jiā diàn zànshí bù yíngyè.", "english": "This shop is temporarily closed." },
+      { "chinese": "我暫時還沒有答案。", "pinyin": "Wǒ zànshí hái méiyǒu dá'àn.", "english": "I don't have an answer for now." }
+    ]
+  },
+  {
+    "id": 4006,
+    "traditional": "終究",
+    "simplified": "终究",
+    "pinyin": "zhōngjiū",
+    "english": "in the end; eventually; after all",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "adverb",
+    "semanticNote": "Carries a tone of resignation or finality — 'no matter what, in the end...' Often used when admitting an inevitable outcome you'd rather avoid. Closer to 'after all is said and done' than the neutral 最後 (zuìhòu, 'finally').",
+    "components": [
+      { "char": "終", "pinyin": "zhōng", "meaning": "end; final" },
+      { "char": "究", "pinyin": "jiū", "meaning": "investigate; ultimately" }
+    ],
+    "examples": [
+      { "chinese": "謊言終究會被揭穿。", "pinyin": "Huǎngyán zhōngjiū huì bèi jiēchuān.", "english": "Lies will eventually be exposed." },
+      { "chinese": "他終究還是離開了那家公司。", "pinyin": "Tā zhōngjiū háishì líkāi le nà jiā gōngsī.", "english": "In the end, he did leave that company." }
+    ]
+  },
+  {
+    "id": 4007,
+    "traditional": "索性",
+    "simplified": "索性",
+    "pinyin": "suǒxìng",
+    "english": "just; might as well; simply",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "adverb",
+    "semanticNote": "Used when, given the situation is already half-bad or already underway, you decide to go all the way with it. 'Since we're here anyway, might as well...' Spoken cousin of 乾脆 (gāncuì) but with stronger 'screw it' energy. Tonally great for casual decisions.",
+    "components": [
+      { "char": "索", "pinyin": "suǒ", "meaning": "search; demand" },
+      { "char": "性", "pinyin": "xìng", "meaning": "nature; quality" }
+    ],
+    "examples": [
+      { "chinese": "反正都遲到了，索性慢慢走吧。", "pinyin": "Fǎnzhèng dōu chídào le, suǒxìng mànman zǒu ba.", "english": "We're late anyway — might as well walk slowly." },
+      { "chinese": "電影不好看，他索性就走了。", "pinyin": "Diànyǐng bù hǎokàn, tā suǒxìng jiù zǒu le.", "english": "The movie was bad, so he just left." }
+    ]
+  },
+  {
+    "id": 4008,
+    "traditional": "一向",
+    "simplified": "一向",
+    "pinyin": "yīxiàng",
+    "english": "always; all along; consistently",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "adverb",
+    "semanticNote": "Describes a long-standing trait or habit that has held true up to now. Different from 總是 (zǒngshì, 'always') — 一向 implies a track record stretching back over time, while 總是 just notes frequency. Common when describing people's character.",
+    "components": [
+      { "char": "一", "pinyin": "yī", "meaning": "one" },
+      { "char": "向", "pinyin": "xiàng", "meaning": "toward; direction; up to now" }
+    ],
+    "examples": [
+      { "chinese": "他一向很守時。", "pinyin": "Tā yīxiàng hěn shǒushí.", "english": "He's always been very punctual." },
+      { "chinese": "我一向不喜歡吃辣。", "pinyin": "Wǒ yīxiàng bù xǐhuān chī là.", "english": "I've never liked spicy food." }
+    ]
+  },
+  {
+    "id": 4009,
+    "traditional": "一概",
+    "simplified": "一概",
+    "pinyin": "yīgài",
+    "english": "all; without exception; categorically",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "adverb",
+    "semanticNote": "Strong 'all of them, no exceptions' adverb, often with a sweeping/dismissive tone. Frequently in negative statements ('一概不...' = 'absolutely none / refuse all'). More formal than 都. Common in policies and refusals.",
+    "components": [
+      { "char": "一", "pinyin": "yī", "meaning": "one" },
+      { "char": "概", "pinyin": "gài", "meaning": "general; approximately" }
+    ],
+    "examples": [
+      { "chinese": "店裡的商品一概八折。", "pinyin": "Diàn lǐ de shāngpǐn yīgài bā zhé.", "english": "All items in the store are 20% off, no exceptions." },
+      { "chinese": "他對謠言一概不回應。", "pinyin": "Tā duì yáoyán yīgài bù huíyìng.", "english": "He categorically refuses to respond to rumors." }
+    ]
+  },
+  {
+    "id": 4010,
+    "traditional": "進而",
+    "simplified": "进而",
+    "pinyin": "jìn'ér",
+    "english": "and then; furthermore; proceed to",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "conjunction",
+    "semanticNote": "Marks a step forward from the previous clause — 'first X, and from there, Y.' Common in formal writing, essays, business presentations. Different from 然後 (then, sequentially) — 進而 implies the second action builds on or escalates from the first.",
+    "components": [
+      { "char": "進", "pinyin": "jìn", "meaning": "advance; enter" },
+      { "char": "而", "pinyin": "ér", "meaning": "and; but (formal connector)" }
+    ],
+    "examples": [
+      { "chinese": "我們先了解問題，進而尋找解決方案。", "pinyin": "Wǒmen xiān liǎojiě wèntí, jìn'ér xúnzhǎo jiějué fāng'àn.", "english": "We first understand the problem, then proceed to find solutions." },
+      { "chinese": "閱讀能拓展視野，進而改變思考方式。", "pinyin": "Yuèdú néng tuòzhǎn shìyě, jìn'ér gǎibiàn sīkǎo fāngshì.", "english": "Reading broadens your view, and from there, changes how you think." }
+    ]
+  },
+  {
+    "id": 4011,
+    "traditional": "然而",
+    "simplified": "然而",
+    "pinyin": "rán'ér",
+    "english": "however; yet; nevertheless",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "conjunction",
+    "semanticNote": "Formal 'however' — heavier than 但是 (dànshì, 'but'), used in essays, news, and serious writing. Sits at the head of the contrasting clause. Don't pile it together with 但是 in the same sentence.",
+    "components": [
+      { "char": "然", "pinyin": "rán", "meaning": "thus; so" },
+      { "char": "而", "pinyin": "ér", "meaning": "and; but (formal connector)" }
+    ],
+    "examples": [
+      { "chinese": "他很努力，然而結果並不理想。", "pinyin": "Tā hěn nǔlì, rán'ér jiéguǒ bìng bù lǐxiǎng.", "english": "He worked hard; however, the result was not ideal." },
+      { "chinese": "計畫看似完美，然而執行起來困難重重。", "pinyin": "Jìhuà kànsì wánměi, rán'ér zhíxíng qǐlái kùnnán chóngchóng.", "english": "The plan looks perfect; however, executing it is full of difficulties." }
+    ]
+  },
+  {
+    "id": 4012,
+    "traditional": "由於",
+    "simplified": "由于",
+    "pinyin": "yóuyú",
+    "english": "due to; owing to; because of",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "preposition / conjunction",
+    "semanticNote": "Formal 'because of' — opens the cause clause, often paired with 所以 or 因此 in the second clause. More formal than 因為 (yīnwèi). Common in news headlines and official reports.",
+    "components": [
+      { "char": "由", "pinyin": "yóu", "meaning": "from; by; reason" },
+      { "char": "於", "pinyin": "yú", "meaning": "at; in; from (formal preposition)" }
+    ],
+    "examples": [
+      { "chinese": "由於天氣不好，比賽延期了。", "pinyin": "Yóuyú tiānqì bù hǎo, bǐsài yánqī le.", "english": "Due to the bad weather, the match was postponed." },
+      { "chinese": "由於成本上升，公司決定漲價。", "pinyin": "Yóuyú chéngběn shàngshēng, gōngsī juédìng zhǎngjià.", "english": "Owing to rising costs, the company decided to raise prices." }
+    ]
+  },
+  {
+    "id": 4013,
+    "traditional": "對於",
+    "simplified": "对于",
+    "pinyin": "duìyú",
+    "english": "regarding; with respect to; as for",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "preposition",
+    "semanticNote": "Introduces the topic the speaker is about to comment on. Cleaner and more formal than just 對 (duì). Often opens a sentence: '對於這個問題，我認為...' Cannot be replaced by 對 in topic-fronting positions.",
+    "components": [
+      { "char": "對", "pinyin": "duì", "meaning": "toward; correct; regarding" },
+      { "char": "於", "pinyin": "yú", "meaning": "at; in; with respect to (formal)" }
+    ],
+    "examples": [
+      { "chinese": "對於這個提議，我完全支持。", "pinyin": "Duìyú zhège tíyì, wǒ wánquán zhīchí.", "english": "Regarding this proposal, I fully support it." },
+      { "chinese": "對於外國人來說，學中文不容易。", "pinyin": "Duìyú wàiguórén lái shuō, xué Zhōngwén bù róngyì.", "english": "For foreigners, learning Chinese isn't easy." }
+    ]
+  },
+  {
+    "id": 4014,
+    "traditional": "鑑於",
+    "simplified": "鉴于",
+    "pinyin": "jiànyú",
+    "english": "in view of; given that; considering",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "conjunction",
+    "semanticNote": "Highly formal 'given that...' — opens a sentence in legal documents, business memos, news commentary, official statements. Very rare in casual speech. If you're reading Taiwanese news editorials, you'll hit this constantly.",
+    "components": [
+      { "char": "鑑", "pinyin": "jiàn", "meaning": "mirror; examine; in view of" },
+      { "char": "於", "pinyin": "yú", "meaning": "at; in (formal preposition)" }
+    ],
+    "examples": [
+      { "chinese": "鑑於目前的情況，會議改為線上舉行。", "pinyin": "Jiànyú mùqián de qíngkuàng, huìyì gǎi wéi xiànshàng jǔxíng.", "english": "In view of the current situation, the meeting will be held online instead." },
+      { "chinese": "鑑於他的貢獻，公司決定升他為經理。", "pinyin": "Jiànyú tā de gòngxiàn, gōngsī juédìng shēng tā wéi jīnglǐ.", "english": "Given his contributions, the company decided to promote him to manager." }
+    ]
+  },
+  {
+    "id": 4015,
+    "traditional": "倘若",
+    "simplified": "倘若",
+    "pinyin": "tǎngruò",
+    "english": "if; supposing; in case",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "conjunction",
+    "semanticNote": "Literary/written 'if' — feels a bit old-fashioned and elegant. You'll see it in essays, novels, formal speeches, but rarely in conversation (use 如果 there). Often paired with 便 or 就 in the result clause.",
+    "components": [
+      { "char": "倘", "pinyin": "tǎng", "meaning": "if; supposing" },
+      { "char": "若", "pinyin": "ruò", "meaning": "if; like; as if" }
+    ],
+    "examples": [
+      { "chinese": "倘若沒有你的幫忙，我早就放棄了。", "pinyin": "Tǎngruò méiyǒu nǐ de bāngmáng, wǒ zǎo jiù fàngqì le.", "english": "If it weren't for your help, I would have given up long ago." },
+      { "chinese": "倘若下雨，活動就改期。", "pinyin": "Tǎngruò xià yǔ, huódòng jiù gǎiqī.", "english": "If it rains, the event will be rescheduled." }
+    ]
+  },
+  {
+    "id": 4016,
+    "traditional": "縱使",
+    "simplified": "纵使",
+    "pinyin": "zòngshǐ",
+    "english": "even if; even though",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "conjunction",
+    "semanticNote": "Formal/literary 'even if' — equivalent to 即使 (jíshǐ) but more literary. Concedes a hypothetical and pushes through anyway. Result clause often takes 也 (yě). Common in essays, speeches, lyrics.",
+    "components": [
+      { "char": "縱", "pinyin": "zòng", "meaning": "release; even though" },
+      { "char": "使", "pinyin": "shǐ", "meaning": "make; cause; if" }
+    ],
+    "examples": [
+      { "chinese": "縱使前路艱難，我也不會放棄。", "pinyin": "Zòngshǐ qián lù jiānnán, wǒ yě bú huì fàngqì.", "english": "Even if the road ahead is hard, I won't give up." },
+      { "chinese": "縱使有再多錢，也買不到時間。", "pinyin": "Zòngshǐ yǒu zài duō qián, yě mǎi bú dào shíjiān.", "english": "Even with all the money in the world, you can't buy time." }
+    ]
+  },
+  {
+    "id": 4017,
+    "traditional": "即使",
+    "simplified": "即使",
+    "pinyin": "jíshǐ",
+    "english": "even if; even though",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "conjunction",
+    "semanticNote": "Workhorse 'even if' — far more common than 縱使 in everyday spoken and written Chinese. Almost always paired with 也 (yě) in the result clause. Concedes a hypothetical and asserts the result holds anyway.",
+    "components": [
+      { "char": "即", "pinyin": "jí", "meaning": "immediately; even" },
+      { "char": "使", "pinyin": "shǐ", "meaning": "make; cause; if" }
+    ],
+    "examples": [
+      { "chinese": "即使下雨，我也要去跑步。", "pinyin": "Jíshǐ xià yǔ, wǒ yě yào qù pǎobù.", "english": "Even if it rains, I'm still going running." },
+      { "chinese": "即使他不來，我們也照常開會。", "pinyin": "Jíshǐ tā bù lái, wǒmen yě zhàocháng kāihuì.", "english": "Even if he doesn't come, we'll hold the meeting as usual." }
+    ]
+  },
+  {
+    "id": 4018,
+    "traditional": "不得不",
+    "simplified": "不得不",
+    "pinyin": "bùdébù",
+    "english": "have to; cannot but; have no choice but to",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "adverbial phrase",
+    "semanticNote": "Double-negative construction meaning 'cannot not [do X]' = forced to do X. Implies reluctance — you're doing it because circumstances leave no choice. Stronger and more emotional than 必須 (bìxū, 'must'), which is neutral obligation.",
+    "components": [
+      { "char": "不", "pinyin": "bù", "meaning": "not" },
+      { "char": "得", "pinyin": "dé", "meaning": "must; have to (here pronounced dé)" },
+      { "char": "不", "pinyin": "bù", "meaning": "not" }
+    ],
+    "examples": [
+      { "chinese": "下雨了，我不得不取消野餐。", "pinyin": "Xià yǔ le, wǒ bùdébù qǔxiāo yěcān.", "english": "It started raining, so I had no choice but to cancel the picnic." },
+      { "chinese": "為了家人，他不得不放棄夢想。", "pinyin": "Wèile jiārén, tā bùdébù fàngqì mèngxiǎng.", "english": "For his family's sake, he had to give up his dream." }
+    ]
+  },
+  {
+    "id": 4019,
+    "traditional": "究竟",
+    "simplified": "究竟",
+    "pinyin": "jiūjìng",
+    "english": "actually; in the end; on earth (in questions)",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "adverb / noun",
+    "semanticNote": "In questions, intensifies them: '究竟發生了什麼?' = 'What on earth happened?' As a noun, means 'the truth / the bottom of the matter' (探個究竟 = 'get to the bottom of it'). Sharper than 到底 (dàodǐ) in formal contexts.",
+    "components": [
+      { "char": "究", "pinyin": "jiū", "meaning": "investigate; in the end" },
+      { "char": "竟", "pinyin": "jìng", "meaning": "unexpectedly; in the end" }
+    ],
+    "examples": [
+      { "chinese": "你究竟想說什麼？", "pinyin": "Nǐ jiūjìng xiǎng shuō shénme?", "english": "What on earth are you trying to say?" },
+      { "chinese": "我想去問個究竟。", "pinyin": "Wǒ xiǎng qù wèn ge jiūjìng.", "english": "I want to go and get to the bottom of it." }
+    ]
+  },
+  {
+    "id": 4020,
+    "traditional": "不妨",
+    "simplified": "不妨",
+    "pinyin": "bùfáng",
+    "english": "might as well; there's no harm in; why not",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "adverb",
+    "semanticNote": "Soft, polite suggestion — 'no harm in trying X.' Less pushy than 應該 (yīnggāi, 'should'). A go-to for offering advice without being preachy. Sits before the verb: '你不妨試試看' = 'why not give it a try.'",
+    "components": [
+      { "char": "不", "pinyin": "bù", "meaning": "not" },
+      { "char": "妨", "pinyin": "fáng", "meaning": "hinder; obstruct" }
+    ],
+    "examples": [
+      { "chinese": "你不妨試試這家餐廳，聽說很好吃。", "pinyin": "Nǐ bùfáng shìshi zhè jiā cāntīng, tīngshuō hěn hǎochī.", "english": "Why not give this restaurant a try — I hear it's great." },
+      { "chinese": "如果有空，你不妨來看看。", "pinyin": "Rúguǒ yǒu kòng, nǐ bùfáng lái kànkan.", "english": "If you have time, you might as well come check it out." }
+    ]
+  },
+  {
+    "id": 4021,
+    "traditional": "議題",
+    "simplified": "议题",
+    "pinyin": "yìtí",
+    "english": "issue; topic of discussion; agenda item",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "noun",
+    "semanticNote": "A topic up for debate or discussion — political issues, social issues, meeting agenda items. More formal than 話題 (huàtí, 'topic of conversation'). Common in news: '熱門議題' (hot-button issue), '社會議題' (social issue).",
+    "components": [
+      { "char": "議", "pinyin": "yì", "meaning": "discuss; deliberate" },
+      { "char": "題", "pinyin": "tí", "meaning": "topic; subject; question" }
+    ],
+    "examples": [
+      { "chinese": "氣候變遷是全球關注的議題。", "pinyin": "Qìhòu biànqiān shì quánqiú guānzhù de yìtí.", "english": "Climate change is a globally watched issue." },
+      { "chinese": "今天的會議有三個議題要討論。", "pinyin": "Jīntiān de huìyì yǒu sān ge yìtí yào tǎolùn.", "english": "Today's meeting has three agenda items to discuss." }
+    ]
+  },
+  {
+    "id": 4022,
+    "traditional": "局勢",
+    "simplified": "局势",
+    "pinyin": "júshì",
+    "english": "situation (esp. political/military); state of affairs",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "noun",
+    "semanticNote": "Used for big-picture situations, especially political, international, or military — '兩岸局勢' (cross-strait situation), '國際局勢' (international situation). Heavier than 情況 (qíngkuàng, neutral 'situation'). Don't use for personal everyday situations.",
+    "components": [
+      { "char": "局", "pinyin": "jú", "meaning": "office; bureau; situation" },
+      { "char": "勢", "pinyin": "shì", "meaning": "power; momentum; situation" }
+    ],
+    "examples": [
+      { "chinese": "目前的政治局勢很複雜。", "pinyin": "Mùqián de zhèngzhì júshì hěn fùzá.", "english": "The current political situation is very complex." },
+      { "chinese": "他在密切關注國際局勢。", "pinyin": "Tā zài mìqiè guānzhù guójì júshì.", "english": "He's closely watching the international situation." }
+    ]
+  },
+  {
+    "id": 4023,
+    "traditional": "局面",
+    "simplified": "局面",
+    "pinyin": "júmiàn",
+    "english": "situation; state of affairs; scene",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "noun",
+    "semanticNote": "A snapshot of how things stand — slightly more concrete than 局勢. Often pairs with verbs like 打開 (open up a situation), 控制 (control), 扭轉 (turn around). Used for both serious and everyday situations. Compare 局勢 (geopolitical) — 局面 has broader use.",
+    "components": [
+      { "char": "局", "pinyin": "jú", "meaning": "office; situation" },
+      { "char": "面", "pinyin": "miàn", "meaning": "face; surface; aspect" }
+    ],
+    "examples": [
+      { "chinese": "我們需要打開新的局面。", "pinyin": "Wǒmen xūyào dǎkāi xīn de júmiàn.", "english": "We need to open up a new situation." },
+      { "chinese": "他成功扭轉了不利的局面。", "pinyin": "Tā chénggōng niǔzhuǎn le búlì de júmiàn.", "english": "He successfully turned around the unfavorable situation." }
+    ]
+  },
+  {
+    "id": 4024,
+    "traditional": "危機",
+    "simplified": "危机",
+    "pinyin": "wéijī",
+    "english": "crisis",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "noun",
+    "semanticNote": "The classic 'danger + opportunity' word: 危 (danger) + 機 (opportunity / juncture). Used for financial crises, identity crises, environmental crises. The pop interpretation that 危機 means 'danger and opportunity' is a feel-good Western reading; in actual Chinese, 機 here is closer to 'critical juncture / mechanism' than 'opportunity.'",
+    "components": [
+      { "char": "危", "pinyin": "wéi", "meaning": "danger; perilous" },
+      { "char": "機", "pinyin": "jī", "meaning": "machine; juncture; opportunity" }
+    ],
+    "examples": [
+      { "chinese": "公司正面臨財務危機。", "pinyin": "Gōngsī zhèng miànlín cáiwù wéijī.", "english": "The company is facing a financial crisis." },
+      { "chinese": "他經歷了一場中年危機。", "pinyin": "Tā jīnglì le yī chǎng zhōngnián wéijī.", "english": "He went through a midlife crisis." }
+    ]
+  },
+  {
+    "id": 4025,
+    "traditional": "機制",
+    "simplified": "机制",
+    "pinyin": "jīzhì",
+    "english": "mechanism; system",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "noun",
+    "semanticNote": "Refers to how something operates or is structured — 'reporting mechanism,' 'defense mechanism,' 'market mechanism.' Common in business, policy, and technical writing. Don't confuse with 機構 (jīgòu, 'organization/institution') — 機制 is the working system, 機構 is the entity.",
+    "components": [
+      { "char": "機", "pinyin": "jī", "meaning": "machine; mechanism" },
+      { "char": "制", "pinyin": "zhì", "meaning": "system; control" }
+    ],
+    "examples": [
+      { "chinese": "公司建立了完善的回饋機制。", "pinyin": "Gōngsī jiànlì le wánshàn de huíkuì jīzhì.", "english": "The company has established a thorough feedback mechanism." },
+      { "chinese": "市場機制決定了價格。", "pinyin": "Shìchǎng jīzhì juédìng le jiàgé.", "english": "Market mechanisms determine prices." }
+    ]
+  },
+  {
+    "id": 4026,
+    "traditional": "體制",
+    "simplified": "体制",
+    "pinyin": "tǐzhì",
+    "english": "system; institutional structure; regime",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "noun",
+    "semanticNote": "The institutional setup of an organization or country — 'political system,' 'education system,' 'corporate structure.' Heavier than 制度 (zhìdù, 'rules/regulations'). 體制 = the whole architecture; 制度 = the specific rules within it. Common in political/sociological discussion.",
+    "components": [
+      { "char": "體", "pinyin": "tǐ", "meaning": "body; system" },
+      { "char": "制", "pinyin": "zhì", "meaning": "system; control" }
+    ],
+    "examples": [
+      { "chinese": "他們在推動教育體制改革。", "pinyin": "Tāmen zài tuīdòng jiàoyù tǐzhì gǎigé.", "english": "They're pushing forward education-system reforms." },
+      { "chinese": "這個國家的政治體制很特別。", "pinyin": "Zhège guójiā de zhèngzhì tǐzhì hěn tèbié.", "english": "This country's political system is unusual." }
+    ]
+  },
+  {
+    "id": 4027,
+    "traditional": "模式",
+    "simplified": "模式",
+    "pinyin": "móshì",
+    "english": "pattern; mode; model",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "noun",
+    "semanticNote": "A repeating template of behavior or operation — 'business model,' 'thinking pattern,' 'work mode.' Now ubiquitous in tech contexts (專注模式 = focus mode, 暗黑模式 = dark mode). Compare 方式 (fāngshì, 'way/method') — 模式 is more structural, 方式 is more procedural.",
+    "components": [
+      { "char": "模", "pinyin": "mó", "meaning": "model; pattern; imitate" },
+      { "char": "式", "pinyin": "shì", "meaning": "style; type; formula" }
+    ],
+    "examples": [
+      { "chinese": "他的思考模式跟一般人不同。", "pinyin": "Tā de sīkǎo móshì gēn yībān rén bùtóng.", "english": "His thinking pattern differs from most people's." },
+      { "chinese": "公司正在嘗試新的商業模式。", "pinyin": "Gōngsī zhèngzài chángshì xīn de shāngyè móshì.", "english": "The company is trying out a new business model." }
+    ]
+  },
+  {
+    "id": 4028,
+    "traditional": "體系",
+    "simplified": "体系",
+    "pinyin": "tǐxì",
+    "english": "system; framework; setup",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "noun",
+    "semanticNote": "An interconnected system or framework — 'theoretical framework,' 'banking system,' 'value system.' Distinguished from 體制 (institutional structure) — 體系 emphasizes the network of related parts; 體制 emphasizes top-down structure. Often appears in academic and corporate writing.",
+    "components": [
+      { "char": "體", "pinyin": "tǐ", "meaning": "body; system" },
+      { "char": "系", "pinyin": "xì", "meaning": "system; department; tie" }
+    ],
+    "examples": [
+      { "chinese": "他建立了一套完整的理論體系。", "pinyin": "Tā jiànlì le yī tào wánzhěng de lǐlùn tǐxì.", "english": "He built a complete theoretical framework." },
+      { "chinese": "我們需要重新設計教育體系。", "pinyin": "Wǒmen xūyào chóngxīn shèjì jiàoyù tǐxì.", "english": "We need to redesign the education system." }
+    ]
+  },
+  {
+    "id": 4029,
+    "traditional": "機構",
+    "simplified": "机构",
+    "pinyin": "jīgòu",
+    "english": "organization; institution; agency",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "noun",
+    "semanticNote": "Refers to formal organizations — government agencies, NGOs, financial institutions, research institutes. Compare 公司 (gōngsī, company, profit-driven) and 機構 (institutional, often non-profit or governmental). Common in news.",
+    "components": [
+      { "char": "機", "pinyin": "jī", "meaning": "machine; mechanism" },
+      { "char": "構", "pinyin": "gòu", "meaning": "construct; structure" }
+    ],
+    "examples": [
+      { "chinese": "這是一個國際慈善機構。", "pinyin": "Zhè shì yī ge guójì císhàn jīgòu.", "english": "This is an international charity organization." },
+      { "chinese": "金融機構的角色越來越重要。", "pinyin": "Jīnróng jīgòu de juésè yuè lái yuè zhòngyào.", "english": "The role of financial institutions is increasingly important." }
+    ]
+  },
+  {
+    "id": 4030,
+    "traditional": "場合",
+    "simplified": "场合",
+    "pinyin": "chǎnghé",
+    "english": "occasion; setting; situation",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "noun",
+    "semanticNote": "Refers to a specific social context — formal events, public settings, etc. Often used to talk about register and appropriateness: '在正式場合' (in formal settings), '看場合' (read the situation). Different from 場面 (chǎngmiàn, the scene/spectacle itself).",
+    "components": [
+      { "char": "場", "pinyin": "chǎng", "meaning": "venue; field; site" },
+      { "char": "合", "pinyin": "hé", "meaning": "join; combine; suit" }
+    ],
+    "examples": [
+      { "chinese": "在正式場合不應該穿拖鞋。", "pinyin": "Zài zhèngshì chǎnghé bù yīnggāi chuān tuōxié.", "english": "You shouldn't wear flip-flops on formal occasions." },
+      { "chinese": "說話要看場合。", "pinyin": "Shuōhuà yào kàn chǎnghé.", "english": "You need to read the situation when you speak." }
+    ]
+  },
+  {
+    "id": 4031,
+    "traditional": "場面",
+    "simplified": "场面",
+    "pinyin": "chǎngmiàn",
+    "english": "scene; spectacle; situation",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "noun",
+    "semanticNote": "The visible scene unfolding — a wedding scene, a chaotic crowd, a tense standoff. Often modified: 熱鬧的場面 (lively scene), 尷尬的場面 (awkward scene), 感人的場面 (touching scene). Compare 場合 (occasion type) vs 場面 (the actual scene).",
+    "components": [
+      { "char": "場", "pinyin": "chǎng", "meaning": "venue; field" },
+      { "char": "面", "pinyin": "miàn", "meaning": "face; surface; aspect" }
+    ],
+    "examples": [
+      { "chinese": "婚禮的場面很感人。", "pinyin": "Hūnlǐ de chǎngmiàn hěn gǎnrén.", "english": "The wedding scene was very moving." },
+      { "chinese": "他見過大場面，不會緊張。", "pinyin": "Tā jiàn guò dà chǎngmiàn, bù huì jǐnzhāng.", "english": "He's seen big scenes before — he won't get nervous." }
+    ]
+  },
+  {
+    "id": 4032,
+    "traditional": "時機",
+    "simplified": "时机",
+    "pinyin": "shíjī",
+    "english": "timing; opportune moment; opportunity",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "noun",
+    "semanticNote": "The right moment for action — emphasizes timing rather than the opportunity itself. Common collocations: 把握時機 (seize the moment), 等待時機 (wait for the right time), 時機成熟 (the time is ripe). Compare 機會 (jīhuì, opportunity in general) — 時機 specifically about when.",
+    "components": [
+      { "char": "時", "pinyin": "shí", "meaning": "time" },
+      { "char": "機", "pinyin": "jī", "meaning": "opportunity; juncture" }
+    ],
+    "examples": [
+      { "chinese": "你要把握時機。", "pinyin": "Nǐ yào bǎwò shíjī.", "english": "You need to seize the moment." },
+      { "chinese": "現在不是辭職的好時機。", "pinyin": "Xiànzài bú shì cízhí de hǎo shíjī.", "english": "Now is not a good time to quit." }
+    ]
+  },
+  {
+    "id": 4033,
+    "traditional": "處境",
+    "simplified": "处境",
+    "pinyin": "chǔjìng",
+    "english": "predicament; situation (one is in)",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "noun",
+    "semanticNote": "The situation a person finds themselves in — usually a difficult or constrained one. Personal-level word, while 局勢 is geopolitical. Common: 處境艱難 (in a tough spot), 設身處地 (put yourself in someone's shoes — chengyu).",
+    "components": [
+      { "char": "處", "pinyin": "chǔ", "meaning": "be situated; deal with (here pronounced chǔ)" },
+      { "char": "境", "pinyin": "jìng", "meaning": "boundary; circumstances; realm" }
+    ],
+    "examples": [
+      { "chinese": "他現在的處境很艱難。", "pinyin": "Tā xiànzài de chǔjìng hěn jiānnán.", "english": "His current situation is very tough." },
+      { "chinese": "我能理解你的處境。", "pinyin": "Wǒ néng lǐjiě nǐ de chǔjìng.", "english": "I understand the position you're in." }
+    ]
+  },
+  {
+    "id": 4034,
+    "traditional": "困境",
+    "simplified": "困境",
+    "pinyin": "kùnjìng",
+    "english": "dilemma; predicament; tough spot",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "noun",
+    "semanticNote": "A genuinely stuck/trapped situation — economic difficulty, emotional dilemma, structural bind. Stronger than 處境 (any situation, often hard). Common verbs: 陷入困境 (fall into a predicament), 擺脫困境 (escape a predicament), 走出困境 (get out of a predicament).",
+    "components": [
+      { "char": "困", "pinyin": "kùn", "meaning": "trapped; tired; difficult" },
+      { "char": "境", "pinyin": "jìng", "meaning": "boundary; circumstances" }
+    ],
+    "examples": [
+      { "chinese": "公司陷入了財務困境。", "pinyin": "Gōngsī xiànrù le cáiwù kùnjìng.", "english": "The company fell into financial difficulty." },
+      { "chinese": "他終於走出了人生的困境。", "pinyin": "Tā zhōngyú zǒu chū le rénshēng de kùnjìng.", "english": "He finally walked out of the predicament his life was in." }
+    ]
+  },
+  {
+    "id": 4035,
+    "traditional": "障礙",
+    "simplified": "障碍",
+    "pinyin": "zhàng'ài",
+    "english": "obstacle; barrier; impediment",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "noun / verb",
+    "semanticNote": "Both physical and metaphorical obstacles — language barrier, communication barrier, accessibility obstacle. Common: 語言障礙 (language barrier), 心理障礙 (psychological barrier), 學習障礙 (learning disability). The character 障 also appears in 保障 (guarantee) and 障礙物 (obstacle).",
+    "components": [
+      { "char": "障", "pinyin": "zhàng", "meaning": "block; obstruct" },
+      { "char": "礙", "pinyin": "ài", "meaning": "hinder; obstruct" }
+    ],
+    "examples": [
+      { "chinese": "語言障礙是我最大的問題。", "pinyin": "Yǔyán zhàng'ài shì wǒ zuìdà de wèntí.", "english": "The language barrier is my biggest problem." },
+      { "chinese": "他們一起克服了所有障礙。", "pinyin": "Tāmen yīqǐ kèfú le suǒyǒu zhàng'ài.", "english": "Together they overcame every obstacle." }
+    ]
+  },
+  {
+    "id": 4036,
+    "traditional": "氛圍",
+    "simplified": "氛围",
+    "pinyin": "fēnwéi",
+    "english": "atmosphere; ambiance; vibe",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "noun",
+    "semanticNote": "The mood/feel of a place or situation — restaurant ambiance, office atmosphere, the vibe of a room. Closer to 'vibe' than 氣氛 (qìfēn, atmosphere) — 氛圍 sounds slightly more thoughtful and is increasingly trendy in modern speech. Common: 浪漫的氛圍, 緊張的氛圍.",
+    "components": [
+      { "char": "氛", "pinyin": "fēn", "meaning": "atmosphere; aura" },
+      { "char": "圍", "pinyin": "wéi", "meaning": "surround; enclose" }
+    ],
+    "examples": [
+      { "chinese": "這家咖啡廳的氛圍很舒服。", "pinyin": "Zhè jiā kāfēi tīng de fēnwéi hěn shūfu.", "english": "This café has a really comfortable vibe." },
+      { "chinese": "辦公室的氛圍越來越緊張。", "pinyin": "Bàngōngshì de fēnwéi yuè lái yuè jǐnzhāng.", "english": "The atmosphere in the office is getting more and more tense." }
+    ]
+  },
+  {
+    "id": 4037,
+    "traditional": "採用",
+    "simplified": "采用",
+    "pinyin": "cǎiyòng",
+    "english": "to adopt; to use; to employ (a method)",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "verb",
+    "semanticNote": "To adopt a method, technology, or approach for use. Compare 採取 (cǎiqǔ) — 採取 is for measures/actions/attitudes, 採用 is for methods/technologies/materials. '採取行動' = take action; '採用新技術' = adopt new technology.",
+    "components": [
+      { "char": "採", "pinyin": "cǎi", "meaning": "pick; gather; select" },
+      { "char": "用", "pinyin": "yòng", "meaning": "use" }
+    ],
+    "examples": [
+      { "chinese": "公司決定採用新的軟體系統。", "pinyin": "Gōngsī juédìng cǎiyòng xīn de ruǎntǐ xìtǒng.", "english": "The company decided to adopt the new software system." },
+      { "chinese": "這個建議被採用了。", "pinyin": "Zhège jiànyì bèi cǎiyòng le.", "english": "This suggestion was adopted." }
+    ]
+  },
+  {
+    "id": 4038,
+    "traditional": "維護",
+    "simplified": "维护",
+    "pinyin": "wéihù",
+    "english": "to safeguard; to maintain; to defend",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "verb",
+    "semanticNote": "To actively protect or uphold something — rights, peace, equipment, a website, one's reputation. Compare 保護 (bǎohù, protect from harm) — 維護 implies ongoing care/upkeep. Common: 維護權益 (safeguard rights), 維護秩序 (maintain order), 系統維護 (system maintenance).",
+    "components": [
+      { "char": "維", "pinyin": "wéi", "meaning": "maintain; preserve" },
+      { "char": "護", "pinyin": "hù", "meaning": "protect" }
+    ],
+    "examples": [
+      { "chinese": "我們要維護自己的權益。", "pinyin": "Wǒmen yào wéihù zìjǐ de quányì.", "english": "We need to safeguard our own rights and interests." },
+      { "chinese": "網站今天進行系統維護。", "pinyin": "Wǎngzhàn jīntiān jìnxíng xìtǒng wéihù.", "english": "The website is undergoing system maintenance today." }
+    ]
+  },
+  {
+    "id": 4039,
+    "traditional": "確保",
+    "simplified": "确保",
+    "pinyin": "quèbǎo",
+    "english": "to ensure; to guarantee",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "verb",
+    "semanticNote": "To make sure something happens or holds true — common in business, official statements, instructions. Followed by a clause: '確保 + [outcome]'. Stronger and more formal than 保證 (bǎozhèng, promise/guarantee). Common: 確保安全, 確保品質.",
+    "components": [
+      { "char": "確", "pinyin": "què", "meaning": "true; certain; firmly" },
+      { "char": "保", "pinyin": "bǎo", "meaning": "protect; ensure" }
+    ],
+    "examples": [
+      { "chinese": "請確保門已經鎖好。", "pinyin": "Qǐng quèbǎo mén yǐjīng suǒ hǎo.", "english": "Please make sure the door is locked." },
+      { "chinese": "我們要確保產品的品質。", "pinyin": "Wǒmen yào quèbǎo chǎnpǐn de pǐnzhì.", "english": "We need to ensure the product's quality." }
+    ]
+  },
+  {
+    "id": 4040,
+    "traditional": "忍受",
+    "simplified": "忍受",
+    "pinyin": "rěnshòu",
+    "english": "to endure; to tolerate; to bear",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "verb",
+    "semanticNote": "To put up with something painful or unpleasant — pain, suffering, bad behavior. Heavier than 受得了 (shòudeliǎo, can bear it). Compare 忍耐 (rěnnài, exercise patience/restraint) — 忍受 is putting up with external suffering, 忍耐 is internal self-control.",
+    "components": [
+      { "char": "忍", "pinyin": "rěn", "meaning": "endure; bear; restrain" },
+      { "char": "受", "pinyin": "shòu", "meaning": "receive; suffer; endure" }
+    ],
+    "examples": [
+      { "chinese": "我再也無法忍受這種噪音。", "pinyin": "Wǒ zài yě wúfǎ rěnshòu zhè zhǒng zàoyīn.", "english": "I can't tolerate this kind of noise anymore." },
+      { "chinese": "他默默忍受了很多痛苦。", "pinyin": "Tā mòmò rěnshòu le hěn duō tòngkǔ.", "english": "He silently endured a lot of pain." }
+    ]
+  },
+  {
+    "id": 4041,
+    "traditional": "遭遇",
+    "simplified": "遭遇",
+    "pinyin": "zāoyù",
+    "english": "to encounter (often negatively); experience; ordeal",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "verb / noun",
+    "semanticNote": "To encounter or undergo — usually negative experiences (accidents, attacks, hardship). Can be a noun: 'his ordeal' = 他的遭遇. Compare 經歷 (jīnglì, neutral 'experience') — 遭遇 carries the connotation of suffering.",
+    "components": [
+      { "char": "遭", "pinyin": "zāo", "meaning": "meet with (usually misfortune)" },
+      { "char": "遇", "pinyin": "yù", "meaning": "encounter; meet" }
+    ],
+    "examples": [
+      { "chinese": "他在路上遭遇了一場車禍。", "pinyin": "Tā zài lùshàng zāoyù le yī chǎng chēhuò.", "english": "He encountered a car accident on the road." },
+      { "chinese": "她的遭遇讓人同情。", "pinyin": "Tā de zāoyù ràng rén tóngqíng.", "english": "Her ordeal moves people to sympathy." }
+    ]
+  },
+  {
+    "id": 4042,
+    "traditional": "遭受",
+    "simplified": "遭受",
+    "pinyin": "zāoshòu",
+    "english": "to suffer; to be subjected to (something bad)",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "verb",
+    "semanticNote": "To be subjected to something harmful — losses, attacks, disasters, criticism. Always followed by negative things. Compare 遭遇 (encounter, can be noun) — 遭受 is purely the verb of suffering an impact. Common: 遭受批評, 遭受損失, 遭受攻擊.",
+    "components": [
+      { "char": "遭", "pinyin": "zāo", "meaning": "meet with misfortune" },
+      { "char": "受", "pinyin": "shòu", "meaning": "receive; suffer" }
+    ],
+    "examples": [
+      { "chinese": "村莊遭受了嚴重的水災。", "pinyin": "Cūnzhuāng zāoshòu le yánzhòng de shuǐzāi.", "english": "The village suffered a serious flood." },
+      { "chinese": "他的決定遭受了很多批評。", "pinyin": "Tā de juédìng zāoshòu le hěn duō pīpíng.", "english": "His decision was subjected to a lot of criticism." }
+    ]
+  },
+  {
+    "id": 4043,
+    "traditional": "阻礙",
+    "simplified": "阻碍",
+    "pinyin": "zǔ'ài",
+    "english": "to hinder; to obstruct; obstacle",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "verb / noun",
+    "semanticNote": "To get in the way of something's progress — both verb and noun. Compare 障礙 (zhàng'ài, obstacle) — 阻礙 emphasizes the active hindering, 障礙 emphasizes the obstacle as a thing. Common: 阻礙發展 (hinder development), 阻礙交通 (block traffic).",
+    "components": [
+      { "char": "阻", "pinyin": "zǔ", "meaning": "block; hinder" },
+      { "char": "礙", "pinyin": "ài", "meaning": "hinder; obstruct" }
+    ],
+    "examples": [
+      { "chinese": "傳統觀念阻礙了他們的發展。", "pinyin": "Chuántǒng guānniàn zǔ'ài le tāmen de fāzhǎn.", "english": "Traditional thinking hindered their development." },
+      { "chinese": "下雪阻礙了交通。", "pinyin": "Xià xuě zǔ'ài le jiāotōng.", "english": "The snowfall obstructed traffic." }
+    ]
+  },
+  {
+    "id": 4044,
+    "traditional": "約束",
+    "simplified": "约束",
+    "pinyin": "yuēshù",
+    "english": "to restrain; to bind; restraint",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "verb / noun",
+    "semanticNote": "To impose limits on behavior — through rules, agreements, self-discipline. Compare 限制 (xiànzhì, restrict by external rule) — 約束 carries more 'agreed' or 'self-imposed' weight. Common: 自我約束 (self-discipline), 約束力 (binding force, like in contracts).",
+    "components": [
+      { "char": "約", "pinyin": "yuē", "meaning": "agreement; about; bind" },
+      { "char": "束", "pinyin": "shù", "meaning": "tie; bundle; restrain" }
+    ],
+    "examples": [
+      { "chinese": "他不喜歡受約束。", "pinyin": "Tā bù xǐhuān shòu yuēshù.", "english": "He doesn't like being restrained." },
+      { "chinese": "這份合約對雙方都有約束力。", "pinyin": "Zhè fèn héyuē duì shuāngfāng dōu yǒu yuēshùlì.", "english": "This contract is binding on both parties." }
+    ]
+  },
+  {
+    "id": 4045,
+    "traditional": "保障",
+    "simplified": "保障",
+    "pinyin": "bǎozhàng",
+    "english": "to ensure; to guarantee; safeguard",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "verb / noun",
+    "semanticNote": "To guarantee or safeguard rights, safety, livelihoods. Often used institutionally — 'social safety net,' 'job security,' 'rights protections.' Compare 確保 (quèbǎo, ensure outcomes) — 保障 protects ongoing conditions or rights. Common: 社會保障, 生活保障.",
+    "components": [
+      { "char": "保", "pinyin": "bǎo", "meaning": "protect; ensure" },
+      { "char": "障", "pinyin": "zhàng", "meaning": "block; barrier" }
+    ],
+    "examples": [
+      { "chinese": "政府應該保障人民的基本權利。", "pinyin": "Zhèngfǔ yīnggāi bǎozhàng rénmín de jīběn quánlì.", "english": "The government should safeguard people's basic rights." },
+      { "chinese": "他的工作沒有任何保障。", "pinyin": "Tā de gōngzuò méiyǒu rènhé bǎozhàng.", "english": "His job has no security at all." }
+    ]
+  },
+  {
+    "id": 4046,
+    "traditional": "闡述",
+    "simplified": "阐述",
+    "pinyin": "chǎnshù",
+    "english": "to elaborate on; to expound; to set forth",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "verb",
+    "semanticNote": "Formal verb for laying out an argument or explaining a concept thoroughly — academic papers, speeches, official statements. Heavier than 解釋 (jiěshì, explain) or 說明 (shuōmíng, illustrate). You'll see this constantly in op-eds and academic writing.",
+    "components": [
+      { "char": "闡", "pinyin": "chǎn", "meaning": "explain; expound" },
+      { "char": "述", "pinyin": "shù", "meaning": "narrate; describe; state" }
+    ],
+    "examples": [
+      { "chinese": "他在會議上闡述了自己的觀點。", "pinyin": "Tā zài huìyì shàng chǎnshù le zìjǐ de guāndiǎn.", "english": "He set forth his viewpoint at the meeting." },
+      { "chinese": "這篇論文闡述了一個新理論。", "pinyin": "Zhè piān lùnwén chǎnshù le yī ge xīn lǐlùn.", "english": "This paper expounds a new theory." }
+    ]
+  },
+  {
+    "id": 4047,
+    "traditional": "漠視",
+    "simplified": "漠视",
+    "pinyin": "mòshì",
+    "english": "to disregard; to ignore (deliberately, coldly)",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "verb",
+    "semanticNote": "To deliberately ignore or coldly dismiss — usually about ignoring rules, suffering, or warnings that one should attend to. Carries moral weight (漠 = indifferent/desert-like). Stronger than 忽略 (overlook, often unintentional) and 忽視 (neglect). Common in news/critical writing.",
+    "components": [
+      { "char": "漠", "pinyin": "mò", "meaning": "desert; indifferent" },
+      { "char": "視", "pinyin": "shì", "meaning": "look at; regard" }
+    ],
+    "examples": [
+      { "chinese": "他漠視所有的警告。", "pinyin": "Tā mòshì suǒyǒu de jǐnggào.", "english": "He disregarded all the warnings." },
+      { "chinese": "我們不能漠視弱勢族群的需求。", "pinyin": "Wǒmen bùnéng mòshì ruòshì zúqún de xūqiú.", "english": "We can't turn a blind eye to the needs of vulnerable groups." }
+    ]
+  },
+  {
+    "id": 4048,
+    "traditional": "反思",
+    "simplified": "反思",
+    "pinyin": "fǎnsī",
+    "english": "to reflect on; to introspect; reflection",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "verb / noun",
+    "semanticNote": "To look back critically on one's actions or experiences — both verb and noun. Common in personal development, post-mortems, post-event analysis. Compare 思考 (sīkǎo, think generally) — 反思 specifically means looking back and learning. Often paired with self-criticism.",
+    "components": [
+      { "char": "反", "pinyin": "fǎn", "meaning": "reverse; turn back; reflect" },
+      { "char": "思", "pinyin": "sī", "meaning": "think; consider" }
+    ],
+    "examples": [
+      { "chinese": "失敗後要學會反思。", "pinyin": "Shībài hòu yào xuéhuì fǎnsī.", "english": "After failure you need to learn to reflect." },
+      { "chinese": "這件事值得我們深刻反思。", "pinyin": "Zhè jiàn shì zhídé wǒmen shēnkè fǎnsī.", "english": "This matter deserves our deep reflection." }
+    ]
+  },
+  {
+    "id": 4049,
+    "traditional": "領悟",
+    "simplified": "领悟",
+    "pinyin": "lǐngwù",
+    "english": "to grasp; to comprehend deeply; to come to understand",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "verb",
+    "semanticNote": "To comprehend a deeper meaning or principle — usually after time, experience, or contemplation. Compare 了解 (liǎojiě, understand) and 明白 (míngbai, get it) — 領悟 is reserved for the 'aha moment' of grasping something profound. Common in spiritual/philosophical contexts.",
+    "components": [
+      { "char": "領", "pinyin": "lǐng", "meaning": "lead; receive; collar" },
+      { "char": "悟", "pinyin": "wù", "meaning": "realize; awaken to" }
+    ],
+    "examples": [
+      { "chinese": "他終於領悟了人生的意義。", "pinyin": "Tā zhōngyú lǐngwù le rénshēng de yìyì.", "english": "He finally grasped the meaning of life." },
+      { "chinese": "從這次失敗中，我領悟到很多。", "pinyin": "Cóng zhè cì shībài zhōng, wǒ lǐngwù dào hěn duō.", "english": "From this failure, I came to understand a lot." }
+    ]
+  },
+  {
+    "id": 4050,
+    "traditional": "啟示",
+    "simplified": "启示",
+    "pinyin": "qǐshì",
+    "english": "revelation; lesson; insight",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "noun / verb",
+    "semanticNote": "A meaningful insight or lesson drawn from an experience. Often in 'X gave me/us 啟示' constructions. The Bible's Book of Revelation is also called 啟示錄. Compare 啟發 (qǐfā, inspire — verb-heavy) — 啟示 emphasizes the lesson/insight itself.",
+    "components": [
+      { "char": "啟", "pinyin": "qǐ", "meaning": "open; start; enlighten" },
+      { "char": "示", "pinyin": "shì", "meaning": "show; reveal; indicate" }
+    ],
+    "examples": [
+      { "chinese": "這個故事給了我很多啟示。", "pinyin": "Zhège gùshi gěi le wǒ hěn duō qǐshì.", "english": "This story gave me a lot of insight." },
+      { "chinese": "他的經歷對年輕人很有啟示。", "pinyin": "Tā de jīnglì duì niánqīng rén hěn yǒu qǐshì.", "english": "His experience offers real lessons for young people." }
+    ]
+  },
+  {
+    "id": 4051,
+    "traditional": "探討",
+    "simplified": "探讨",
+    "pinyin": "tàntǎo",
+    "english": "to explore; to probe; to discuss in depth",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "verb",
+    "semanticNote": "To discuss/investigate a topic seriously and analytically — academic discussion, panel talks, in-depth research. Compare 討論 (tǎolùn, discuss generally) — 探討 implies probing for understanding, not just exchanging views.",
+    "components": [
+      { "char": "探", "pinyin": "tàn", "meaning": "explore; probe" },
+      { "char": "討", "pinyin": "tǎo", "meaning": "discuss; demand" }
+    ],
+    "examples": [
+      { "chinese": "我們需要深入探討這個問題。", "pinyin": "Wǒmen xūyào shēnrù tàntǎo zhège wèntí.", "english": "We need to explore this problem in depth." },
+      { "chinese": "這本書探討了人性的複雜。", "pinyin": "Zhè běn shū tàntǎo le rénxìng de fùzá.", "english": "This book probes the complexity of human nature." }
+    ]
+  },
+  {
+    "id": 4052,
+    "traditional": "著重",
+    "simplified": "着重",
+    "pinyin": "zhuózhòng",
+    "english": "to focus on; to emphasize; to stress",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "verb",
+    "semanticNote": "To put weight on / focus attention on a particular aspect. Compare 注重 (zhùzhòng, pay attention to — habitual) — 著重 is more about active emphasis in this specific instance. Note: 著 is pronounced zhuó here, not zhe.",
+    "components": [
+      { "char": "著", "pinyin": "zhuó", "meaning": "wear; apply; touch (here pronounced zhuó)" },
+      { "char": "重", "pinyin": "zhòng", "meaning": "heavy; important" }
+    ],
+    "examples": [
+      { "chinese": "這次會議著重討論預算問題。", "pinyin": "Zhè cì huìyì zhuózhòng tǎolùn yùsuàn wèntí.", "english": "This meeting focuses on discussing the budget issue." },
+      { "chinese": "老師著重培養學生的思考能力。", "pinyin": "Lǎoshī zhuózhòng péiyǎng xuéshēng de sīkǎo nénglì.", "english": "The teacher focuses on cultivating students' thinking ability." }
+    ]
+  },
+  {
+    "id": 4053,
+    "traditional": "注重",
+    "simplified": "注重",
+    "pinyin": "zhùzhòng",
+    "english": "to pay attention to; to value; to emphasize",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "verb",
+    "semanticNote": "Habitual attention or care given to something — health, appearance, quality, manners. Compare 重視 (zhòngshì, take seriously — judgment) — 注重 is about ongoing attention; 重視 is about valuing/prioritizing. Common: 注重健康, 注重細節 (mind the details), 注重形象.",
+    "components": [
+      { "char": "注", "pinyin": "zhù", "meaning": "pour; concentrate on" },
+      { "char": "重", "pinyin": "zhòng", "meaning": "heavy; important" }
+    ],
+    "examples": [
+      { "chinese": "他很注重健康，每天運動。", "pinyin": "Tā hěn zhùzhòng jiànkāng, měitiān yùndòng.", "english": "He really pays attention to his health — exercises every day." },
+      { "chinese": "做設計要注重細節。", "pinyin": "Zuò shèjì yào zhùzhòng xìjié.", "english": "When doing design work, you have to mind the details." }
+    ]
+  },
+  {
+    "id": 4054,
+    "traditional": "重視",
+    "simplified": "重视",
+    "pinyin": "zhòngshì",
+    "english": "to value; to take seriously; to attach importance to",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "verb",
+    "semanticNote": "To consider something important enough to act on — opposite of 忽視 (neglect). Used for issues, opinions, relationships, talent. Carries judgment ('this matters'). Common: 重視教育, 重視意見, 受到重視 (receive attention/be valued).",
+    "components": [
+      { "char": "重", "pinyin": "zhòng", "meaning": "heavy; important" },
+      { "char": "視", "pinyin": "shì", "meaning": "look at; regard" }
+    ],
+    "examples": [
+      { "chinese": "公司很重視員工的意見。", "pinyin": "Gōngsī hěn zhòngshì yuángōng de yìjiàn.", "english": "The company really values employees' opinions." },
+      { "chinese": "他的才華終於受到重視。", "pinyin": "Tā de cáihuá zhōngyú shòudào zhòngshì.", "english": "His talent was finally recognized." }
+    ]
+  },
+  {
+    "id": 4055,
+    "traditional": "忽略",
+    "simplified": "忽略",
+    "pinyin": "hūlüè",
+    "english": "to overlook; to neglect; to ignore (often unintentionally)",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "verb",
+    "semanticNote": "To miss or pass over something — usually unintentional or careless. Compare 忽視 (hūshì, neglect — slightly more deliberate) and 漠視 (mòshì, coldly disregard — strongly intentional). 忽略 is the softest; 漠視 is the harshest.",
+    "components": [
+      { "char": "忽", "pinyin": "hū", "meaning": "suddenly; neglect" },
+      { "char": "略", "pinyin": "lüè", "meaning": "slightly; omit; strategy" }
+    ],
+    "examples": [
+      { "chinese": "你忽略了一個重要的細節。", "pinyin": "Nǐ hūlüè le yī ge zhòngyào de xìjié.", "english": "You overlooked an important detail." },
+      { "chinese": "我們不能忽略這個警訊。", "pinyin": "Wǒmen bùnéng hūlüè zhège jǐngxùn.", "english": "We can't overlook this warning sign." }
+    ]
+  },
+  {
+    "id": 4056,
+    "traditional": "意識",
+    "simplified": "意识",
+    "pinyin": "yìshí",
+    "english": "consciousness; awareness; to realize (with 到)",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "noun / verb",
+    "semanticNote": "As a noun: consciousness or social awareness (環保意識 = environmental awareness). As a verb with 到: to realize/become aware of (我意識到... = I realized...). The 意識到 construction is extremely common in modern speech and writing.",
+    "components": [
+      { "char": "意", "pinyin": "yì", "meaning": "intention; thought; meaning" },
+      { "char": "識", "pinyin": "shí", "meaning": "know; recognize" }
+    ],
+    "examples": [
+      { "chinese": "我突然意識到自己錯了。", "pinyin": "Wǒ tūrán yìshí dào zìjǐ cuò le.", "english": "I suddenly realized I was wrong." },
+      { "chinese": "他的環保意識很強。", "pinyin": "Tā de huánbǎo yìshí hěn qiáng.", "english": "He has a strong environmental consciousness." }
+    ]
+  },
+  {
+    "id": 4057,
+    "traditional": "焦慮",
+    "simplified": "焦虑",
+    "pinyin": "jiāolǜ",
+    "english": "anxiety; anxious; to worry",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "adjective / noun",
+    "semanticNote": "Anxiety as a clinical/persistent state — broader and heavier than 擔心 (dānxīn, worry about something specific). 焦 = scorched/burned (think 'burnt-out worrying'); 慮 = consider/anxious. Now ubiquitous in mental health discourse: 焦慮症 (anxiety disorder), 社交焦慮.",
+    "components": [
+      { "char": "焦", "pinyin": "jiāo", "meaning": "scorched; burned; anxious" },
+      { "char": "慮", "pinyin": "lǜ", "meaning": "consider; anxious" }
+    ],
+    "examples": [
+      { "chinese": "他最近因為工作而感到焦慮。", "pinyin": "Tā zuìjìn yīnwèi gōngzuò ér gǎndào jiāolǜ.", "english": "He's been feeling anxious lately because of work." },
+      { "chinese": "現代人普遍有焦慮的問題。", "pinyin": "Xiàndài rén pǔbiàn yǒu jiāolǜ de wèntí.", "english": "Modern people commonly suffer from anxiety issues." }
+    ]
+  },
+  {
+    "id": 4058,
+    "traditional": "鬱悶",
+    "simplified": "郁闷",
+    "pinyin": "yùmèn",
+    "english": "depressed; gloomy; stuffy (emotionally)",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "adjective",
+    "semanticNote": "A blocked, stuffy emotional state — frustrated and stuck. Less clinical than 憂鬱 (yōuyù, depression as illness). Often a casual complaint: '我今天好鬱悶' = 'I'm in such a funk today.' The 鬱 character literally means 'lush/dense' — dense feelings with no outlet.",
+    "components": [
+      { "char": "鬱", "pinyin": "yù", "meaning": "lush; gloomy; pent-up" },
+      { "char": "悶", "pinyin": "mèn", "meaning": "stuffy; bored; depressed" }
+    ],
+    "examples": [
+      { "chinese": "我最近心情很鬱悶。", "pinyin": "Wǒ zuìjìn xīnqíng hěn yùmèn.", "english": "I've been feeling really down lately." },
+      { "chinese": "整天待在家裡會讓人鬱悶。", "pinyin": "Zhěng tiān dāi zài jiā lǐ huì ràng rén yùmèn.", "english": "Staying home all day makes you feel cooped up." }
+    ]
+  },
+  {
+    "id": 4059,
+    "traditional": "嫉妒",
+    "simplified": "嫉妒",
+    "pinyin": "jídù",
+    "english": "to be jealous of; envy; jealousy",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "verb / noun",
+    "semanticNote": "Jealousy in its bitter form — wanting what someone else has and resenting them for having it. Stronger and more negative than 羨慕 (xiànmù, admire/envy in a positive way). Both characters contain the 女 (female) radical, reflecting an old gendered etymology.",
+    "components": [
+      { "char": "嫉", "pinyin": "jí", "meaning": "envy; be jealous" },
+      { "char": "妒", "pinyin": "dù", "meaning": "be jealous of" }
+    ],
+    "examples": [
+      { "chinese": "他嫉妒朋友的成功。", "pinyin": "Tā jídù péngyǒu de chénggōng.", "english": "He's jealous of his friend's success." },
+      { "chinese": "嫉妒是一種傷害自己的情緒。", "pinyin": "Jídù shì yī zhǒng shānghài zìjǐ de qíngxù.", "english": "Jealousy is an emotion that hurts the self." }
+    ]
+  },
+  {
+    "id": 4060,
+    "traditional": "心疼",
+    "simplified": "心疼",
+    "pinyin": "xīnténg",
+    "english": "to feel for; to ache for; to be reluctant (to spend/let go)",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "verb",
+    "semanticNote": "Two flavors: (1) heart aching with sympathy — '看到他這樣，我很心疼' = 'seeing him like this breaks my heart'; (2) reluctance to part with money or possessions — '心疼錢' = hate to spend the money. The literal 'heart hurts' captures both feelings perfectly.",
+    "components": [
+      { "char": "心", "pinyin": "xīn", "meaning": "heart" },
+      { "char": "疼", "pinyin": "téng", "meaning": "hurt; ache; love dearly" }
+    ],
+    "examples": [
+      { "chinese": "看到孩子哭，媽媽很心疼。", "pinyin": "Kàndào háizi kū, māma hěn xīnténg.", "english": "Seeing the child cry, the mother's heart aches." },
+      { "chinese": "這麼貴的東西，買了會心疼。", "pinyin": "Zhème guì de dōngxi, mǎi le huì xīnténg.", "english": "Buying something this expensive would hurt." }
+    ]
+  },
+  {
+    "id": 4061,
+    "traditional": "心態",
+    "simplified": "心态",
+    "pinyin": "xīntài",
+    "english": "mindset; mental attitude; state of mind",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "noun",
+    "semanticNote": "One's mental approach or attitude — common in self-help, sports, business contexts. 平常心 (píngchángxīn, equanimity) and 積極心態 (positive mindset) are typical phrases. Compare 態度 (tàidu, attitude — observable behavior) vs 心態 (internal mindset). Both useful, different levels.",
+    "components": [
+      { "char": "心", "pinyin": "xīn", "meaning": "heart; mind" },
+      { "char": "態", "pinyin": "tài", "meaning": "form; state; attitude" }
+    ],
+    "examples": [
+      { "chinese": "用正確的心態面對挑戰。", "pinyin": "Yòng zhèngquè de xīntài miànduì tiǎozhàn.", "english": "Face challenges with the right mindset." },
+      { "chinese": "他的心態很年輕。", "pinyin": "Tā de xīntài hěn niánqīng.", "english": "He has a young mindset." }
+    ]
+  },
+  {
+    "id": 4062,
+    "traditional": "思維",
+    "simplified": "思维",
+    "pinyin": "sīwéi",
+    "english": "thinking; mode of thought; cognition",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "noun",
+    "semanticNote": "The way someone thinks or reasons — 'critical thinking,' 'design thinking,' 'logical thinking.' Compare 思考 (sīkǎo, the act of thinking) — 思維 is the structure or pattern of thought. Common: 邏輯思維 (logical thinking), 思維方式 (way of thinking).",
+    "components": [
+      { "char": "思", "pinyin": "sī", "meaning": "think; consider" },
+      { "char": "維", "pinyin": "wéi", "meaning": "maintain; tie together; dimension" }
+    ],
+    "examples": [
+      { "chinese": "他的思維方式很特別。", "pinyin": "Tā de sīwéi fāngshì hěn tèbié.", "english": "His way of thinking is unique." },
+      { "chinese": "創業需要不同的思維。", "pinyin": "Chuàngyè xūyào bùtóng de sīwéi.", "english": "Starting a business requires a different kind of thinking." }
+    ]
+  },
+  {
+    "id": 4063,
+    "traditional": "情感",
+    "simplified": "情感",
+    "pinyin": "qínggǎn",
+    "english": "emotion; feelings; affection",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "noun",
+    "semanticNote": "Emotion in a broader, more abstract sense than 感情 (gǎnqíng, feelings/affection between people). 情感 is the umbrella; 感情 is more often interpersonal. Common in psychology, art, relationships: 情感豐富 (emotionally rich), 情感教育 (emotional education).",
+    "components": [
+      { "char": "情", "pinyin": "qíng", "meaning": "feeling; emotion; situation" },
+      { "char": "感", "pinyin": "gǎn", "meaning": "feel; sense" }
+    ],
+    "examples": [
+      { "chinese": "他不擅長表達情感。", "pinyin": "Tā bù shàncháng biǎodá qínggǎn.", "english": "He's not good at expressing his emotions." },
+      { "chinese": "音樂能傳達深刻的情感。", "pinyin": "Yīnyuè néng chuándá shēnkè de qínggǎn.", "english": "Music can convey deep emotions." }
+    ]
+  },
+  {
+    "id": 4064,
+    "traditional": "感慨",
+    "simplified": "感慨",
+    "pinyin": "gǎnkǎi",
+    "english": "to sigh with emotion; to be moved (to reflection); deep feeling",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "verb / noun",
+    "semanticNote": "A reflective, often wistful emotional response triggered by experiences or memories — looking back on life, watching kids grow, seeing how things changed. Carries the flavor of '感嘆' (lamenting) plus thoughtfulness. Common: 感慨萬千 (overwhelmed with feelings).",
+    "components": [
+      { "char": "感", "pinyin": "gǎn", "meaning": "feel; sense" },
+      { "char": "慨", "pinyin": "kǎi", "meaning": "sigh; generous; indignant" }
+    ],
+    "examples": [
+      { "chinese": "看到老照片，他感慨萬千。", "pinyin": "Kàndào lǎo zhàopiàn, tā gǎnkǎi wànqiān.", "english": "Looking at old photos, he was overwhelmed with feelings." },
+      { "chinese": "他對人生的變化感慨很深。", "pinyin": "Tā duì rénshēng de biànhuà gǎnkǎi hěn shēn.", "english": "He has deep feelings about the changes in life." }
+    ]
+  },
+  {
+    "id": 4065,
+    "traditional": "從容",
+    "simplified": "从容",
+    "pinyin": "cóngróng",
+    "english": "calm; unhurried; composed",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "adjective / adverb",
+    "semanticNote": "Calm-and-unhurried — projecting collected confidence under pressure. Compare 鎮定 (zhèndìng, composed in crisis) and 平靜 (píngjìng, peaceful) — 從容 specifically implies 'has time to spare / not rushed.' Common: 從容不迫 (calm and unhurried, chengyu), 從容應對 (handle calmly).",
+    "components": [
+      { "char": "從", "pinyin": "cóng", "meaning": "from; follow" },
+      { "char": "容", "pinyin": "róng", "meaning": "contain; appearance; allow" }
+    ],
+    "examples": [
+      { "chinese": "他從容地回答了所有問題。", "pinyin": "Tā cóngróng de huídá le suǒyǒu wèntí.", "english": "He calmly answered all the questions." },
+      { "chinese": "面對危機要從容不迫。", "pinyin": "Miànduì wéijī yào cóngróng bú pò.", "english": "When facing a crisis, stay calm and unhurried." }
+    ]
+  },
+  {
+    "id": 4066,
+    "traditional": "思緒",
+    "simplified": "思绪",
+    "pinyin": "sīxù",
+    "english": "train of thought; thread of thinking",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "noun",
+    "semanticNote": "The flow or thread of one's thoughts — often used when describing thoughts being interrupted, scattered, or returning. 緒 originally meant 'thread/silk strand,' so 思緒 = literal 'thread of thought.' Common: 思緒萬千 (thoughts in a thousand directions), 打斷思緒 (interrupt one's train of thought).",
+    "components": [
+      { "char": "思", "pinyin": "sī", "meaning": "think; consider" },
+      { "char": "緒", "pinyin": "xù", "meaning": "thread; emotion; beginning" }
+    ],
+    "examples": [
+      { "chinese": "電話打斷了我的思緒。", "pinyin": "Diànhuà dǎduàn le wǒ de sīxù.", "english": "The phone call interrupted my train of thought." },
+      { "chinese": "深夜時分，他的思緒很混亂。", "pinyin": "Shēnyè shífèn, tā de sīxù hěn hùnluàn.", "english": "Late at night, his thoughts were scattered." }
+    ]
+  },
+  {
+    "id": 4067,
+    "traditional": "心思",
+    "simplified": "心思",
+    "pinyin": "xīnsī",
+    "english": "thoughts; mind; what's on one's mind",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "noun",
+    "semanticNote": "Internal thoughts, often hidden ones; also 'mental energy' as in '花心思' (put effort/care into). Compare 心情 (xīnqíng, mood) — 心思 is what you're thinking about/devoting attention to. Common: 沒心思 (not in the mood), 猜心思 (guess what's on someone's mind).",
+    "components": [
+      { "char": "心", "pinyin": "xīn", "meaning": "heart; mind" },
+      { "char": "思", "pinyin": "sī", "meaning": "think; consider" }
+    ],
+    "examples": [
+      { "chinese": "我今天沒心思工作。", "pinyin": "Wǒ jīntiān méi xīnsī gōngzuò.", "english": "I'm not in the mood to work today." },
+      { "chinese": "她花了很多心思準備這份禮物。", "pinyin": "Tā huā le hěn duō xīnsī zhǔnbèi zhè fèn lǐwù.", "english": "She put a lot of thought into preparing this gift." }
+    ]
+  },
+  {
+    "id": 4068,
+    "traditional": "心血",
+    "simplified": "心血",
+    "pinyin": "xīnxuè",
+    "english": "painstaking effort; heart's blood; labor of love",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "noun",
+    "semanticNote": "Literal 'heart's blood' — the painstaking effort/care poured into a project, business, child, work of art. Always positive — implies devotion. Common: 花心血 (pour one's heart into), 心血結晶 (the crystallization of one's labor — a finished work).",
+    "components": [
+      { "char": "心", "pinyin": "xīn", "meaning": "heart" },
+      { "char": "血", "pinyin": "xuè", "meaning": "blood" }
+    ],
+    "examples": [
+      { "chinese": "這本書是他多年的心血。", "pinyin": "Zhè běn shū shì tā duō nián de xīnxuè.", "english": "This book is the labor of many years." },
+      { "chinese": "他為這家公司付出了所有心血。", "pinyin": "Tā wèi zhè jiā gōngsī fùchū le suǒyǒu xīnxuè.", "english": "He poured all his heart's blood into this company." }
+    ]
+  },
+  {
+    "id": 4069,
+    "traditional": "茫然",
+    "simplified": "茫然",
+    "pinyin": "mángrán",
+    "english": "blank; at a loss; bewildered",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "adjective",
+    "semanticNote": "Mentally blank/lost — staring into space, not knowing what to do. 茫 originally meant 'vast/foggy' (as in 茫茫大海 = vast sea); 然 = '-ly.' So 茫然 = 'foggy-mindedly.' Common: 一臉茫然 (a blank face), 對未來感到茫然 (feel lost about the future).",
+    "components": [
+      { "char": "茫", "pinyin": "máng", "meaning": "vast; boundless; foggy" },
+      { "char": "然", "pinyin": "rán", "meaning": "thus; -ly (adverb suffix)" }
+    ],
+    "examples": [
+      { "chinese": "他對未來感到茫然。", "pinyin": "Tā duì wèilái gǎndào mángrán.", "english": "He feels lost about the future." },
+      { "chinese": "聽到這個消息，她一臉茫然。", "pinyin": "Tīngdào zhège xiāoxi, tā yī liǎn mángrán.", "english": "Hearing the news, she had a blank look on her face." }
+    ]
+  },
+  {
+    "id": 4070,
+    "traditional": "孤獨",
+    "simplified": "孤独",
+    "pinyin": "gūdú",
+    "english": "lonely; solitary; loneliness",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "adjective / noun",
+    "semanticNote": "Loneliness as a deeper, more existential state — not just 寂寞 (jìmò, lonely-bored) but the feeling of being fundamentally alone. Often a quality of solitary thinkers, artists, or those on a unique path. Can be slightly poetic. Compare: 寂寞 = bored loneliness; 孤獨 = solitary in a deeper sense.",
+    "components": [
+      { "char": "孤", "pinyin": "gū", "meaning": "alone; orphan" },
+      { "char": "獨", "pinyin": "dú", "meaning": "alone; only" }
+    ],
+    "examples": [
+      { "chinese": "他一個人住，覺得很孤獨。", "pinyin": "Tā yī ge rén zhù, juéde hěn gūdú.", "english": "He lives alone and feels very lonely." },
+      { "chinese": "孤獨並不可怕，可怕的是寂寞。", "pinyin": "Gūdú bìng bù kěpà, kěpà de shì jìmò.", "english": "Solitude isn't scary — what's scary is loneliness." }
+    ]
+  },
+  {
+    "id": 4071,
+    "traditional": "鎮定",
+    "simplified": "镇定",
+    "pinyin": "zhèndìng",
+    "english": "composed; calm under pressure; cool-headed",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "adjective / verb",
+    "semanticNote": "Calm specifically when things go wrong — accidents, emergencies, crises. The 鎮 character means 'to suppress/keep down,' so 鎮定 = actively keeping yourself together. Compare 從容 (calm and unhurried, more graceful) vs 鎮定 (calm under fire, more steely). Common: 保持鎮定.",
+    "components": [
+      { "char": "鎮", "pinyin": "zhèn", "meaning": "press down; calm; town" },
+      { "char": "定", "pinyin": "dìng", "meaning": "fix; settle; calm" }
+    ],
+    "examples": [
+      { "chinese": "在緊急情況下，他保持鎮定。", "pinyin": "Zài jǐnjí qíngkuàng xià, tā bǎochí zhèndìng.", "english": "In an emergency, he stays cool-headed." },
+      { "chinese": "你必須鎮定下來才能解決問題。", "pinyin": "Nǐ bìxū zhèndìng xiàlái cáinéng jiějué wèntí.", "english": "You have to calm down before you can solve the problem." }
+    ]
+  },
+  {
+    "id": 4072,
+    "traditional": "急躁",
+    "simplified": "急躁",
+    "pinyin": "jízào",
+    "english": "irritable; impatient; hot-tempered",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "adjective",
+    "semanticNote": "An impatient, easily-frustrated temperament — wants things now, gets snappy. Compare 著急 (zháojí, anxious about a specific thing) — 急躁 is a personality trait. Common: 性子急躁 (impatient by nature), 不要急躁 (don't be impatient).",
+    "components": [
+      { "char": "急", "pinyin": "jí", "meaning": "urgent; anxious" },
+      { "char": "躁", "pinyin": "zào", "meaning": "restless; rash" }
+    ],
+    "examples": [
+      { "chinese": "他性子急躁，常常發脾氣。", "pinyin": "Tā xìngzi jízào, chángcháng fā píqi.", "english": "He has an impatient temper and often loses it." },
+      { "chinese": "做事不要太急躁。", "pinyin": "Zuòshì bùyào tài jízào.", "english": "Don't be too impatient when getting things done." }
+    ]
+  },
+  {
+    "id": 4073,
+    "traditional": "浮躁",
+    "simplified": "浮躁",
+    "pinyin": "fúzào",
+    "english": "restless; flighty; impatient and shallow",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "adjective",
+    "semanticNote": "Mentally restless and unable to focus — can't sit with anything, jumping from thing to thing. 浮 = floating; 躁 = restless. Often used as a generational critique: '現在的年輕人太浮躁' (today's young people are too restless/shallow). Subtle but cutting word.",
+    "components": [
+      { "char": "浮", "pinyin": "fú", "meaning": "float; superficial" },
+      { "char": "躁", "pinyin": "zào", "meaning": "restless; rash" }
+    ],
+    "examples": [
+      { "chinese": "他的心很浮躁，無法專心。", "pinyin": "Tā de xīn hěn fúzào, wúfǎ zhuānxīn.", "english": "His mind is restless — he can't concentrate." },
+      { "chinese": "這個社會太浮躁了。", "pinyin": "Zhège shèhuì tài fúzào le.", "english": "This society is too restless and shallow." }
+    ]
+  },
+  {
+    "id": 4074,
+    "traditional": "沉著",
+    "simplified": "沉着",
+    "pinyin": "chénzhuó",
+    "english": "composed; steady; cool-headed",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "adjective",
+    "semanticNote": "Steady and weighty composure — the kind of calm that comes from inner depth, not just suppression. 沉 = sink/heavy; 著 = settled. Often used for professionals, leaders, athletes. Compare 鎮定 (keeping it together under fire) vs 沉著 (calm by character/training).",
+    "components": [
+      { "char": "沉", "pinyin": "chén", "meaning": "sink; heavy; deep" },
+      { "char": "著", "pinyin": "zhuó", "meaning": "settled; touch (here pronounced zhuó)" }
+    ],
+    "examples": [
+      { "chinese": "他沉著冷靜地面對挑戰。", "pinyin": "Tā chénzhuó lěngjìng de miànduì tiǎozhàn.", "english": "He faced the challenge with calm composure." },
+      { "chinese": "領導者必須沉著穩重。", "pinyin": "Lǐngdǎo zhě bìxū chénzhuó wěnzhòng.", "english": "A leader must be composed and steady." }
+    ]
+  },
+  {
+    "id": 4075,
+    "traditional": "反感",
+    "simplified": "反感",
+    "pinyin": "fǎngǎn",
+    "english": "dislike; aversion; antipathy",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "noun / adjective / verb",
+    "semanticNote": "An aversion or dislike toward someone or something — softer than 厭惡 (yànwù, hate/loathe) but stronger than 不喜歡 (don't like). Often triggered by behavior or attitude. Common: 引起反感 (cause aversion), 對 X 感到反感 (feel aversion toward X).",
+    "components": [
+      { "char": "反", "pinyin": "fǎn", "meaning": "reverse; opposite" },
+      { "char": "感", "pinyin": "gǎn", "meaning": "feel; sense" }
+    ],
+    "examples": [
+      { "chinese": "他的態度讓人感到反感。", "pinyin": "Tā de tàidu ràng rén gǎndào fǎngǎn.", "english": "His attitude makes people feel put off." },
+      { "chinese": "我對這種廣告很反感。", "pinyin": "Wǒ duì zhè zhǒng guǎnggào hěn fǎngǎn.", "english": "I have a strong aversion to this kind of advertising." }
+    ]
+  },
+  {
+    "id": 4076,
+    "traditional": "懊悔",
+    "simplified": "懊悔",
+    "pinyin": "àohuǐ",
+    "english": "to regret deeply; remorse",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "verb / noun",
+    "semanticNote": "Deep regret laced with self-reproach — heavier than 後悔 (hòuhuǐ, regret). 懊 = vexed/annoyed at oneself. Common when reflecting on serious mistakes that hurt others or oneself. Subtler than 遺憾 (yíhàn, regret/pity, often about external loss).",
+    "components": [
+      { "char": "懊", "pinyin": "ào", "meaning": "regretful; vexed" },
+      { "char": "悔", "pinyin": "huǐ", "meaning": "regret; repent" }
+    ],
+    "examples": [
+      { "chinese": "他懊悔當初沒有努力。", "pinyin": "Tā àohuǐ dāngchū méiyǒu nǔlì.", "english": "He deeply regrets not having tried hard back then." },
+      { "chinese": "現在懊悔已經太晚了。", "pinyin": "Xiànzài àohuǐ yǐjīng tài wǎn le.", "english": "It's already too late for remorse now." }
+    ]
+  },
+  {
+    "id": 4077,
+    "traditional": "厭惡",
+    "simplified": "厌恶",
+    "pinyin": "yànwù",
+    "english": "to hate; to loathe; disgust",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "verb",
+    "semanticNote": "The strongest of the dislike words — 不喜歡 < 反感 < 厭惡 < 痛恨 (hate intensely). 厭 = tired of/sick of; 惡 = wicked/hate (here pronounced wù). Used for things, behaviors, or values one finds morally or viscerally repulsive.",
+    "components": [
+      { "char": "厭", "pinyin": "yàn", "meaning": "tired of; loathe" },
+      { "char": "惡", "pinyin": "wù", "meaning": "hate (here pronounced wù, not è)" }
+    ],
+    "examples": [
+      { "chinese": "他厭惡虛偽的人。", "pinyin": "Tā yànwù xūwěi de rén.", "english": "He loathes hypocritical people." },
+      { "chinese": "我對這種行為感到厭惡。", "pinyin": "Wǒ duì zhè zhǒng xíngwéi gǎndào yànwù.", "english": "I find this kind of behavior disgusting." }
+    ]
+  },
+  {
+    "id": 4078,
+    "traditional": "振奮",
+    "simplified": "振奋",
+    "pinyin": "zhènfèn",
+    "english": "stirring; rousing; to rouse spirits",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "verb / adjective",
+    "semanticNote": "To rouse or be roused emotionally — used for inspiring news, motivating speeches, lifting morale. Common: 振奮人心 (heartening, stirring), 令人振奮的消息 (uplifting news). Compare 興奮 (xīngfèn, excited) — 振奮 is more about moral/spiritual lifting, 興奮 is purely emotional excitement.",
+    "components": [
+      { "char": "振", "pinyin": "zhèn", "meaning": "shake; rouse; vibrate" },
+      { "char": "奮", "pinyin": "fèn", "meaning": "exert; rouse oneself" }
+    ],
+    "examples": [
+      { "chinese": "這是個振奮人心的好消息。", "pinyin": "Zhè shì ge zhènfèn rénxīn de hǎo xiāoxi.", "english": "This is heartening, stirring good news." },
+      { "chinese": "他的演講讓大家精神振奮。", "pinyin": "Tā de yǎnjiǎng ràng dàjiā jīngshén zhènfèn.", "english": "His speech lifted everyone's spirits." }
+    ]
+  },
+  {
+    "id": 4079,
+    "traditional": "顯著",
+    "simplified": "显著",
+    "pinyin": "xiǎnzhù",
+    "english": "significant; marked; notable",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "adjective",
+    "semanticNote": "Statistically/visibly significant — improvement, change, effect, difference. Common in news, science, business writing. Compare 明顯 (míngxiǎn, obvious — visible to the eye) — 顯著 implies measurable, often positive significance. Common: 顯著進步, 顯著效果.",
+    "components": [
+      { "char": "顯", "pinyin": "xiǎn", "meaning": "obvious; apparent" },
+      { "char": "著", "pinyin": "zhù", "meaning": "marked; outstanding (here pronounced zhù)" }
+    ],
+    "examples": [
+      { "chinese": "他的中文有了顯著的進步。", "pinyin": "Tā de Zhōngwén yǒu le xiǎnzhù de jìnbù.", "english": "His Chinese has made notable progress." },
+      { "chinese": "這個方法效果顯著。", "pinyin": "Zhège fāngfǎ xiàoguǒ xiǎnzhù.", "english": "This method's effect is significant." }
+    ]
+  },
+  {
+    "id": 4080,
+    "traditional": "純粹",
+    "simplified": "纯粹",
+    "pinyin": "chúncuì",
+    "english": "pure; sheer; purely",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "adjective / adverb",
+    "semanticNote": "Purely / nothing but — '純粹是巧合' = 'sheer coincidence,' '純粹的友誼' = 'pure friendship.' As adverb, dismisses other interpretations. Compare 單純 (dānchún, simple/innocent) — 純粹 emphasizes 'unmixed,' 單純 emphasizes 'uncomplicated.'",
+    "components": [
+      { "char": "純", "pinyin": "chún", "meaning": "pure; unmixed" },
+      { "char": "粹", "pinyin": "cuì", "meaning": "essence; pure" }
+    ],
+    "examples": [
+      { "chinese": "這純粹是個誤會。", "pinyin": "Zhè chúncuì shì ge wùhuì.", "english": "This is purely a misunderstanding." },
+      { "chinese": "他做這件事純粹是為了幫忙。", "pinyin": "Tā zuò zhè jiàn shì chúncuì shì wèile bāngmáng.", "english": "He did this purely to help." }
+    ]
+  },
+  {
+    "id": 4081,
+    "traditional": "寂靜",
+    "simplified": "寂静",
+    "pinyin": "jìjìng",
+    "english": "silent; still; quiet (deep)",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "adjective",
+    "semanticNote": "Profound silence — like a forest at night, an empty temple, a sleeping city. Compare 安靜 (ānjìng, quiet — everyday) and 寧靜 (níngjìng, peaceful) — 寂靜 leans toward 'eerie/deep stillness,' often with literary feel. Common: 寂靜的夜晚, 一片寂靜.",
+    "components": [
+      { "char": "寂", "pinyin": "jì", "meaning": "lonely; silent; tranquil" },
+      { "char": "靜", "pinyin": "jìng", "meaning": "quiet; still" }
+    ],
+    "examples": [
+      { "chinese": "深夜的山裡一片寂靜。", "pinyin": "Shēnyè de shān lǐ yīpiàn jìjìng.", "english": "Deep in the night, the mountains were utterly silent." },
+      { "chinese": "圖書館裡寂靜無聲。", "pinyin": "Túshūguǎn lǐ jìjìng wúshēng.", "english": "The library was silent — not a sound." }
+    ]
+  },
+  {
+    "id": 4082,
+    "traditional": "寧靜",
+    "simplified": "宁静",
+    "pinyin": "níngjìng",
+    "english": "peaceful; tranquil; serene",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "adjective",
+    "semanticNote": "A peaceful, calming quietness — the opposite of chaotic. Used for natural settings, mental states, atmospheres. Compare 寂靜 (eerie/deep silence) — 寧靜 has warm, restorative connotations. Famous chengyu: 寧靜致遠 (still waters reach far — from Zhuge Liang).",
+    "components": [
+      { "char": "寧", "pinyin": "níng", "meaning": "peaceful; rather" },
+      { "char": "靜", "pinyin": "jìng", "meaning": "quiet; still" }
+    ],
+    "examples": [
+      { "chinese": "我喜歡鄉下寧靜的生活。", "pinyin": "Wǒ xǐhuān xiāngxià níngjìng de shēnghuó.", "english": "I love the peaceful life in the countryside." },
+      { "chinese": "他的內心終於得到了寧靜。", "pinyin": "Tā de nèixīn zhōngyú dédào le níngjìng.", "english": "His inner self finally found peace." }
+    ]
+  },
+  {
+    "id": 4083,
+    "traditional": "穩重",
+    "simplified": "稳重",
+    "pinyin": "wěnzhòng",
+    "english": "steady; dependable; mature in bearing",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "adjective",
+    "semanticNote": "A character trait — someone who is reliable, mature, doesn't rush or overreact. Often used in praise for adults, leaders, or older young adults who 'have their feet on the ground.' Compare 穩定 (wěndìng, stable — describes situations) vs 穩重 (steady — describes character).",
+    "components": [
+      { "char": "穩", "pinyin": "wěn", "meaning": "steady; stable" },
+      { "char": "重", "pinyin": "zhòng", "meaning": "heavy; weighty" }
+    ],
+    "examples": [
+      { "chinese": "他做事穩重，值得信任。", "pinyin": "Tā zuòshì wěnzhòng, zhídé xìnrèn.", "english": "He's steady in his work and trustworthy." },
+      { "chinese": "她比同齡人更穩重。", "pinyin": "Tā bǐ tónglíng rén gèng wěnzhòng.", "english": "She's more mature than others her age." }
+    ]
+  },
+  {
+    "id": 4084,
+    "traditional": "牢固",
+    "simplified": "牢固",
+    "pinyin": "láogù",
+    "english": "solid; firm; secure",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "adjective",
+    "semanticNote": "Solidly built — used for both physical structures (foundations, knots) and abstract things (relationships, beliefs, alliances). Compare 堅固 (jiāngù, sturdy/strong) — overlap heavily; 牢固 emphasizes 'won't come loose,' 堅固 emphasizes 'won't break.' 牢 also means 'jail' (origin: penned-in animal).",
+    "components": [
+      { "char": "牢", "pinyin": "láo", "meaning": "firm; jail; pen" },
+      { "char": "固", "pinyin": "gù", "meaning": "solid; firm; firmly" }
+    ],
+    "examples": [
+      { "chinese": "這座橋的結構很牢固。", "pinyin": "Zhè zuò qiáo de jiégòu hěn láogù.", "english": "This bridge's structure is very solid." },
+      { "chinese": "他們的友誼非常牢固。", "pinyin": "Tāmen de yǒuyì fēicháng láogù.", "english": "Their friendship is rock-solid." }
+    ]
+  },
+  {
+    "id": 4085,
+    "traditional": "茫茫",
+    "simplified": "茫茫",
+    "pinyin": "mángmáng",
+    "english": "vast and boundless; expansive",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "adjective",
+    "semanticNote": "Reduplicated 茫 — describes vast, boundless expanses where you can't see the end. Often: 茫茫大海 (vast sea), 茫茫人海 (sea of humanity), 茫茫宇宙. Carries a slightly poetic / contemplative tone. The famous '茫茫人海中' = 'in this vast sea of people.'",
+    "components": [
+      { "char": "茫", "pinyin": "máng", "meaning": "vast; boundless; foggy" },
+      { "char": "茫", "pinyin": "máng", "meaning": "vast; boundless (reduplicated)" }
+    ],
+    "examples": [
+      { "chinese": "在茫茫人海中找到你不容易。", "pinyin": "Zài mángmáng rénhǎi zhōng zhǎodào nǐ bù róngyì.", "english": "Finding you in this vast sea of people wasn't easy." },
+      { "chinese": "茫茫大海，看不見邊際。", "pinyin": "Mángmáng dàhǎi, kàn bú jiàn biānjì.", "english": "The boundless sea — no edge in sight." }
+    ]
+  },
+  {
+    "id": 4086,
+    "traditional": "名副其實",
+    "simplified": "名副其实",
+    "pinyin": "míngfùqíshí",
+    "english": "true to one's name; living up to one's reputation",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "chengyu (idiom)",
+    "semanticNote": "Chengyu meaning 'the name matches the reality.' Used positively to praise someone or something that genuinely deserves their reputation. Opposite: 名不副實 (in name only). Common: '他是名副其實的高手' = 'He's a true master worthy of his reputation.'",
+    "components": [
+      { "char": "名", "pinyin": "míng", "meaning": "name; reputation" },
+      { "char": "副", "pinyin": "fù", "meaning": "match; assistant; pair" },
+      { "char": "其", "pinyin": "qí", "meaning": "his/her/its" },
+      { "char": "實", "pinyin": "shí", "meaning": "real; substance" }
+    ],
+    "examples": [
+      { "chinese": "他是名副其實的天才。", "pinyin": "Tā shì míngfùqíshí de tiāncái.", "english": "He's a genius worthy of the title." },
+      { "chinese": "這家餐廳名副其實，東西真的好吃。", "pinyin": "Zhè jiā cāntīng míngfùqíshí, dōngxi zhēn de hǎochī.", "english": "This restaurant lives up to its reputation — the food really is delicious." }
+    ]
+  },
+  {
+    "id": 4087,
+    "traditional": "不知不覺",
+    "simplified": "不知不觉",
+    "pinyin": "bùzhībùjué",
+    "english": "unconsciously; without realizing it; before one knows it",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "chengyu (idiom)",
+    "semanticNote": "'Without knowing, without sensing.' Describes things happening gradually without awareness — time passing, feelings developing, habits forming. Extremely common in everyday speech. '不知不覺一年就過去了' = 'before I knew it, a year had passed.'",
+    "components": [
+      { "char": "不", "pinyin": "bù", "meaning": "not" },
+      { "char": "知", "pinyin": "zhī", "meaning": "know" },
+      { "char": "不", "pinyin": "bù", "meaning": "not" },
+      { "char": "覺", "pinyin": "jué", "meaning": "feel; sense; aware" }
+    ],
+    "examples": [
+      { "chinese": "不知不覺，已經到了下午五點。", "pinyin": "Bùzhībùjué, yǐjīng dào le xiàwǔ wǔ diǎn.", "english": "Before I knew it, it was already 5 p.m." },
+      { "chinese": "不知不覺，我們已經認識十年了。", "pinyin": "Bùzhībùjué, wǒmen yǐjīng rènshi shí nián le.", "english": "Without realizing it, we've known each other for ten years." }
+    ]
+  },
+  {
+    "id": 4088,
+    "traditional": "一舉兩得",
+    "simplified": "一举两得",
+    "pinyin": "yījǔliǎngdé",
+    "english": "kill two birds with one stone; two benefits from one action",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "chengyu (idiom)",
+    "semanticNote": "Literally 'one move, two gains.' The Chinese equivalent of 'kill two birds with one stone.' Common when proposing efficient solutions or describing happy coincidences. Variant: 一石二鳥 (one stone, two birds — direct calque of the English).",
+    "components": [
+      { "char": "一", "pinyin": "yī", "meaning": "one" },
+      { "char": "舉", "pinyin": "jǔ", "meaning": "raise; act; move" },
+      { "char": "兩", "pinyin": "liǎng", "meaning": "two" },
+      { "char": "得", "pinyin": "dé", "meaning": "gain; obtain" }
+    ],
+    "examples": [
+      { "chinese": "騎自行車上班可以運動又省錢，一舉兩得。", "pinyin": "Qí zìxíngchē shàngbān kěyǐ yùndòng yòu shěng qián, yījǔliǎngdé.", "english": "Cycling to work is exercise and saves money — two birds with one stone." },
+      { "chinese": "這個方法真是一舉兩得。", "pinyin": "Zhège fāngfǎ zhēn shì yījǔliǎngdé.", "english": "This method really kills two birds with one stone." }
+    ]
+  },
+  {
+    "id": 4089,
+    "traditional": "不可思議",
+    "simplified": "不可思议",
+    "pinyin": "bùkěsīyì",
+    "english": "inconceivable; unimaginable; mind-blowing",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "chengyu (idiom)",
+    "semanticNote": "'Cannot be thought or discussed' — beyond comprehension. Originally a Buddhist term for the ineffable. Now used loosely for anything astonishing. Common: '簡直不可思議' = 'simply unbelievable.' Tone: awe, often positive astonishment.",
+    "components": [
+      { "char": "不", "pinyin": "bù", "meaning": "not" },
+      { "char": "可", "pinyin": "kě", "meaning": "can; able" },
+      { "char": "思", "pinyin": "sī", "meaning": "think" },
+      { "char": "議", "pinyin": "yì", "meaning": "discuss; deliberate" }
+    ],
+    "examples": [
+      { "chinese": "他能在五分鐘內解決，真是不可思議。", "pinyin": "Tā néng zài wǔ fēnzhōng nèi jiějué, zhēn shì bùkěsīyì.", "english": "He could solve it in five minutes — truly unbelievable." },
+      { "chinese": "宇宙的浩瀚令人感到不可思議。", "pinyin": "Yǔzhòu de hàohàn lìng rén gǎndào bùkěsīyì.", "english": "The vastness of the universe is mind-blowing." }
+    ]
+  },
+  {
+    "id": 4090,
+    "traditional": "莫名其妙",
+    "simplified": "莫名其妙",
+    "pinyin": "mòmíngqímiào",
+    "english": "inexplicable; baffling; for no apparent reason",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "chengyu (idiom)",
+    "semanticNote": "'Cannot name its strangeness' — describes something that makes no sense, comes out of nowhere, or is downright weird. Extremely common in everyday complaints. '他莫名其妙就生氣了' = 'He got angry for no reason.' Tone: frustration or bewilderment.",
+    "components": [
+      { "char": "莫", "pinyin": "mò", "meaning": "not; cannot" },
+      { "char": "名", "pinyin": "míng", "meaning": "name; describe" },
+      { "char": "其", "pinyin": "qí", "meaning": "its" },
+      { "char": "妙", "pinyin": "miào", "meaning": "wonderful; mysterious" }
+    ],
+    "examples": [
+      { "chinese": "他莫名其妙就不理我了。", "pinyin": "Tā mòmíngqímiào jiù bù lǐ wǒ le.", "english": "Out of nowhere, he just stopped talking to me." },
+      { "chinese": "這個規定很莫名其妙。", "pinyin": "Zhège guīdìng hěn mòmíngqímiào.", "english": "This rule is utterly baffling." }
+    ]
+  },
+  {
+    "id": 4091,
+    "traditional": "千篇一律",
+    "simplified": "千篇一律",
+    "pinyin": "qiānpiānyīlǜ",
+    "english": "all the same; cookie-cutter; monotonous",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "chengyu (idiom)",
+    "semanticNote": "'A thousand articles, one pattern' — used to criticize lack of originality. Apply to writing, design, products, lifestyles, news coverage. Tone: dismissive critique. Useful for design discussions: '這些網站都千篇一律' = 'these websites all look the same.'",
+    "components": [
+      { "char": "千", "pinyin": "qiān", "meaning": "thousand" },
+      { "char": "篇", "pinyin": "piān", "meaning": "article; piece" },
+      { "char": "一", "pinyin": "yī", "meaning": "one" },
+      { "char": "律", "pinyin": "lǜ", "meaning": "law; pattern; rule" }
+    ],
+    "examples": [
+      { "chinese": "這些電影千篇一律，沒有新意。", "pinyin": "Zhèxiē diànyǐng qiānpiānyīlǜ, méiyǒu xīnyì.", "english": "These movies are all cookie-cutter — no originality." },
+      { "chinese": "現代城市的建築太千篇一律了。", "pinyin": "Xiàndài chéngshì de jiànzhù tài qiānpiānyīlǜ le.", "english": "Modern city architecture is too monotonous." }
+    ]
+  },
+  {
+    "id": 4092,
+    "traditional": "一塌糊塗",
+    "simplified": "一塌糊涂",
+    "pinyin": "yītāhútú",
+    "english": "a complete mess; in a shambles; utterly chaotic",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "chengyu (idiom)",
+    "semanticNote": "'Collapsed into a paste' — describes total disorder, failure, or mess. Wide application: messy room, screwed-up plan, terrible performance, drunk-out-of-mind state. Tone: exasperated. '弄得一塌糊塗' = 'made a complete mess of it.'",
+    "components": [
+      { "char": "一", "pinyin": "yī", "meaning": "one; complete" },
+      { "char": "塌", "pinyin": "tā", "meaning": "collapse; sink" },
+      { "char": "糊", "pinyin": "hú", "meaning": "paste; sticky" },
+      { "char": "塗", "pinyin": "tú", "meaning": "smear; mud" }
+    ],
+    "examples": [
+      { "chinese": "他把房間弄得一塌糊塗。", "pinyin": "Tā bǎ fángjiān nòng de yītāhútú.", "english": "He made a complete mess of the room." },
+      { "chinese": "這次考試考得一塌糊塗。", "pinyin": "Zhè cì kǎoshì kǎo de yītāhútú.", "english": "I bombed this exam completely." }
+    ]
+  },
+  {
+    "id": 4093,
+    "traditional": "自相矛盾",
+    "simplified": "自相矛盾",
+    "pinyin": "zìxiāngmáodùn",
+    "english": "self-contradictory; to contradict oneself",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "chengyu (idiom)",
+    "semanticNote": "From a classical fable: a vendor sold both an unstoppable spear (矛) and an impenetrable shield (盾) — a customer asked what would happen if he used the spear on the shield. The word 矛盾 (contradiction) literally comes from this story. Use to point out logical inconsistency.",
+    "components": [
+      { "char": "自", "pinyin": "zì", "meaning": "self" },
+      { "char": "相", "pinyin": "xiāng", "meaning": "mutually; each other" },
+      { "char": "矛", "pinyin": "máo", "meaning": "spear" },
+      { "char": "盾", "pinyin": "dùn", "meaning": "shield" }
+    ],
+    "examples": [
+      { "chinese": "他的話自相矛盾。", "pinyin": "Tā de huà zìxiāngmáodùn.", "english": "His words contradict themselves." },
+      { "chinese": "這個政策自相矛盾，無法執行。", "pinyin": "Zhège zhèngcè zìxiāngmáodùn, wúfǎ zhíxíng.", "english": "This policy is self-contradictory and can't be carried out." }
+    ]
+  },
+  {
+    "id": 4094,
+    "traditional": "理所當然",
+    "simplified": "理所当然",
+    "pinyin": "lǐsuǒdāngrán",
+    "english": "of course; naturally; as a matter of course",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "chengyu (idiom)",
+    "semanticNote": "'As reason demands' — indicates something is the natural/expected outcome. Often carries a critical edge: '他覺得別人幫他是理所當然的' = 'He takes it for granted that others help him.' Used to call out entitlement or to state something as obvious.",
+    "components": [
+      { "char": "理", "pinyin": "lǐ", "meaning": "reason; logic" },
+      { "char": "所", "pinyin": "suǒ", "meaning": "that which; place" },
+      { "char": "當", "pinyin": "dāng", "meaning": "ought; should" },
+      { "char": "然", "pinyin": "rán", "meaning": "thus; so" }
+    ],
+    "examples": [
+      { "chinese": "努力就會成功，這是理所當然的。", "pinyin": "Nǔlì jiù huì chénggōng, zhè shì lǐsuǒdāngrán de.", "english": "Hard work leads to success — that's only natural." },
+      { "chinese": "別把父母的付出當成理所當然。", "pinyin": "Bié bǎ fùmǔ de fùchū dàngchéng lǐsuǒdāngrán.", "english": "Don't take your parents' sacrifices for granted." }
+    ]
+  },
+  {
+    "id": 4095,
+    "traditional": "一帆風順",
+    "simplified": "一帆风顺",
+    "pinyin": "yīfānfēngshùn",
+    "english": "smooth sailing; everything going well",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "chengyu (idiom)",
+    "semanticNote": "'One sail, smooth wind' — wishing someone smooth sailing through life or a project. Common in well-wishes (graduations, new ventures, new year cards). Often appears in negative form too: '人生不可能一帆風順' = 'Life can't always be smooth sailing.'",
+    "components": [
+      { "char": "一", "pinyin": "yī", "meaning": "one" },
+      { "char": "帆", "pinyin": "fān", "meaning": "sail" },
+      { "char": "風", "pinyin": "fēng", "meaning": "wind" },
+      { "char": "順", "pinyin": "shùn", "meaning": "smooth; favorable" }
+    ],
+    "examples": [
+      { "chinese": "祝你在新工作上一帆風順。", "pinyin": "Zhù nǐ zài xīn gōngzuò shàng yīfānfēngshùn.", "english": "Wishing you smooth sailing in your new job." },
+      { "chinese": "人生不可能一帆風順。", "pinyin": "Rénshēng bù kěnéng yīfānfēngshùn.", "english": "Life can't always be smooth sailing." }
+    ]
+  },
+  {
+    "id": 4096,
+    "traditional": "與此同時",
+    "simplified": "与此同时",
+    "pinyin": "yǔcǐtóngshí",
+    "english": "meanwhile; at the same time",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "chengyu / phrase",
+    "semanticNote": "Formal connector for 'meanwhile' — used in news, essays, presentations to bridge two simultaneous events or developments. More polished than 同時 (tóngshí, at the same time) alone. Sits at the head of the second clause.",
+    "components": [
+      { "char": "與", "pinyin": "yǔ", "meaning": "with; and" },
+      { "char": "此", "pinyin": "cǐ", "meaning": "this" },
+      { "char": "同", "pinyin": "tóng", "meaning": "same" },
+      { "char": "時", "pinyin": "shí", "meaning": "time" }
+    ],
+    "examples": [
+      { "chinese": "經濟在成長，與此同時，環境問題也越來越嚴重。", "pinyin": "Jīngjì zài chéngzhǎng, yǔcǐtóngshí, huánjìng wèntí yě yuè lái yuè yánzhòng.", "english": "The economy is growing; meanwhile, environmental problems are getting worse." },
+      { "chinese": "他在學中文，與此同時也在學日文。", "pinyin": "Tā zài xué Zhōngwén, yǔcǐtóngshí yě zài xué Rìwén.", "english": "He's learning Chinese, and at the same time, also Japanese." }
+    ]
+  },
+  {
+    "id": 4097,
+    "traditional": "不擇手段",
+    "simplified": "不择手段",
+    "pinyin": "bùzéshǒuduàn",
+    "english": "by any means necessary; without scruples; ruthlessly",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "chengyu (idiom)",
+    "semanticNote": "'Not choosy about methods' — willing to do anything (often unethical) to reach a goal. Tone: critical, often condemnatory. Common in describing politicians, business rivals, ambitious climbers. '他為了升職不擇手段' = 'He'll stop at nothing to get promoted.'",
+    "components": [
+      { "char": "不", "pinyin": "bù", "meaning": "not" },
+      { "char": "擇", "pinyin": "zé", "meaning": "choose; select" },
+      { "char": "手", "pinyin": "shǒu", "meaning": "hand" },
+      { "char": "段", "pinyin": "duàn", "meaning": "section; means" }
+    ],
+    "examples": [
+      { "chinese": "他為了贏不擇手段。", "pinyin": "Tā wèile yíng bùzéshǒuduàn.", "english": "He'll stop at nothing to win." },
+      { "chinese": "做生意不能不擇手段。", "pinyin": "Zuò shēngyì bùnéng bùzéshǒuduàn.", "english": "You can't run a business with no scruples." }
+    ]
+  },
+  {
+    "id": 4098,
+    "traditional": "心血來潮",
+    "simplified": "心血来潮",
+    "pinyin": "xīnxuèláicháo",
+    "english": "on a sudden whim; on the spur of the moment",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "chengyu (idiom)",
+    "semanticNote": "'Heart's blood comes like a tide' — a sudden impulse, often resulting in a spontaneous decision. Tone: usually neutral or self-deprecating. Common: '我心血來潮買了張機票' = 'On a whim, I bought a plane ticket.' Pairs nicely with 衝動 (impulsive).",
+    "components": [
+      { "char": "心", "pinyin": "xīn", "meaning": "heart" },
+      { "char": "血", "pinyin": "xuè", "meaning": "blood" },
+      { "char": "來", "pinyin": "lái", "meaning": "come" },
+      { "char": "潮", "pinyin": "cháo", "meaning": "tide; trend" }
+    ],
+    "examples": [
+      { "chinese": "我心血來潮，決定學中文。", "pinyin": "Wǒ xīnxuèláicháo, juédìng xué Zhōngwén.", "english": "On a whim, I decided to learn Chinese." },
+      { "chinese": "他心血來潮買了一隻狗。", "pinyin": "Tā xīnxuèláicháo mǎi le yī zhī gǒu.", "english": "On a sudden impulse, he bought a dog." }
+    ]
+  },
+  {
+    "id": 4099,
+    "traditional": "心甘情願",
+    "simplified": "心甘情愿",
+    "pinyin": "xīngānqíngyuàn",
+    "english": "willingly; with no regrets; from the bottom of one's heart",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "chengyu (idiom)",
+    "semanticNote": "'Heart willing, feelings willing' — doing something fully voluntarily, without reluctance. Often used about love, sacrifice, or hard work undertaken with full consent. Strong emotional weight. '他心甘情願為家人犧牲' = 'He sacrifices for his family willingly.'",
+    "components": [
+      { "char": "心", "pinyin": "xīn", "meaning": "heart" },
+      { "char": "甘", "pinyin": "gān", "meaning": "sweet; willing" },
+      { "char": "情", "pinyin": "qíng", "meaning": "feeling; emotion" },
+      { "char": "願", "pinyin": "yuàn", "meaning": "wish; willing" }
+    ],
+    "examples": [
+      { "chinese": "她心甘情願地照顧老人。", "pinyin": "Tā xīngānqíngyuàn de zhàogù lǎorén.", "english": "She cares for the elderly willingly, with no resentment." },
+      { "chinese": "我心甘情願為你做這件事。", "pinyin": "Wǒ xīngānqíngyuàn wèi nǐ zuò zhè jiàn shì.", "english": "I'm completely willing to do this for you." }
+    ]
+  },
+  {
+    "id": 4100,
+    "traditional": "罷了",
+    "simplified": "罢了",
+    "pinyin": "bàle",
+    "english": "that's all; just; nothing more than (sentence-final)",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "particle (sentence-final)",
+    "semanticNote": "Sentence-final particle that downplays or dismisses — 'it's nothing more than X.' Often paired with 只是 or 不過: '只是個玩笑罷了' = 'it's just a joke, that's all.' Tone: dismissive, modest, or resigned. Slightly literary; in casual speech, 而已 (éryǐ) is more common but they're nearly synonymous.",
+    "components": [
+      { "char": "罷", "pinyin": "bà", "meaning": "stop; finish; dismiss" },
+      { "char": "了", "pinyin": "le", "meaning": "particle (completion / change of state)" }
+    ],
+    "examples": [
+      { "chinese": "我只是隨口說說罷了。", "pinyin": "Wǒ zhǐshì suíkǒu shuōshuo bàle.", "english": "I was just saying it casually, that's all." },
+      { "chinese": "他不過是運氣好罷了。", "pinyin": "Tā bùguò shì yùnqì hǎo bàle.", "english": "He's nothing more than lucky." }
+    ]
+  }
+]

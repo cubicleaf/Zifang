@@ -1,0 +1,357 @@
+[
+  {
+    "id": 5001,
+    "traditional": "挨",
+    "simplified": "挨",
+    "pinyin": "āi",
+    "english": "get close to; in sequence",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "v",
+    "semanticNote": "Two senses: (1) be physically close to / right up against — 挨著我坐 (sit right next to me); (2) one after another in order — 挨家挨戶 (door to door / house by house). Heteronym alert: when read ái (second tone), 挨 means to suffer / endure / get hit (挨打 = get beaten, 挨餓 = go hungry) — a completely different word that just shares the character. The āi reading is the HSK 6 vocab item.",
+    "components": [
+      {
+        "char": "挨",
+        "pinyin": "āi",
+        "meaning": "to be close to; in sequence"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "她挨著媽媽坐下。",
+        "pinyin": "Tā āizhe māma zuòxià.",
+        "english": "She sat down right next to her mom."
+      },
+      {
+        "chinese": "我們挨家挨戶送傳單。",
+        "pinyin": "Wǒmen āijiā āihù sòng chuándān.",
+        "english": "We delivered flyers door to door."
+      }
+    ]
+  },
+  {
+    "id": 5002,
+    "traditional": "癌症",
+    "simplified": "癌症",
+    "pinyin": "áizhèng",
+    "english": "cancer",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "n",
+    "semanticNote": "The general medical term for cancer. 癌 alone also means cancer and forms specific types: 肺癌 (lung cancer), 胃癌 (stomach cancer), 乳癌 (breast cancer). Use 癌症 when speaking generally; use 癌 in compounds. 得癌症 = get / be diagnosed with cancer. Heavy word — same gravity in Chinese as in English.",
+    "components": [
+      {
+        "char": "癌",
+        "pinyin": "ái",
+        "meaning": "cancer"
+      },
+      {
+        "char": "症",
+        "pinyin": "zhèng",
+        "meaning": "disease, ailment"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "他的父親去年得了癌症。",
+        "pinyin": "Tā de fùqīn qùnián déle áizhèng.",
+        "english": "His father was diagnosed with cancer last year."
+      },
+      {
+        "chinese": "早期發現對治療癌症很重要。",
+        "pinyin": "Zǎoqī fāxiàn duì zhìliáo áizhèng hěn zhòngyào.",
+        "english": "Early detection is important for treating cancer."
+      }
+    ]
+  },
+  {
+    "id": 5003,
+    "traditional": "愛不釋手",
+    "simplified": "爱不释手",
+    "pinyin": "àibúshìshǒu",
+    "english": "love something too much to part with it",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "chengyu",
+    "semanticNote": "Literally 'love (it so much you) can't release (it from your) hand.' Used for objects you adore — a book, a gadget, a piece of jewelry, a child's toy. Almost always positive and a little playful. Common in product reviews and gift-giving contexts. Doesn't apply to people or abstract things; it's specifically about a physical object you can't put down.",
+    "components": [
+      {
+        "char": "愛",
+        "pinyin": "ài",
+        "meaning": "to love"
+      },
+      {
+        "char": "不",
+        "pinyin": "bù",
+        "meaning": "not"
+      },
+      {
+        "char": "釋",
+        "pinyin": "shì",
+        "meaning": "to release, let go"
+      },
+      {
+        "char": "手",
+        "pinyin": "shǒu",
+        "meaning": "hand"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "這本小說我愛不釋手，一個晚上就看完了。",
+        "pinyin": "Zhè běn xiǎoshuō wǒ àibúshìshǒu, yí ge wǎnshàng jiù kànwánle.",
+        "english": "I couldn't put this novel down — finished it in one night."
+      },
+      {
+        "chinese": "她對新買的相機愛不釋手。",
+        "pinyin": "Tā duì xīn mǎi de xiàngjī àibúshìshǒu.",
+        "english": "She's totally smitten with her new camera."
+      }
+    ]
+  },
+  {
+    "id": 5004,
+    "traditional": "愛戴",
+    "simplified": "爱戴",
+    "pinyin": "àidài",
+    "english": "love and respect (toward a leader/elder)",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "v",
+    "semanticNote": "Reverence-tinged love directed UP — at a leader, teacher, elder, public figure. Carries respect and admiration that 愛 alone doesn't. You wouldn't say you 愛戴 your friend or partner; it's hierarchical. Often appears in formal/written contexts: 受人愛戴 (beloved by the people), 深受愛戴 (deeply revered). Compare to 尊敬 (purely respect, no affection) and 崇拜 (worship/idolize, more intense).",
+    "components": [
+      {
+        "char": "愛",
+        "pinyin": "ài",
+        "meaning": "to love"
+      },
+      {
+        "char": "戴",
+        "pinyin": "dài",
+        "meaning": "to wear; to hold up; to support"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "這位老校長深受學生愛戴。",
+        "pinyin": "Zhè wèi lǎo xiàozhǎng shēn shòu xuéshēng àidài.",
+        "english": "This old principal is deeply beloved by the students."
+      },
+      {
+        "chinese": "他是一位受人愛戴的領袖。",
+        "pinyin": "Tā shì yí wèi shòu rén àidài de lǐngxiù.",
+        "english": "He's a leader beloved by the people."
+      }
+    ]
+  },
+  {
+    "id": 5005,
+    "traditional": "暧昧",
+    "simplified": "暧昧",
+    "pinyin": "àimèi",
+    "english": "ambiguous; shady; (romantically) flirty-but-undefined",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "adj",
+    "semanticNote": "Two main flavors: (1) deliberately vague or evasive — an 暧昧的態度 is a non-committal stance; (2) more commonly today, the gray zone between friendship and romance — that flirty, undefined 'are we or aren't we' phase. 搞暧昧 = play that game. The romantic sense dominates in spoken Mandarin among young people. Slightly negative undertone — it implies someone is being unclear on purpose.",
+    "components": [
+      {
+        "char": "暧",
+        "pinyin": "ài",
+        "meaning": "dim; obscure"
+      },
+      {
+        "char": "昧",
+        "pinyin": "mèi",
+        "meaning": "hidden; obscure"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "他們的關係很暧昧。",
+        "pinyin": "Tāmen de guānxì hěn àimèi.",
+        "english": "Their relationship is in that ambiguous flirty zone."
+      },
+      {
+        "chinese": "他的回答很暧昧，沒有正面承認。",
+        "pinyin": "Tā de huídá hěn àimèi, méiyǒu zhèngmiàn chéngrèn.",
+        "english": "His answer was evasive — he didn't directly admit anything."
+      }
+    ]
+  },
+  {
+    "id": 5006,
+    "traditional": "安寧",
+    "simplified": "安宁",
+    "pinyin": "ānníng",
+    "english": "peaceful; calm; tranquil",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "adj",
+    "semanticNote": "Peace as the absence of disturbance — environmental quiet (a peaceful neighborhood), social order (a peaceful society), or inner calm. Often used in negative constructions: 不得安寧 (can't get any peace), 打破安寧 (shatter the calm). Slightly more formal than 安靜 (which is just 'quiet'). 安寧 implies something more enduring — peace, not just quiet. Also used in 安寧病房 (palliative care ward).",
+    "components": [
+      {
+        "char": "安",
+        "pinyin": "ān",
+        "meaning": "peaceful, safe"
+      },
+      {
+        "char": "寧",
+        "pinyin": "níng",
+        "meaning": "tranquil, peaceful"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "鄰居整夜吵鬧，讓我們不得安寧。",
+        "pinyin": "Línjū zhěngyè chǎonào, ràng wǒmen bùdé ānníng.",
+        "english": "The neighbors made noise all night and gave us no peace."
+      },
+      {
+        "chinese": "她渴望過安寧的生活。",
+        "pinyin": "Tā kěwàng guò ānníng de shēnghuó.",
+        "english": "She longs for a peaceful life."
+      }
+    ]
+  },
+  {
+    "id": 5007,
+    "traditional": "安詳",
+    "simplified": "安详",
+    "pinyin": "ānxiáng",
+    "english": "serene; composed; at ease",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "adj",
+    "semanticNote": "Describes a person's demeanor — calm, unhurried, peaceful in face and bearing. Often applied to elders, the dying, or people in moments of dignified stillness: 安詳地離開了人世 (passed away peacefully). Different from 安寧 (which is about environment/state) — 安詳 is about how someone looks or carries themselves. Has a slightly literary, reverent flavor.",
+    "components": [
+      {
+        "char": "安",
+        "pinyin": "ān",
+        "meaning": "peaceful"
+      },
+      {
+        "char": "詳",
+        "pinyin": "xiáng",
+        "meaning": "calm; detailed"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "老奶奶臉上露出安詳的微笑。",
+        "pinyin": "Lǎo nǎinai liǎn shàng lùchū ānxiáng de wéixiào.",
+        "english": "A serene smile appeared on the old grandmother's face."
+      },
+      {
+        "chinese": "他安詳地離開了這個世界。",
+        "pinyin": "Tā ānxiáng de líkāile zhè ge shìjiè.",
+        "english": "He passed peacefully from this world."
+      }
+    ]
+  },
+  {
+    "id": 5008,
+    "traditional": "安置",
+    "simplified": "安置",
+    "pinyin": "ānzhì",
+    "english": "to settle (someone); arrange a place for; install",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "v",
+    "semanticNote": "To find a proper place for someone or something — disaster victims (安置災民), refugees, retired employees, even furniture or equipment (安置設備). Carries a sense of formal arrangement and care, not just dumping someone somewhere. Common in news coverage of disasters and government policy. Different from 安排 (to arrange / schedule, broader) — 安置 specifically implies placing/settling, often physically.",
+    "components": [
+      {
+        "char": "安",
+        "pinyin": "ān",
+        "meaning": "to place; peaceful"
+      },
+      {
+        "char": "置",
+        "pinyin": "zhì",
+        "meaning": "to put, place"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "政府正在安置受災的居民。",
+        "pinyin": "Zhèngfǔ zhèngzài ānzhì shòuzāi de jūmín.",
+        "english": "The government is resettling the disaster victims."
+      },
+      {
+        "chinese": "工人把新機器安置在角落裡。",
+        "pinyin": "Gōngrén bǎ xīn jīqì ānzhì zài jiǎoluò lǐ.",
+        "english": "The workers installed the new machine in the corner."
+      }
+    ]
+  },
+  {
+    "id": 5009,
+    "traditional": "按摩",
+    "simplified": "按摩",
+    "pinyin": "ànmó",
+    "english": "massage; to massage",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "n/v",
+    "semanticNote": "Both noun and verb. Covers everything from professional massage (做按摩 = get a massage) to a casual back rub (幫我按摩一下肩膀 = give my shoulder a rub). 按摩師 = masseur/masseuse. Very common everyday word in Taiwan and mainland — massage shops are everywhere. The verb 按 alone means 'press', 摩 means 'rub' — the word does what it says.",
+    "components": [
+      {
+        "char": "按",
+        "pinyin": "àn",
+        "meaning": "to press"
+      },
+      {
+        "char": "摩",
+        "pinyin": "mó",
+        "meaning": "to rub"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "我下班後想去做個按摩。",
+        "pinyin": "Wǒ xiàbān hòu xiǎng qù zuò ge ànmó.",
+        "english": "I want to go get a massage after work."
+      },
+      {
+        "chinese": "可以幫我按摩一下肩膀嗎？",
+        "pinyin": "Kěyǐ bāng wǒ ànmó yíxià jiānbǎng ma?",
+        "english": "Can you rub my shoulders for me?"
+      }
+    ]
+  },
+  {
+    "id": 5010,
+    "traditional": "案件",
+    "simplified": "案件",
+    "pinyin": "ànjiàn",
+    "english": "(legal/criminal) case",
+    "category": "hsk6",
+    "depth": "basic",
+    "pos": "n",
+    "semanticNote": "A formal legal or criminal case — what police investigate, what courts try. 刑事案件 = criminal case, 民事案件 = civil case. News-and-paperwork register: you'd see 案件 in a headline or police report, not in casual conversation about a problem at work. Compare to 案例 (a 'case' as in an example/precedent — used in medicine, law, business analysis) and 事件 (an incident or event, broader and not necessarily legal).",
+    "components": [
+      {
+        "char": "案",
+        "pinyin": "àn",
+        "meaning": "case; record"
+      },
+      {
+        "char": "件",
+        "pinyin": "jiàn",
+        "meaning": "item; matter"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "警方正在調查這起案件。",
+        "pinyin": "Jǐngfāng zhèngzài diàochá zhè qǐ ànjiàn.",
+        "english": "The police are investigating this case."
+      },
+      {
+        "chinese": "法官將在下週審理這個案件。",
+        "pinyin": "Fǎguān jiāng zài xiàzhōu shěnlǐ zhè ge ànjiàn.",
+        "english": "The judge will hear this case next week."
+      }
+    ]
+  }
+]

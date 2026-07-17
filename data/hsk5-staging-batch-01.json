@@ -1,0 +1,1022 @@
+[
+  {
+    "id": 2401,
+    "traditional": "唉",
+    "simplified": "唉",
+    "pinyin": "āi",
+    "english": "sigh; alas; oh well (interjection)",
+    "category": "hsk5",
+    "depth": "basic",
+    "pos": "interjection",
+    "semanticNote": "Sighing or rueful interjection — used at the start of a sentence to convey resignation, mild frustration, or wistfulness. Different from 哎 (which calls attention or expresses surprise). Often paired with 沒辦法 or 算了.",
+    "components": [
+      {
+        "char": "唉",
+        "pinyin": "āi",
+        "meaning": "sigh"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "唉，我又遲到了。",
+        "pinyin": "Āi, wǒ yòu chídào le.",
+        "english": "Sigh, I'm late again."
+      },
+      {
+        "chinese": "唉，這就是人生啊。",
+        "pinyin": "Āi, zhè jiùshì rénshēng a.",
+        "english": "Alas, that's just life."
+      }
+    ]
+  },
+  {
+    "id": 2402,
+    "traditional": "愛護",
+    "simplified": "爱护",
+    "pinyin": "àihù",
+    "english": "to cherish and protect; to take good care of",
+    "category": "hsk5",
+    "depth": "basic",
+    "pos": "verb",
+    "semanticNote": "Combines 愛 (love) and 護 (protect) — to treat something/someone with caring protectiveness, usually applied to public property, animals, the environment, or younger people. Heavier and more formal than 愛 alone; common in signs and public-service language (e.g., 愛護環境). Different from 保護, which is purely 'protect' without the affection.",
+    "components": [
+      {
+        "char": "愛",
+        "pinyin": "ài",
+        "meaning": "love"
+      },
+      {
+        "char": "護",
+        "pinyin": "hù",
+        "meaning": "protect"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "請大家愛護公共財物。",
+        "pinyin": "Qǐng dàjiā àihù gōnggòng cáiwù.",
+        "english": "Please take good care of public property."
+      },
+      {
+        "chinese": "我們應該愛護動物。",
+        "pinyin": "Wǒmen yīnggāi àihù dòngwù.",
+        "english": "We should cherish and protect animals."
+      }
+    ]
+  },
+  {
+    "id": 2403,
+    "traditional": "愛惜",
+    "simplified": "爱惜",
+    "pinyin": "àixī",
+    "english": "to treasure; to use sparingly; to not waste",
+    "category": "hsk5",
+    "depth": "basic",
+    "pos": "verb",
+    "semanticNote": "Means to value something so much that you don't waste or squander it — typical objects are time (時間), life (生命), resources, food, talent. Subtler than 愛護: 愛護 = protect from harm; 愛惜 = use carefully because it's precious. Often appears in moralistic or self-improvement contexts.",
+    "components": [
+      {
+        "char": "愛",
+        "pinyin": "ài",
+        "meaning": "love"
+      },
+      {
+        "char": "惜",
+        "pinyin": "xī",
+        "meaning": "treasure, pity"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "你要愛惜時間，別浪費。",
+        "pinyin": "Nǐ yào àixī shíjiān, bié làngfèi.",
+        "english": "You should treasure your time and not waste it."
+      },
+      {
+        "chinese": "他很愛惜這支筆，因為是爸爸送的。",
+        "pinyin": "Tā hěn àixī zhè zhī bǐ, yīnwèi shì bàba sòng de.",
+        "english": "He treasures this pen because his dad gave it to him."
+      }
+    ]
+  },
+  {
+    "id": 2404,
+    "traditional": "愛心",
+    "simplified": "爱心",
+    "pinyin": "àixīn",
+    "english": "compassion; loving kindness; charitable heart",
+    "category": "hsk5",
+    "depth": "basic",
+    "pos": "noun",
+    "semanticNote": "Literally 'love-heart' — refers to the trait or attitude of compassion and kindness toward others, especially the vulnerable. Common in charity contexts (愛心捐款 charity donation, 愛心便當 free meals for the needy). Not romantic love; closer to English 'a kind heart' or 'compassion.'",
+    "components": [
+      {
+        "char": "愛",
+        "pinyin": "ài",
+        "meaning": "love"
+      },
+      {
+        "char": "心",
+        "pinyin": "xīn",
+        "meaning": "heart"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "她對流浪狗很有愛心。",
+        "pinyin": "Tā duì liúlàng gǒu hěn yǒu àixīn.",
+        "english": "She has a lot of compassion for stray dogs."
+      },
+      {
+        "chinese": "謝謝你的愛心捐款。",
+        "pinyin": "Xièxie nǐ de àixīn juānkuǎn.",
+        "english": "Thank you for your charitable donation."
+      }
+    ]
+  },
+  {
+    "id": 2405,
+    "traditional": "安慰",
+    "simplified": "安慰",
+    "pinyin": "ānwèi",
+    "english": "to comfort, to console; comforting (adj.)",
+    "category": "hsk5",
+    "depth": "basic",
+    "pos": "verb/adjective",
+    "semanticNote": "Used both as a verb ('to comfort someone') and as an adjective ('feel consoled / reassuring'). When adjectival it usually follows 感到 or 覺得 — e.g., 感到很安慰 'feel reassured'. Compare 鼓勵 (encourage, push forward) which is forward-looking, vs. 安慰 which soothes existing distress.",
+    "components": [
+      {
+        "char": "安",
+        "pinyin": "ān",
+        "meaning": "peaceful, calm"
+      },
+      {
+        "char": "慰",
+        "pinyin": "wèi",
+        "meaning": "comfort, console"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "她哭的時候，我不知道怎麼安慰她。",
+        "pinyin": "Tā kū de shíhou, wǒ bù zhīdào zěnme ānwèi tā.",
+        "english": "When she was crying, I didn't know how to comfort her."
+      },
+      {
+        "chinese": "看到孩子健康成長，父母感到很安慰。",
+        "pinyin": "Kàndào háizi jiànkāng chéngzhǎng, fùmǔ gǎndào hěn ānwèi.",
+        "english": "Seeing their children grow up healthy, the parents feel very reassured."
+      }
+    ]
+  },
+  {
+    "id": 2406,
+    "traditional": "安裝",
+    "simplified": "安装",
+    "pinyin": "ānzhuāng",
+    "english": "to install (software, equipment)",
+    "category": "hsk5",
+    "depth": "basic",
+    "pos": "verb",
+    "semanticNote": "The standard verb for installing — used for both physical equipment (air conditioner, plumbing) and software/apps. In Taiwan tech contexts you'll hear it constantly: 安裝軟體, 安裝程式, 安裝 App. Don't confuse with 裝 alone (more colloquial, can also mean 'to pretend').",
+    "components": [
+      {
+        "char": "安",
+        "pinyin": "ān",
+        "meaning": "settle, place"
+      },
+      {
+        "char": "裝",
+        "pinyin": "zhuāng",
+        "meaning": "fit, equip"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "我幫你安裝這個軟體。",
+        "pinyin": "Wǒ bāng nǐ ānzhuāng zhè ge ruǎntǐ.",
+        "english": "I'll install this software for you."
+      },
+      {
+        "chinese": "工人正在安裝冷氣。",
+        "pinyin": "Gōngrén zhèngzài ānzhuāng lěngqì.",
+        "english": "The workers are installing the air conditioner."
+      }
+    ]
+  },
+  {
+    "id": 2407,
+    "traditional": "岸",
+    "simplified": "岸",
+    "pinyin": "àn",
+    "english": "shore; bank (of river/sea); coast",
+    "category": "hsk5",
+    "depth": "basic",
+    "pos": "noun",
+    "semanticNote": "Bound morpheme — rarely stands alone in modern speech. Almost always appears in compounds: 河岸 (riverbank), 海岸 (seacoast), 岸邊 (by the shore), 上岸 (to come ashore / get off a boat / quit a bad habit). Politically loaded too: 兩岸 = 'the two shores,' shorthand for Mainland-Taiwan relations.",
+    "components": [
+      {
+        "char": "岸",
+        "pinyin": "àn",
+        "meaning": "shore, bank"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "我們在河岸邊散步。",
+        "pinyin": "Wǒmen zài hé'àn biān sànbù.",
+        "english": "We took a walk by the riverbank."
+      },
+      {
+        "chinese": "船終於靠岸了。",
+        "pinyin": "Chuán zhōngyú kào àn le.",
+        "english": "The boat finally reached the shore."
+      }
+    ]
+  },
+  {
+    "id": 2408,
+    "traditional": "暗",
+    "simplified": "暗",
+    "pinyin": "àn",
+    "english": "dark; dim; secret, hidden (adj.)",
+    "category": "hsk5",
+    "depth": "basic",
+    "pos": "adjective",
+    "semanticNote": "Single-character adjective with two related senses: (1) physically dark / dim (opposite of 亮); (2) hidden, covert (暗號 secret signal, 暗戀 secret crush). The 'secret' sense is very productive in compounds. As a stand-alone descriptor of light it can take 很/太/有點: 房間有點暗.",
+    "components": [
+      {
+        "char": "暗",
+        "pinyin": "àn",
+        "meaning": "dark, hidden"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "房間太暗了，開個燈吧。",
+        "pinyin": "Fángjiān tài àn le, kāi ge dēng ba.",
+        "english": "The room's too dark — turn on a light."
+      },
+      {
+        "chinese": "他暗暗喜歡她很多年了。",
+        "pinyin": "Tā àn'àn xǐhuān tā hěn duō nián le.",
+        "english": "He's secretly liked her for many years."
+      }
+    ]
+  },
+  {
+    "id": 2409,
+    "traditional": "熬夜",
+    "simplified": "熬夜",
+    "pinyin": "áoyè",
+    "english": "to stay up late; to pull an all-nighter",
+    "category": "hsk5",
+    "depth": "basic",
+    "pos": "verb",
+    "semanticNote": "Separable V-O construction (熬 endure + 夜 night) — literally 'to endure the night.' Can split: 熬了一夜, 熬一個晚上的夜. Carries the connotation of suffering through, not just being awake — different from 晚睡 (sleep late). Hugely common in student/work life talk.",
+    "components": [
+      {
+        "char": "熬",
+        "pinyin": "áo",
+        "meaning": "endure, simmer"
+      },
+      {
+        "char": "夜",
+        "pinyin": "yè",
+        "meaning": "night"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "我昨天熬夜趕報告，今天好累。",
+        "pinyin": "Wǒ zuótiān áoyè gǎn bàogào, jīntiān hǎo lèi.",
+        "english": "I pulled an all-nighter on a report yesterday — I'm exhausted today."
+      },
+      {
+        "chinese": "他熬了一整夜的夜，眼睛都紅了。",
+        "pinyin": "Tā áole yì zhěng yè de yè, yǎnjīng dōu hóng le.",
+        "english": "He stayed up the whole night — his eyes are all red."
+      }
+    ]
+  },
+  {
+    "id": 2410,
+    "traditional": "把握",
+    "simplified": "把握",
+    "pinyin": "bǎwò",
+    "english": "to grasp, to seize (an opportunity); confidence, certainty (n.)",
+    "category": "hsk5",
+    "depth": "basic",
+    "pos": "verb/noun",
+    "semanticNote": "Two main uses: (1) verb 'to seize/grasp' — 把握機會 (seize the opportunity), 把握時間 (make the most of time); (2) noun 'confidence/certainty' — 有把握 (be confident), 沒把握 (not sure). Note: the noun sense is about your inner certainty about an outcome, not general self-confidence (that's 自信).",
+    "components": [
+      {
+        "char": "把",
+        "pinyin": "bǎ",
+        "meaning": "hold, grasp"
+      },
+      {
+        "char": "握",
+        "pinyin": "wò",
+        "meaning": "grip"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "你一定要把握這次機會。",
+        "pinyin": "Nǐ yídìng yào bǎwò zhè cì jīhuì.",
+        "english": "You absolutely have to seize this opportunity."
+      },
+      {
+        "chinese": "我對考試沒什麼把握。",
+        "pinyin": "Wǒ duì kǎoshì méi shénme bǎwò.",
+        "english": "I don't feel very confident about the exam."
+      }
+    ]
+  },
+  {
+    "id": 2411,
+    "traditional": "擺",
+    "simplified": "摆",
+    "pinyin": "bǎi",
+    "english": "to place, to arrange, to set out; to sway",
+    "category": "hsk5",
+    "depth": "basic",
+    "pos": "verb",
+    "semanticNote": "Versatile verb. Core sense: place items in an arranged way (擺桌子 set the table, 擺攤 set up a stall). Secondary sense: sway/wave (鐘擺 pendulum, 擺手 wave one's hand). Also figurative — 擺架子 'put on airs'. Stronger spatial-arrangement nuance than 放, which just means 'put down.'",
+    "components": [
+      {
+        "char": "擺",
+        "pinyin": "bǎi",
+        "meaning": "place, arrange, sway"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "媽媽把碗筷擺在桌上。",
+        "pinyin": "Māma bǎ wǎnkuài bǎi zài zhuō shàng.",
+        "english": "Mom set the bowls and chopsticks on the table."
+      },
+      {
+        "chinese": "他在夜市擺了一個小攤。",
+        "pinyin": "Tā zài yèshì bǎile yí ge xiǎo tān.",
+        "english": "He set up a small stall at the night market."
+      }
+    ]
+  },
+  {
+    "id": 2412,
+    "traditional": "辦理",
+    "simplified": "办理",
+    "pinyin": "bànlǐ",
+    "english": "to handle, to process, to deal with (paperwork/procedures)",
+    "category": "hsk5",
+    "depth": "basic",
+    "pos": "verb",
+    "semanticNote": "Formal/official register — used specifically for processing paperwork, formalities, or institutional procedures: 辦理手續 (process paperwork), 辦理登記 (register), 辦理簽證 (process a visa). You'll see it on bank/government counter signs everywhere in Taiwan. More formal than plain 辦.",
+    "components": [
+      {
+        "char": "辦",
+        "pinyin": "bàn",
+        "meaning": "handle, do"
+      },
+      {
+        "char": "理",
+        "pinyin": "lǐ",
+        "meaning": "manage, sort out"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "請到三號櫃台辦理登記。",
+        "pinyin": "Qǐng dào sān hào guìtái bànlǐ dēngjì.",
+        "english": "Please go to counter three to register."
+      },
+      {
+        "chinese": "我明天要去銀行辦理開戶。",
+        "pinyin": "Wǒ míngtiān yào qù yínháng bànlǐ kāihù.",
+        "english": "I'm going to the bank tomorrow to open an account."
+      }
+    ]
+  },
+  {
+    "id": 2413,
+    "traditional": "傍晚",
+    "simplified": "傍晚",
+    "pinyin": "bàngwǎn",
+    "english": "dusk; toward evening; early evening",
+    "category": "hsk5",
+    "depth": "basic",
+    "pos": "noun (time word)",
+    "semanticNote": "Refers to the period right before dark — roughly 5–7pm depending on season. More poetic / slightly more formal than 晚上 (evening) and narrower than it. Compare 黃昏 (more literary, 'twilight'). Can function as a time adverb without 在: 傍晚我們去散步.",
+    "components": [
+      {
+        "char": "傍",
+        "pinyin": "bàng",
+        "meaning": "be near, approach"
+      },
+      {
+        "char": "晚",
+        "pinyin": "wǎn",
+        "meaning": "evening, late"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "傍晚的時候，海邊特別漂亮。",
+        "pinyin": "Bàngwǎn de shíhou, hǎibiān tèbié piàoliang.",
+        "english": "The seaside is especially beautiful at dusk."
+      },
+      {
+        "chinese": "我們傍晚六點在公園見。",
+        "pinyin": "Wǒmen bàngwǎn liù diǎn zài gōngyuán jiàn.",
+        "english": "Let's meet at the park at six in the early evening."
+      }
+    ]
+  },
+  {
+    "id": 2414,
+    "traditional": "包裹",
+    "simplified": "包裹",
+    "pinyin": "bāoguǒ",
+    "english": "package, parcel (n.); to wrap up (v.)",
+    "category": "hsk5",
+    "depth": "basic",
+    "pos": "noun/verb",
+    "semanticNote": "Primarily a noun in everyday speech ('package, parcel') — what arrives from the post office or courier. As a verb means to wrap something up (often medically: 包裹傷口 dress a wound). Don't confuse with 包包 (bag, handbag) or 行李 (luggage).",
+    "components": [
+      {
+        "char": "包",
+        "pinyin": "bāo",
+        "meaning": "wrap, package"
+      },
+      {
+        "char": "裹",
+        "pinyin": "guǒ",
+        "meaning": "wrap, bind"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "我收到一個從美國寄來的包裹。",
+        "pinyin": "Wǒ shōudào yí ge cóng Měiguó jì lái de bāoguǒ.",
+        "english": "I got a package sent from America."
+      },
+      {
+        "chinese": "護士小心地包裹他的傷口。",
+        "pinyin": "Hùshì xiǎoxīn de bāoguǒ tā de shāngkǒu.",
+        "english": "The nurse carefully wrapped his wound."
+      }
+    ]
+  },
+  {
+    "id": 2415,
+    "traditional": "包含",
+    "simplified": "包含",
+    "pinyin": "bāohán",
+    "english": "to contain, to include (within itself)",
+    "category": "hsk5",
+    "depth": "basic",
+    "pos": "verb",
+    "semanticNote": "Subtle but real difference from 包括: 包含 stresses what's contained inside a thing (intrinsic content — meanings, ingredients, components), while 包括 enumerates members of a list. 'This dish contains peanuts' = 包含; 'The team includes John, Mary, Sue' = 包括. They overlap, but 包含 leans abstract/contents-of, 包括 leans listing.",
+    "components": [
+      {
+        "char": "包",
+        "pinyin": "bāo",
+        "meaning": "wrap, encompass"
+      },
+      {
+        "char": "含",
+        "pinyin": "hán",
+        "meaning": "contain, hold inside"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "這道菜包含花生，過敏的人別吃。",
+        "pinyin": "Zhè dào cài bāohán huāshēng, guòmǐn de rén bié chī.",
+        "english": "This dish contains peanuts — don't eat it if you're allergic."
+      },
+      {
+        "chinese": "他的話裡包含著很深的意思。",
+        "pinyin": "Tā de huà lǐ bāohán zhe hěn shēn de yìsi.",
+        "english": "His words contain a very deep meaning."
+      }
+    ]
+  },
+  {
+    "id": 2416,
+    "traditional": "包括",
+    "simplified": "包括",
+    "pinyin": "bāokuò",
+    "english": "to include (in a list/group); including",
+    "category": "hsk5",
+    "depth": "basic",
+    "pos": "verb",
+    "semanticNote": "Used to enumerate members of a set — 'X includes A, B, and C.' Often paired with 在內 ('inclusive') for emphasis: 包括我在內 'including me.' See contrast with 包含 (intrinsic contents) at card 2415. Very high-frequency in writing and formal speech.",
+    "components": [
+      {
+        "char": "包",
+        "pinyin": "bāo",
+        "meaning": "wrap, encompass"
+      },
+      {
+        "char": "括",
+        "pinyin": "kuò",
+        "meaning": "enclose, bracket"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "費用包括住宿和早餐。",
+        "pinyin": "Fèiyòng bāokuò zhùsù hé zǎocān.",
+        "english": "The fee includes lodging and breakfast."
+      },
+      {
+        "chinese": "包括我在內，一共有五個人去。",
+        "pinyin": "Bāokuò wǒ zàinèi, yígòng yǒu wǔ ge rén qù.",
+        "english": "Including me, five people are going in total."
+      }
+    ]
+  },
+  {
+    "id": 2417,
+    "traditional": "薄",
+    "simplified": "薄",
+    "pinyin": "báo",
+    "english": "thin (physically); flimsy",
+    "category": "hsk5",
+    "depth": "basic",
+    "pos": "adjective",
+    "semanticNote": "Heteronym alert. Two readings: (1) báo — physical thinness (thin paper, thin slice, thin clothing), the colloquial reading and the one locked here; (2) bó — abstract/literary 'slim, meager, weak,' as in 薄弱 (weak), 薄情 (heartless), 微薄 (meager). Rule of thumb: in casual spoken Chinese describing tangible thickness, use báo. Opposite is 厚 hòu.",
+    "components": [
+      {
+        "char": "薄",
+        "pinyin": "báo",
+        "meaning": "thin"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "今天穿這件衣服太薄了，會冷。",
+        "pinyin": "Jīntiān chuān zhè jiàn yīfu tài báo le, huì lěng.",
+        "english": "Wearing this shirt today is too thin — you'll be cold."
+      },
+      {
+        "chinese": "請把肉切得薄一點。",
+        "pinyin": "Qǐng bǎ ròu qiē de báo yìdiǎn.",
+        "english": "Please slice the meat a bit thinner."
+      }
+    ]
+  },
+  {
+    "id": 2418,
+    "traditional": "寶貝",
+    "simplified": "宝贝",
+    "pinyin": "bǎobèi",
+    "english": "treasure; baby, darling (term of endearment)",
+    "category": "hsk5",
+    "depth": "basic",
+    "pos": "noun",
+    "semanticNote": "Two registers: (1) literal 'treasured object / valuable thing' — 這是我的寶貝相機; (2) term of endearment for kids, partners, pets — exactly like English 'baby' or 'sweetie.' In Taiwan parents say 寶貝 to small children constantly. Can also be used slightly mockingly for someone overprotective of a possession.",
+    "components": [
+      {
+        "char": "寶",
+        "pinyin": "bǎo",
+        "meaning": "treasure"
+      },
+      {
+        "char": "貝",
+        "pinyin": "bèi",
+        "meaning": "shell (historically money)"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "寶貝，快來吃飯。",
+        "pinyin": "Bǎobèi, kuài lái chīfàn.",
+        "english": "Sweetie, come eat."
+      },
+      {
+        "chinese": "這台相機是我的寶貝。",
+        "pinyin": "Zhè tái xiàngjī shì wǒ de bǎobèi.",
+        "english": "This camera is my treasure."
+      }
+    ]
+  },
+  {
+    "id": 2419,
+    "traditional": "寶貴",
+    "simplified": "宝贵",
+    "pinyin": "bǎoguì",
+    "english": "precious, valuable (esp. abstract things)",
+    "category": "hsk5",
+    "depth": "basic",
+    "pos": "adjective",
+    "semanticNote": "Used for abstract precious things — time, life, experience, opinions, advice (寶貴的時間/意見/經驗). For physical valuables, 珍貴 or 貴重 are more natural. Slightly formal/written register; in casual speech 很重要 or 很珍貴 is more common.",
+    "components": [
+      {
+        "char": "寶",
+        "pinyin": "bǎo",
+        "meaning": "treasure"
+      },
+      {
+        "char": "貴",
+        "pinyin": "guì",
+        "meaning": "valuable, expensive"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "謝謝你寶貴的意見。",
+        "pinyin": "Xièxie nǐ bǎoguì de yìjiàn.",
+        "english": "Thank you for your valuable opinion."
+      },
+      {
+        "chinese": "時間是最寶貴的。",
+        "pinyin": "Shíjiān shì zuì bǎoguì de.",
+        "english": "Time is the most precious thing."
+      }
+    ]
+  },
+  {
+    "id": 2420,
+    "traditional": "保持",
+    "simplified": "保持",
+    "pinyin": "bǎochí",
+    "english": "to maintain, to keep (a state, habit, condition)",
+    "category": "hsk5",
+    "depth": "basic",
+    "pos": "verb",
+    "semanticNote": "Used to keep an existing state going — 保持安靜 (stay quiet), 保持聯絡 (stay in touch), 保持距離 (keep your distance), 保持健康 (stay healthy). Different from 保留 (retain, hold on to) and 維持 (sustain, often barely). 保持 implies actively keeping something at the same level.",
+    "components": [
+      {
+        "char": "保",
+        "pinyin": "bǎo",
+        "meaning": "preserve, protect"
+      },
+      {
+        "char": "持",
+        "pinyin": "chí",
+        "meaning": "hold, sustain"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "請大家保持安靜。",
+        "pinyin": "Qǐng dàjiā bǎochí ānjìng.",
+        "english": "Please everyone keep quiet."
+      },
+      {
+        "chinese": "我們要保持聯絡。",
+        "pinyin": "Wǒmen yào bǎochí liánluò.",
+        "english": "Let's stay in touch."
+      }
+    ]
+  },
+  {
+    "id": 2421,
+    "traditional": "保存",
+    "simplified": "保存",
+    "pinyin": "bǎocún",
+    "english": "to save, to store, to preserve (data, food, items)",
+    "category": "hsk5",
+    "depth": "basic",
+    "pos": "verb",
+    "semanticNote": "General-purpose 'preserve, save, keep' — for food, data, documents, historical relics. Pairs with 食物 (food), 文件 (files), 紀錄 (records). Note: in Taiwan tech contexts 儲存 is the menu term for computer 'save', but 保存 remains the general everyday word. More formal/written-register than 留 (keep) or 放 (put/place).",
+    "components": [
+      {
+        "char": "保",
+        "pinyin": "bǎo",
+        "meaning": "to protect, keep"
+      },
+      {
+        "char": "存",
+        "pinyin": "cún",
+        "meaning": "to exist, to store"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "這份文件請好好保存。",
+        "pinyin": "Zhè fèn wénjiàn qǐng hǎohǎo bǎocún.",
+        "english": "Please keep this document safely."
+      },
+      {
+        "chinese": "冰箱可以保存食物。",
+        "pinyin": "Bīngxiāng kěyǐ bǎocún shíwù.",
+        "english": "Refrigerators can preserve food."
+      }
+    ]
+  },
+  {
+    "id": 2422,
+    "traditional": "保留",
+    "simplified": "保留",
+    "pinyin": "bǎoliú",
+    "english": "to retain; to reserve; to hold back (an opinion)",
+    "category": "hsk5",
+    "depth": "basic",
+    "pos": "verb",
+    "semanticNote": "Three flavors: (1) keep / not get rid of — 保留傳統 (preserve traditions); (2) reserve / set aside — 保留座位 (reserve a seat); (3) hold back / not fully express — 保留意見 (reserve judgment). Sense 3 is idiomatic and common in formal discussion. Don't confuse with 保持 (maintain a state) or 儲存/保存 (store).",
+    "components": [
+      {
+        "char": "保",
+        "pinyin": "bǎo",
+        "meaning": "preserve, protect"
+      },
+      {
+        "char": "留",
+        "pinyin": "liú",
+        "meaning": "keep, leave behind"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "我幫你保留一個位子。",
+        "pinyin": "Wǒ bāng nǐ bǎoliú yí ge wèizi.",
+        "english": "I'll save you a seat."
+      },
+      {
+        "chinese": "對這件事，我保留我的意見。",
+        "pinyin": "Duì zhè jiàn shì, wǒ bǎoliú wǒ de yìjiàn.",
+        "english": "On this matter, I'll reserve my opinion."
+      }
+    ]
+  },
+  {
+    "id": 2423,
+    "traditional": "保險",
+    "simplified": "保险",
+    "pinyin": "bǎoxiǎn",
+    "english": "insurance (n.); safe, secure (adj.)",
+    "category": "hsk5",
+    "depth": "basic",
+    "pos": "noun/adjective",
+    "semanticNote": "Mainly the noun 'insurance' — 買保險 (buy insurance), 健康保險 / 健保 (health insurance), 車險 (auto insurance). As an adjective means 'safe / a sure thing': 比較保險 'safer (course of action)'. Note 保險箱 = 'safe' (the box). Common collocation: 保險起見 'just to be safe.'",
+    "components": [
+      {
+        "char": "保",
+        "pinyin": "bǎo",
+        "meaning": "preserve, protect"
+      },
+      {
+        "char": "險",
+        "pinyin": "xiǎn",
+        "meaning": "danger, risk"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "你買健康保險了嗎？",
+        "pinyin": "Nǐ mǎi jiànkāng bǎoxiǎn le ma?",
+        "english": "Have you bought health insurance?"
+      },
+      {
+        "chinese": "保險起見，我們提早一個小時出發。",
+        "pinyin": "Bǎoxiǎn qǐjiàn, wǒmen tízǎo yí ge xiǎoshí chūfā.",
+        "english": "Just to be safe, let's leave an hour early."
+      }
+    ]
+  },
+  {
+    "id": 2424,
+    "traditional": "報到",
+    "simplified": "报到",
+    "pinyin": "bàodào",
+    "english": "to check in; to report for duty / registration",
+    "category": "hsk5",
+    "depth": "basic",
+    "pos": "verb",
+    "semanticNote": "Separable V-O verb (報 'report' + 到 'arrival') — 'report your arrival.' Used for officially registering your presence: school enrollment, conference check-in, hotel check-in for an event, military report-for-duty. Splits with aspect markers and quantifiers: 報了到, 報過到. Different from 簽到 (sign in / mark attendance, no registration step).",
+    "components": [
+      {
+        "char": "報",
+        "pinyin": "bào",
+        "meaning": "report, announce"
+      },
+      {
+        "char": "到",
+        "pinyin": "dào",
+        "meaning": "arrive"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "新生明天到學校報到。",
+        "pinyin": "Xīnshēng míngtiān dào xuéxiào bàodào.",
+        "english": "New students check in at the school tomorrow."
+      },
+      {
+        "chinese": "我已經報了到，現在可以進去了。",
+        "pinyin": "Wǒ yǐjīng bàole dào, xiànzài kěyǐ jìnqù le.",
+        "english": "I've already checked in — I can go in now."
+      }
+    ]
+  },
+  {
+    "id": 2425,
+    "traditional": "報導",
+    "simplified": "报道",
+    "pinyin": "bàodǎo",
+    "english": "to report (news); news report, news coverage",
+    "category": "hsk5",
+    "depth": "basic",
+    "pos": "verb/noun",
+    "semanticNote": "Taiwan media style: trad is 報導 with 導 (dǎo, to lead/guide) — pronounced bàodǎo. Mainland writes 報道 with 道 (dào, way) — pronounced bàodào. Different characters, different readings, same meaning: 'to report on (news), news coverage'. Both verb and noun. Pairs with 新聞 (news), 媒體 (media).",
+    "components": [
+      {
+        "char": "報",
+        "pinyin": "bào",
+        "meaning": "to report, announce"
+      },
+      {
+        "char": "導",
+        "pinyin": "dǎo",
+        "meaning": "to lead, guide"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "記者正在報導這場比賽。",
+        "pinyin": "Jìzhě zhèngzài bàodǎo zhè chǎng bǐsài.",
+        "english": "The reporter is covering this match."
+      },
+      {
+        "chinese": "今天的新聞報導很詳細。",
+        "pinyin": "Jīntiān de xīnwén bàodǎo hěn xiángxì.",
+        "english": "Today's news coverage is very detailed."
+      }
+    ]
+  },
+  {
+    "id": 2426,
+    "traditional": "報告",
+    "simplified": "报告",
+    "pinyin": "bàogào",
+    "english": "report, presentation (n.); to report, to present (v.)",
+    "category": "hsk5",
+    "depth": "basic",
+    "pos": "noun/verb",
+    "semanticNote": "Both noun and verb. Noun = a formal report or presentation, very common in school/work (期末報告 final paper/presentation, 工作報告 work report). Verb = to formally report or brief someone. Different from 報導 (news coverage). In Taiwan classrooms 做報告 = 'do a presentation,' a constant student phrase.",
+    "components": [
+      {
+        "char": "報",
+        "pinyin": "bào",
+        "meaning": "report, announce"
+      },
+      {
+        "char": "告",
+        "pinyin": "gào",
+        "meaning": "tell, inform"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "下週我要交期末報告。",
+        "pinyin": "Xiàzhōu wǒ yào jiāo qímò bàogào.",
+        "english": "Next week I have to turn in my final report."
+      },
+      {
+        "chinese": "請你向老闆報告一下進度。",
+        "pinyin": "Qǐng nǐ xiàng lǎobǎn bàogào yíxià jìndù.",
+        "english": "Please report the progress to the boss."
+      }
+    ]
+  },
+  {
+    "id": 2427,
+    "traditional": "報社",
+    "simplified": "报社",
+    "pinyin": "bàoshè",
+    "english": "newspaper office; press, news agency",
+    "category": "hsk5",
+    "depth": "basic",
+    "pos": "noun",
+    "semanticNote": "Refers to the organization/office that produces a newspaper, not the paper itself (that's 報紙). 社 here means 'society / agency' (same 社 as 社會). Compare 出版社 publisher, 旅行社 travel agency. With media moving online, the term still applies to the publishing organization.",
+    "components": [
+      {
+        "char": "報",
+        "pinyin": "bào",
+        "meaning": "newspaper, report"
+      },
+      {
+        "char": "社",
+        "pinyin": "shè",
+        "meaning": "agency, society"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "他在報社當記者。",
+        "pinyin": "Tā zài bàoshè dāng jìzhě.",
+        "english": "He works as a reporter at a newspaper."
+      },
+      {
+        "chinese": "這家報社有一百多年的歷史。",
+        "pinyin": "Zhè jiā bàoshè yǒu yìbǎi duō nián de lìshǐ.",
+        "english": "This newspaper agency has over a hundred years of history."
+      }
+    ]
+  },
+  {
+    "id": 2428,
+    "traditional": "抱怨",
+    "simplified": "抱怨",
+    "pinyin": "bàoyuàn",
+    "english": "to complain; to grumble",
+    "category": "hsk5",
+    "depth": "basic",
+    "pos": "verb",
+    "semanticNote": "To verbally complain or grumble about something — generally negative tone. Different from 投訴 (file a formal complaint) and 埋怨 (resentful complaining, often about someone close). Object can be a thing complained about (抱怨工作) or a person complained at (向他抱怨). Often + 一直/老 to mark habitual complaining.",
+    "components": [
+      {
+        "char": "抱",
+        "pinyin": "bào",
+        "meaning": "hold, embrace"
+      },
+      {
+        "char": "怨",
+        "pinyin": "yuàn",
+        "meaning": "resent, blame"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "他老是抱怨工作太忙。",
+        "pinyin": "Tā lǎoshì bàoyuàn gōngzuò tài máng.",
+        "english": "He's always complaining that work is too busy."
+      },
+      {
+        "chinese": "別抱怨了，做點實際的事吧。",
+        "pinyin": "Bié bàoyuàn le, zuò diǎn shíjì de shì ba.",
+        "english": "Stop complaining and do something practical."
+      }
+    ]
+  },
+  {
+    "id": 2429,
+    "traditional": "背",
+    "simplified": "背",
+    "pinyin": "bèi",
+    "english": "back (of body); to recite from memory; to turn one's back on",
+    "category": "hsk5",
+    "depth": "basic",
+    "pos": "noun/verb",
+    "semanticNote": "Heteronym alert. Locked reading bèi covers: (1) noun 'back of body / back side' (背痛 backache, 背後 behind); (2) verb 'recite from memory' (背書 / 背單字 memorize words); (3) verb 'turn one's back on / behind one's back' (背叛 betray). The other reading bēi means 'to carry on one's back' (背小孩 carry a child on the back, 背包 backpack). Context disambiguates.",
+    "components": [
+      {
+        "char": "背",
+        "pinyin": "bèi",
+        "meaning": "back; recite; betray"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "明天考試，我得背一百個單字。",
+        "pinyin": "Míngtiān kǎoshì, wǒ děi bèi yìbǎi ge dānzì.",
+        "english": "Tomorrow's the test — I have to memorize a hundred words."
+      },
+      {
+        "chinese": "我的背好痛，可能是坐太久了。",
+        "pinyin": "Wǒ de bèi hǎo tòng, kěnéng shì zuò tài jiǔ le.",
+        "english": "My back hurts a lot — probably from sitting too long."
+      }
+    ]
+  },
+  {
+    "id": 2430,
+    "traditional": "悲觀",
+    "simplified": "悲观",
+    "pinyin": "bēiguān",
+    "english": "pessimistic; to view negatively",
+    "category": "hsk5",
+    "depth": "basic",
+    "pos": "adjective",
+    "semanticNote": "Direct opposite of 樂觀 (optimistic) — they're a fixed pair and almost always taught together. Describes someone's outlook or attitude toward a situation. Common pattern: 對 X 感到/覺得悲觀 'feel pessimistic about X.' Slightly formal-flavored but used in everyday speech as well.",
+    "components": [
+      {
+        "char": "悲",
+        "pinyin": "bēi",
+        "meaning": "sad, sorrowful"
+      },
+      {
+        "char": "觀",
+        "pinyin": "guān",
+        "meaning": "view, outlook"
+      }
+    ],
+    "examples": [
+      {
+        "chinese": "他對未來太悲觀了。",
+        "pinyin": "Tā duì wèilái tài bēiguān le.",
+        "english": "He's too pessimistic about the future."
+      },
+      {
+        "chinese": "別這麼悲觀，事情還沒那麼糟。",
+        "pinyin": "Bié zhème bēiguān, shìqing hái méi nàme zāo.",
+        "english": "Don't be so pessimistic — things aren't that bad yet."
+      }
+    ]
+  }
+]

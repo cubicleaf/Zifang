@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #f5f0e8;
+    font-family: -apple-system, sans-serif;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: #faf7f1;
+    border: 1px solid #ddd5c4;
+    border-radius: 12px;
+    padding: 18px 20px;
+    width: 400px;
+    max-width: 100%;
+  }
+  .card h2 { font-size: 1.4rem; color: #2c2416; }
+  .card .sub { font-size: .82rem; color: #8a7e6c; margin-top: 2px; }
+
+  /* ── EXAMPLES SECTION ── */
+  .examples { margin-top: 16px; }
+  .examples-label {
+    font-size: .65rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: .06em; color: #b8ad9a; margin-bottom: 6px;
+  }
+  .ex-box {
+    background: #f5f0e8;
+    border-left: 2px solid #2d6a4f;
+    padding: 10px 14px;
+    border-radius: 0 8px 8px 0;
+    margin-top: 6px;
+  }
+  .ex-box .zh { font-size: .9rem; color: #2c2416; }
+  .ex-box .py { font-size: .72rem; color: #8a7e6c; margin-top: 1px; }
+  .ex-box .en { font-size: .75rem; color: #5a4e3c; font-style: italic; margin-top: 2px; }
+
+  /* ════════════════════════════════════════════
+     THE NOTCH — inverted quarter-circle corner
+     ════════════════════════════════════════════ */
+
+  /* Last example box: kill its bottom-right radius, make room for the notch */
+  .ex-box:last-child {
+    position: relative;
+    border-bottom-right-radius: 0;
+    padding-bottom: 14px;
+  }
+
+  /* The notch itself: a quarter-circle of the CARD background color
+     overlaid on the example box's bottom-right corner.
+     border-top-left-radius turns the square into a quarter-circle. */
+  .ex-box:last-child::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: #faf7f1;
+    border-top-left-radius: 30px;
+    z-index: 1;
+  }
+
+  /* ── ICON BUTTON (sits in the notch area) ── */
+  .notch-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: #b8ad9a;
+    cursor: pointer;
+    z-index: 2;
+    transition: color 0.2s;
+  }
+  .notch-icon:hover { color: #5a4e3c; }
+
+  .label { color: #8a7e6c; font-size: .8rem; font-weight: 600; }
+
+  /* ── DEBUG VERSION: same thing but with RED so you can SEE it ── */
+  .debug .ex-box:last-child::after {
+    background: salmon;
+  }
+</style>
+</head>
+<body>
+
+<div class="label">NORMAL COLORS (subtle but real)</div>
+<div class="card">
+  <h2>&#x56E0;&#x70BA;</h2>
+  <div class="sub">y&#x12B;nw&#xE8;i &middot; because</div>
+  <div class="examples">
+    <div class="examples-label">Example Sentences</div>
+    <div class="ex-box">
+      <div class="zh">&#x56E0;&#x70BA;&#x4E0B;&#x96E8;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4E0D;&#x53BB;&#x3002;</div>
+      <div class="py">Y&#x12B;nw&#xE8;i xi&#xE0;y&#x1D4;, su&#x1D2;y&#x1D0; w&#x1D2; b&#xFA; q&#xF9;.</div>
+      <div class="en">Because it's raining, I'm not going.</div>
+    </div>
+    <div class="ex-box">
+      <div class="zh">&#x6211;&#x5F88;&#x7D2F;&#xFF0C;&#x56E0;&#x70BA;&#x4ECA;&#x5929;&#x5DE5;&#x4F5C;&#x5F88;&#x591A;&#x3002;</div>
+      <div class="py">W&#x1D2; h&#x11B;n l&#xE8;i, y&#x12B;nw&#xE8;i j&#x12B;nti&#x101;n g&#x14D;ngzu&#xF2; h&#x11B;n du&#x14D;.</div>
+      <div class="en">I'm very tired because there was a lot of work today.</div>
+      <button class="notch-icon" title="Hide card">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="label">DEBUG VERSION (red notch so you can see the shape)</div>
+<div class="card debug">
+  <h2>&#x5E6B;&#x52A9;</h2>
+  <div class="sub">b&#x101;ngzh&#xF9; &middot; to help</div>
+  <div class="examples">
+    <div class="examples-label">Example Sentences</div>
+    <div class="ex-box">
+      <div class="zh">&#x4F60;&#x53EF;&#x4EE5;&#x5E6B;&#x52A9;&#x6211;&#x55CE;&#xFF1F;</div>
+      <div class="py">N&#x1D0; k&#x11B;y&#x1D0; b&#x101;ngzh&#xF9; w&#x1D2; ma?</div>
+      <div class="en">Can you help me?</div>
+    </div>
+    <div class="ex-box">
+      <div class="zh">&#x8B1D;&#x8B1D;&#x4F60;&#x7684;&#x5E6B;&#x52A9;&#x3002;</div>
+      <div class="py">Xi&#xE8;xi&#xE8; n&#x1D0; de b&#x101;ngzh&#xF9;.</div>
+      <div class="en">Thank you for your help.</div>
+      <button class="notch-icon" title="Delete card">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M2.75 6.16667C2.75 5.70644 3.09538 5.33335 3.52143 5.33335L6.18567 5.3329C6.71502 5.31841 7.18202 4.95482 7.36214 4.41691C7.36688 4.40277 7.37232 4.38532 7.39185 4.32203L7.50665 3.94993C7.5769 3.72179 7.6381 3.52303 7.72375 3.34536C8.06209 2.64349 8.68808 2.1561 9.41147 2.03132C9.59457 1.99973 9.78848 1.99987 10.0111 2.00002H13.4891C13.7117 1.99987 13.9056 1.99973 14.0887 2.03132C14.8121 2.1561 15.4381 2.64349 15.7764 3.34536C15.8621 3.52303 15.9233 3.72179 15.9935 3.94993L16.1083 4.32203C16.1279 4.38532 16.1333 4.40277 16.138 4.41691C16.3182 4.95482 16.8778 5.31886 17.4071 5.33335H19.9786C20.4046 5.33335 20.75 5.70644 20.75 6.16667C20.75 6.62691 20.4046 7 19.9786 7H3.52143C3.09538 7 2.75 6.62691 2.75 6.16667Z"/><path opacity="0.5" d="M11.6068 21.9998H12.3937C15.1012 21.9998 16.4549 21.9998 17.3351 21.1366C18.2153 20.2734 18.3054 18.8575 18.4855 16.0256L18.745 11.945C18.8427 10.4085 18.8916 9.6402 18.45 9.15335C18.0084 8.6665 17.2628 8.6665 15.7714 8.6665H8.22905C6.73771 8.6665 5.99204 8.6665 5.55047 9.15335C5.10891 9.6402 5.15777 10.4085 5.25549 11.945L5.515 16.0256C5.6951 18.8575 5.78515 20.2734 6.66534 21.1366C7.54553 21.9998 8.89927 21.9998 11.6068 21.9998Z"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

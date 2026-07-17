@@ -1,0 +1,19 @@
+.DS_Store
+*.bak
+*.bak-*
+old images/
+Screenshot*.png
+.claude/
+
+# --- Secrets & personal data: never commit ---
+.env
+.env.*
+
+# Loader scripts have a Supabase service_role (admin) key hardcoded inline.
+# Gitignored so a stray `git add .` can't publish them. Back them up outside git,
+# or move the key into .env and delete these two lines.
+upload-*.js
+migrate.js
+
+# Personal contact data — must not go on the public repo
+data/contacts.json
