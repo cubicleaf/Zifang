@@ -212,7 +212,7 @@ In L2 — opt-in. Default off. When on, the prompt gains ~30 tokens that ask the
 
 ## 9c. Validator + critic + routing — the three-layer correctness model
 
-Evidence from [RECON.md](RECON.md) showed the original §9a signal taxonomy was incomplete: it predicted four failure modes, but observed seven, including two — *hybrid cards* (header/body contradiction) and *confident hallucination* — that no single pre-generation gate can prevent. A single LLM call cannot reliably catch its own knowledge gaps. Multiple cheap checks at different layers can.
+Evidence from [_docs/RECON.md](_docs/RECON.md) showed the original §9a signal taxonomy was incomplete: it predicted four failure modes, but observed seven, including two — *hybrid cards* (header/body contradiction) and *confident hallucination* — that no single pre-generation gate can prevent. A single LLM call cannot reliably catch its own knowledge gaps. Multiple cheap checks at different layers can.
 
 The committed architecture for Forge correctness is **three cooperating layers**, each catching a different category of failure at a different cost:
 

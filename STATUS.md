@@ -2,7 +2,7 @@
 attention: Active
 state: Live
 form: Website
-updated: 2026-07-15
+updated: 2026-07-17
 live_url: null
 ---
 
@@ -16,7 +16,7 @@ live_url: null
 - When an idea matures into a decision, move it. When a decision is superseded, strike it through and note what replaced it.
 - Reference [INTENT.md](INTENT.md) for LLM doctrine, the pending queue for backlog, [markdowns/zifang-design-system.md](markdowns/zifang-design-system.md) for architecture.
 
-**Last updated:** 2026-07-15
+**Last updated:** 2026-07-17
 
 ## Where I left off
 
@@ -37,6 +37,11 @@ Enriched HSK6 cards 6841–6900 in `data/hsk6-enriched.json` (1900 total, zero e
 - 2026-07-15: Migrated the header from the retired `relationship / kind` pilot to the canonical `attention / state / form` schema. Zifang now reads as `Active / Live / Website`: a real deployed working surface, not just a prototype shorthand.
 
 ## Decisions
+
+### 2026-07-17 — Supporting Forge evidence and session seed moved under `_docs/`
+**What:** Moved `RECON.md` and `SEED.md` from the project root to `_docs/`.
+**Why:** RECON remains useful empirical evidence and SEED remains historical handoff context, but neither is a root-level source of truth for day-to-day Zifang work.
+**How to apply:** Start with INTENT, STATUS, and the pending queue. Consult `_docs/RECON.md` when changing Forge correctness behavior; use `_docs/SEED.md` only as historical handoff material.
 
 ### 2026-07-15 — Zifang classification moved to the canonical attention/state/form schema
 **What:** Replaced the old `relationship: Driving` / `kind: Prototype` header with `attention: Active`, `state: Live`, and `form: Website`.
@@ -63,7 +68,7 @@ The LLM does not target a fixed learner level. It reads the query as the signal 
 
 ### 2026-05-26 — Forge correctness = three-layer validator + critic + routing
 Committed architecture for Forge output correctness: (1) deterministic JS validator runs on every generation (catches pinyin/character mismatches, schema errors — zero token cost), (2) same-model critic runs after validator passes (catches internal contradictions like header/body reading mismatches — one extra Llama call), (3) §9a signal gates *route* high-risk queries to Claude Sonnet instead of Llama (catches semantic knowledge failures Llama can't catch in itself — Anthropic $$ only when needed).
-**Why:** [RECON.md](RECON.md) evidence showed the original four pre-gen signals were incomplete — two major failure modes (hybrid cards, confident hallucination) can't be caught by a single LLM call no matter how good the prompt is. Cheap layered checks catch most of what one call can't.
+**Why:** [_docs/RECON.md](_docs/RECON.md) evidence showed the original four pre-gen signals were incomplete — two major failure modes (hybrid cards, confident hallucination) can't be caught by a single LLM call no matter how good the prompt is. Cheap layered checks catch most of what one call can't.
 **How to apply:** Documented in INTENT.md §9c. Implementation order: Layer 1 first (free, biggest mechanical-error catch), Layer 2 second (low cost, catches hybrid cards), Layer 3 last (requires routing logic + Anthropic key handling). The original §9a taxonomy is repurposed from "ask the user" gates to "route to Sonnet" classifiers.
 
 ### 2026-05-27 — Clarification UI added to Forge
@@ -84,7 +89,7 @@ The polysemy + chengyu fragment pre-flight check is now prepended to every user 
 
 ### 2026-05-26 — Recon evidence supersedes original §9a signal priorities
 The four signals in INTENT.md §9a.i (stranded verbs, homophones, chengyu fragments, polysemous chars) were partly wrong. Recon priorities (revised): polysemy+hybrid cards #1, confident hallucination #2, chengyu fragment recognition #3, pinyin/Chinese consistency #4, in-compound 得 reading #5. Stranded verbs and homophones drop to #6 and #7.
-**Why:** Empirical evidence from running 21 real queries through current Forge ([RECON.md](RECON.md)) revealed two failure categories (hybrid cards, confident hallucination) that weren't in the original taxonomy, and showed two of the original four signals are less harmful in practice than predicted.
+**Why:** Empirical evidence from running 21 real queries through current Forge ([_docs/RECON.md](_docs/RECON.md)) revealed two failure categories (hybrid cards, confident hallucination) that weren't in the original taxonomy, and showed two of the original four signals are less harmful in practice than predicted.
 **How to apply:** When implementing v0 of the pre-generation gates, use the revised priorities. INTENT.md §9a.i remains as written for now but should be updated to reflect evidence before any implementation.
 
 ### 2026-05-25 — Forge prompt becomes layered/assembled, not static

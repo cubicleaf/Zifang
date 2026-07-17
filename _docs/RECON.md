@@ -1,6 +1,6 @@
 # 字坊 — RECON
 
-**What this file is.** Empirical baseline of how Forge behaves *today* against the four ambiguity signals defined in [INTENT.md §9a.i](INTENT.md). Each query was theorized to expose a gap. This doc records what actually happened.
+**What this file is.** Empirical baseline of how Forge behaves *today* against the four ambiguity signals defined in [INTENT.md §9a.i](../INTENT.md). Each query was theorized to expose a gap. This doc records what actually happened.
 
 **Methodology.** Each query is typed directly into Forge with default settings (Llama via Groq, Traditional default). The resulting card is captured. We note whether the current behavior matches the predicted failure mode, partially handles it, or unexpectedly handles it well.
 
