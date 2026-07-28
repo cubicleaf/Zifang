@@ -16,16 +16,15 @@ live_url: null
 - When an idea matures into a decision, move it. When a decision is superseded, strike it through and note what replaced it.
 - Reference [INTENT.md](INTENT.md) for LLM doctrine, the pending queue for backlog, [markdowns/zifang-design-system.md](markdowns/zifang-design-system.md) for architecture.
 
-**Last updated:** 2026-07-17
+**Last updated:** 2026-07-24
 
 ## Where I left off
 
-Enriched HSK6 cards 6841–6900 in `data/hsk6-enriched.json` (1900 total, zero errors) — 600 cards (IDs 6901–7500, ~30 batches) remain to reach the end of the skeleton.
+HSK6 enrichment is **complete and live**: all 2500 cards (IDs 5001–7500) are enriched in `data/hsk6-enriched.json`, zero R1–R10 errors, zero gaps. Uploaded to Supabase via `node upload-hsk6-enriched.js` — all 2500 upserted successfully. The live app is now serving the finished dataset.
 
 ## Back Burner
 
 - <!-- bb:supabase-key --> Move the Supabase `service_role` key out of `upload-*.js`/`migrate.js` into an untracked `.env` (scripts read `process.env`). NOT urgent — 2026-07-12 check confirmed those files are untracked and were never pushed, and they're now gitignored so `git add .` can't leak them. Rotation only needed if a leak is ever confirmed. See `_meta/SECRETS-HYGIENE.md`.
-- <!-- bb:hsk6-remaining --> HSK6 enrichment: 600 cards remain (IDs 6901–7500, ~30 batches) via the `/tmp/patch_hsk6.py` patch-JSON workflow
 - <!-- bb:forge-validator --> Forge correctness layers (per 2026-05-26 decision): Layer 1 deterministic validator first (free, biggest mechanical-error catch), then same-model critic, then Sonnet routing
 
 ## Log
@@ -47,6 +46,21 @@ Enriched HSK6 cards 6841–6900 in `data/hsk6-enriched.json` (1900 total, zero e
 **What:** Replaced the old `relationship: Driving` / `kind: Prototype` header with `attention: Active`, `state: Live`, and `form: Website`.
 **Why:** Zifang has a real working URL and is functioning as a live product surface. The older pilot vocabulary was mixing deployment reach and practical maturity in a way that no longer matches the canonical model.
 **How to apply:** Treat Zifang as active live work unless the real commitment changes. Use `Dormant` only if known unfinished work is being neglected, not merely because the app goes quiet for a while.
+
+### 2026-07-24 — HSK6 enrichment complete: all 2500 cards (IDs 5001–7500) done
+This session (continuing directly after the 7280 checkpoint below) enriched the remaining cards 7281–7500 (11 batches of 20) in `data/hsk6-enriched.json`, adding `pos`, `semanticNote`, `components`, and `examples` for each, per the user's "run until you get stopped by the compute limit" instruction. Verified after every batch: zero R1–R10 rule violations. Final check confirmed 2500/2500 cards present, IDs 5001–7500, zero gaps, zero duplicates.
+**Why:** Completes the multi-session HSK6 enrichment project started 2026-06-12.
+**How to apply:** The enrichment project is fully done — `node upload-hsk6-enriched.js` was run this session, all 2500 cards upserted to Supabase, live app now serves the complete dataset. `/tmp/append_hsk6.py` will need to be rewritten again from `markdowns/hsk6-enrichment-selfcontained.md` if a similar bulk-JSON-append workflow is needed for a future dataset, since sandbox `/tmp` doesn't persist across sessions.
+
+### 2026-07-24 — HSK6 enrichment continued to 7280 (IDs 6941–7280 complete, 340/560 cards this leg)
+This session enriched cards 6941–7280 (17 batches of 20) in `data/hsk6-enriched.json`, adding `pos`, `semanticNote`, `components`, and `examples` for each. Verified after every batch: zero R1–R10 rule violations, checked programmatically batch by batch. Total 1900→2280.
+**Why:** Continuing the multi-session HSK6 enrichment project toward ID 7500.
+**How to apply:** 220 cards (7281–7500, ~11 batches) remain. Upload to Supabase (`node upload-hsk6-enriched.js`) was not run this session — still local-only; run it once enrichment reaches 7500 or whenever Tim wants the live app updated early.
+
+### 2026-07-23 — HSK6 enrichment continued to 6940 (IDs 6901–6940 complete, 40/560 cards this leg)
+This session enriched cards 6901–6940 (2 batches of 20) in `data/hsk6-enriched.json`, adding `pos`, `semanticNote`, `components`, and `examples` for each. Verified before/after: 1900→1940 total cards, zero R1–R10 rule violations on both batches (checked programmatically).
+**Why:** Continuing the multi-session HSK6 enrichment project toward ID 7500.
+**How to apply:** `/tmp/append_hsk6.py` and `/tmp/patch_hsk6.py` from prior sessions were gone (sandbox `/tmp` doesn't persist across sessions) — rewrote `append_hsk6.py` from the spec in `markdowns/hsk6-enrichment-selfcontained.md`, with one addition: it now also sets `category: "hsk6"` and `depth: "basic"` on each new card and pulls `english` from the skeleton, matching the actual schema found in existing cards (which the enrichment doc's schema section doesn't mention). Next session should rewrite the script the same way before continuing.
 
 ### 2026-07-01 — HSK6 enrichment continued to 6900 (IDs 6841–6900 complete, 60/600 cards this leg)
 This session enriched cards 6841–6900 (3 batches of 20) in `data/hsk6-enriched.json`, adding `pos`, `semanticNote`, `components`, and `examples` for each. Verified before/after: 1840→1900 total cards, max ID 6840→6900, zero errors from `/tmp/patch_hsk6.py`.
