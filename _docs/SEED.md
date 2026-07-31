@@ -20,7 +20,7 @@ Do not respond to Tim until you have read all three. Do not summarize them back 
 
 - **The app is a single-file HTML at `index.html`** (~677KB, ~17,000 lines, vanilla JS, mobile-first). Tabs: Browse / Drill / Forge / Workshop.
 - **Three LLM surfaces exist:**
-  - Forge card generation — `generateNugget()` at line ~11329, with the sysPrompt as a string literal at line ~11377.
+  - Forge card generation — `generateCard()` at line ~11329, with the sysPrompt as a string literal at line ~11377.
   - Workshop Stage dialogue — `buildStageSystemPrompt()` at line ~11909.
   - Workshop character/speaker enrichment — `buildCharacterEnrichmentPrompt()` at line ~12210.
 - **"Speakers" not "characters"** for the people in dialogue scenes. "Characters" is reserved for 字 (Chinese characters). The UI was already renamed; preserve this in any new code/copy.
@@ -47,7 +47,7 @@ This sequencing is non-negotiable unless Tim says otherwise. Earlier phases unbl
 **Why first:** Zero token cost. Pure JavaScript. Would have caught 6 of 21 recon failures by itself. No architecture refactor needed.
 
 **What to build:**
-- A `validateNugget(nuggetData)` function called in `generateNugget()` *after* JSON parse, *before* the localStorage save (currently around line 11450-11479).
+- A `validateGeneratedCard(cardData)` function called in `generateCard()` *after* JSON parse, *before* the localStorage save (currently around line 11450-11479).
 - Returns `{ok: true}` or `{ok: false, issues: [...]}`.
 - Checks to implement:
   1. **Required fields present:** traditional, simplified, pinyin, english, semanticNote, category, depth, pos, components, examples.

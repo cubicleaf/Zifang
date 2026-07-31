@@ -196,7 +196,7 @@ The principle: **pay tokens for what this user wants on this query, not for what
 ### What this requires (not yet built)
 
 - A user preferences model (where it lives: localStorage, probably `zifang-llm-preferences`).
-- A prompt builder function instead of a string constant in `generateNugget()`.
+- A prompt builder function instead of a string constant in `generateCard()`.
 - Settings UI to expose the L2 interest filters — and a sensible set of defaults for new users (probably: chengyu off, etymology off, register sensitivity on).
 - A way to surface that the prompt was assembled this way for debugging — without leaking it to the user.
 

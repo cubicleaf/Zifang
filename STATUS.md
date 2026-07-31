@@ -28,6 +28,7 @@ HSK6 enrichment is **complete and live**: all 2500 cards (IDs 5001–7500) are e
 
 ## Log
 
+- 2026-07-31: Began the runtime terminology cleanup away from legacy `nugget` wording. Safe pass completed in `index.html`: core Forge/runtime identifiers now use `card` language (`generateCard`, `validateGeneratedCard`, `ALL_CARDS`, `pendingCard`, `userCards`, etc.). Verified with a JS syntax check on the extracted inline script. Remaining `nugget` strings are intentionally limited to persistence-sensitive localStorage/cache/theme/auth keys and compatibility comments around them.
 - 2026-07-31: Supabase admin-key hygiene cleanup is complete. Created an untracked project-root `.env`, moved the `service_role` credential out of `upload-*.js` and `migrate.js`, added loud missing-env failure guards to those scripts, and created `_meta/SECRETS-HYGIENE.md` so the procedure is actually documented. No public leak was found; no key rotation performed.
 - 2026-07-12: The 2026-07-01 `service_role` "exposure" was investigated and is **not a public leak**: the scripts holding the admin key (`upload-*.js`, `migrate.js`) are **untracked and were never committed** to the public `cubicleaf/Zifang` repo (which tracks only `index.html`, carrying the public-by-design `anon` key). The latent risk — a stray `git add .` sweeping the secret scripts in — was closed by gitignoring `.env`/`upload-*.js`/`migrate.js`/`data/contacts.json`. The remaining work at that point was hygiene only, and it was completed on 2026-07-31.
 - 2026-07-12: Investigated the 2026-07-01 `service_role` "exposure" — it is NOT public. The upload scripts and `migrate.js` that hold the admin key are untracked and were never committed (`git log --all` empty for them); the public repo tracks only `index.html`, which carries the `anon` key (public by design). Closed the latent risk by gitignoring `.env`, `upload-*.js`, `migrate.js`, and `data/contacts.json` so a stray `git add .` can't leak them. The hygiene guide now lives at `_meta/SECRETS-HYGIENE.md`.
@@ -36,6 +37,11 @@ HSK6 enrichment is **complete and live**: all 2500 cards (IDs 5001–7500) are e
 - 2026-07-15: Migrated the header from the retired `relationship / kind` pilot to the canonical `attention / state / form` schema. Zifang now reads as `Active / Live / Website`: a real deployed working surface, not just a prototype shorthand.
 
 ## Decisions
+
+### 2026-07-31 — Runtime terminology starts moving from `nugget` to `card`
+**What:** Renamed the safe in-memory/runtime layer in `index.html` away from `nugget` language: Forge now calls `generateCard()` / `validateGeneratedCard()`, the merged library is `ALL_CARDS`, and pending/generated/user-created card objects now use `card`-based variable names.
+**Why:** `nugget` was a historical scope artifact from an earlier, smaller version of Zifang. In the current app it obscures what the system actually manipulates: cards inside decks inside a larger library.
+**How to apply:** Keep using `card` for single study items, `deck` for groupings, and `library`/`cards` for collections. Do not blindly rename persistence keys (`user-nuggets`, `nugget-lexicon`, etc.) without an explicit compatibility/migration pass.
 
 ### 2026-07-31 — Supabase admin key moved into untracked `.env`
 **What:** Removed the inline `service_role` credential from `migrate.js` and all `upload-*.js` scripts. Those local admin scripts now read `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` from the untracked project-root `.env`, fail loudly if either is missing, and point to `_meta/SECRETS-HYGIENE.md` for the maintenance rule.
@@ -96,7 +102,7 @@ Committed architecture for Forge output correctness: (1) deterministic JS valida
 **How to apply:** Documented in INTENT.md §9c. Implementation order: Layer 1 first (free, biggest mechanical-error catch), Layer 2 second (low cost, catches hybrid cards), Layer 3 last (requires routing logic + Anthropic key handling). The original §9a taxonomy is repurposed from "ask the user" gates to "route to Sonnet" classifiers.
 
 ### 2026-05-27 — Clarification UI added to Forge
-When the model returns `needsClarification` JSON, Forge now shows the question + clickable reading/option chips in the status area instead of a parse error. User's selection routes back into `generateNugget()` with the chosen context as a clarification parameter. Button state managed across the retry cycle via `_forgeInRetry` flag to prevent flicker.
+When the model returns `needsClarification` JSON, Forge now shows the question + clickable reading/option chips in the status area instead of a parse error. User's selection routes back into `generateCard()` with the chosen context as a clarification parameter. Button state managed across the retry cycle via `_forgeInRetry` flag to prevent flicker.
 **Why:** Required JS infrastructure for the clarification gate to be usable. Without it, any `needsClarification` response silently failed.
 
 ### 2026-05-27 — Forge sysPrompt rewritten
@@ -108,7 +114,7 @@ The polysemy + chengyu fragment pre-flight check is now prepended to every user 
 **Why:** Llama follows user-turn instructions more reliably than instructions buried 500+ tokens into a system prompt. Gate was misfiring for 行 and 著 under the old architecture. ~25 extra tokens per call, worth it for gate reliability.
 
 ### 2026-05-27 — Phase 1 validator implemented
-`validateNugget()` runs on every Forge generation before saving. Seven checks: required fields present, exactly 2 examples, each example has all three fields, pinyin token count matches character count (one space-separated syllable per character), components length = headword length, particle repetition typos, tone mark enforcement. On failure: one automatic retry with the specific issues injected into the user context; graceful error to user if retry also fails. Retry suppresses button flicker via `_forgeInRetry` flag.
+`validateGeneratedCard()` runs on every Forge generation before saving. Seven checks: required fields present, exactly 2 examples, each example has all three fields, pinyin token count matches character count (one space-separated syllable per character), components length = headword length, particle repetition typos, tone mark enforcement. On failure: one automatic retry with the specific issues injected into the user context; graceful error to user if retry also fails. Retry suppresses button flicker via `_forgeInRetry` flag.
 **Why:** RECON showed 6/21 failures were catchable by pure JS at zero token cost. Validator is the scalable backstop for structural errors the prompt can't reliably prevent.
 
 ### 2026-05-26 — Recon evidence supersedes original §9a signal priorities

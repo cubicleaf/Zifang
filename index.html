@@ -8488,6 +8488,7 @@ function isCatLoaded(cat) {
 }
 
 // ========== FAVORITES (localStorage) ==========
+// Legacy localStorage key kept for backward compatibility.
 const FAVORITES_KEY = 'nugget-explorer-favorites';
 function loadFavorites() {
   try {
@@ -8499,43 +8500,44 @@ function saveFavorites() {
   localStorage.setItem(FAVORITES_KEY, JSON.stringify([...state.favorites]));
 }
 
-// ========== HIDDEN NUGGETS (built-in cards the user has hidden) ==========
-const HIDDEN_NUGGETS_KEY = 'zf_hidden_nuggets';
-function loadHiddenNuggets() {
-  try { return new Set(JSON.parse(localStorage.getItem(HIDDEN_NUGGETS_KEY) || '[]')); }
+// ========== HIDDEN CARDS (built-in cards the user has hidden) ==========
+const HIDDEN_CARD_IDS_KEY = 'zf_hidden_nuggets';
+function loadHiddenCards() {
+  try { return new Set(JSON.parse(localStorage.getItem(HIDDEN_CARD_IDS_KEY) || '[]')); }
   catch(e) { return new Set(); }
 }
-function saveHiddenNuggets() {
-  localStorage.setItem(HIDDEN_NUGGETS_KEY, JSON.stringify([...state.hiddenNuggets]));
+function saveHiddenCards() {
+  localStorage.setItem(HIDDEN_CARD_IDS_KEY, JSON.stringify([...state.hiddenCards]));
 }
-function restoreAllHiddenNuggets() {
-  state.hiddenNuggets.clear();
-  saveHiddenNuggets();
+function restoreAllHiddenCards() {
+  state.hiddenCards.clear();
+  saveHiddenCards();
   renderBrowse();
 }
 
-function toggleFavorite(nuggetId) {
-  if (state.favorites.has(nuggetId)) {
-    state.favorites.delete(nuggetId);
+function toggleFavorite(cardId) {
+  if (state.favorites.has(cardId)) {
+    state.favorites.delete(cardId);
   } else {
-    state.favorites.add(nuggetId);
+    state.favorites.add(cardId);
   }
   saveFavorites();
   renderBrowse();
 }
 
-// ========== USER-CREATED NUGGETS ==========
-let ALL_NUGGETS = []; // populated from Supabase — inline arrays kept as offline fallback
+// ========== USER-CREATED CARDS ==========
+let ALL_CARDS = []; // populated from Supabase — inline arrays kept as offline fallback
 
-function loadUserNuggets() {
+function loadUserCards() {
   try {
+    // Legacy localStorage key kept for backward compatibility.
     return JSON.parse(localStorage.getItem('user-nuggets') || '[]');
   } catch(e) { return []; }
 }
 
-function rebuildAllNuggets() {
-  const userNuggets = loadUserNuggets();
-  ALL_NUGGETS = [..._remoteCards, ...userNuggets];
+function rebuildAllCards() {
+  const userCards = loadUserCards();
+  ALL_CARDS = [..._remoteCards, ...userCards];
 }
 
 // ========== STATE ==========
@@ -8546,7 +8548,7 @@ let state = {
   favorites: loadFavorites(),
   struggling: loadStruggling(),
   loadedPacks: loadLoadedPacks(),
-  hiddenNuggets: loadHiddenNuggets(),
+  hiddenCards: loadHiddenCards(),
   view: 'cards',
   expandedCardIdx: null,
   drill: {
@@ -9044,7 +9046,7 @@ function hpHide(el) {
   var LONG_PRESS_MS  = 500;
   var SWIPE_THRESHOLD = 70;
   var SWIPE_AXIS_LOCK = 12;
-  var _s = { timer:null, armed:false, el:null, nuggetId:null, action:null,
+  var _s = { timer:null, armed:false, el:null, cardId:null, action:null,
              startX:0, startY:0, locked:null, swiping:false, currentDX:0 };
 
   function swipeReset(snapBack) {
@@ -9061,17 +9063,17 @@ function hpHide(el) {
         _s.el.style.transition = '';
       }
     }
-    _s = { timer:null, armed:false, el:null, nuggetId:null, action:null,
+    _s = { timer:null, armed:false, el:null, cardId:null, action:null,
            startX:0, startY:0, locked:null, swiping:false, currentDX:0 };
   }
 
   function swipeConfirm() {
-    var el = _s.el, nid = _s.nuggetId, action = _s.action;
+    var el = _s.el, nid = _s.cardId, action = _s.action;
     el.style.transition = 'transform 0.22s cubic-bezier(0.4,0,1,1), opacity 0.22s';
     el.style.transform = 'translateX(-110%)';
     el.style.opacity = '0';
     el.style.pointerEvents = 'none';
-    _s = { timer:null, armed:false, el:null, nuggetId:null, action:null,
+    _s = { timer:null, armed:false, el:null, cardId:null, action:null,
            startX:0, startY:0, locked:null, swiping:false, currentDX:0 };
     el.addEventListener('transitionend', function() {
       if (action === 'delete') _finishDeleteCard(nid);
@@ -9087,7 +9089,7 @@ function hpHide(el) {
     if (_s.armed || _s.timer) swipeReset(true);
     var touch = e.touches[0];
     _s.el = card;
-    _s.nuggetId = parseInt(card.dataset.nid);
+    _s.cardId = parseInt(card.dataset.nid);
     _s.action = card.dataset.swipeAction || 'hide';
     _s.startX = touch.clientX;
     _s.startY = touch.clientY;
@@ -9138,9 +9140,9 @@ function stripTones(str) {
 
 function getFiltered() {
   const memberships = loadDeckMemberships(); // load once per filter pass
-  return ALL_NUGGETS.filter(n => {
-    // Skip built-in nuggets the user has manually hidden
-    if (!n.userCreated && !n.userCategory && state.hiddenNuggets.has(n.id)) return false;
+  return ALL_CARDS.filter(n => {
+    // Skip built-in cards the user has manually hidden
+    if (!n.userCreated && !n.userCategory && state.hiddenCards.has(n.id)) return false;
 
     // Determine if this card has a user-deck assignment (forged userCategory OR built-in overlay)
     const overlayDeckId = !n.userCategory ? memberships[n.id] : null;
@@ -9240,9 +9242,9 @@ function updateStrugglingBubble() {
 function getDrillFiltered() {
   const userCats = loadUserCategories(); // load once outside loop
   const memberships = loadDeckMemberships(); // overlay for built-in cards in user decks
-  return ALL_NUGGETS.filter(n => {
-    // Skip hidden built-in nuggets (unless they're in struggling — keep those accessible)
-    if (!n.userCreated && !n.userCategory && state.hiddenNuggets.has(n.id) && !state.struggling.has(n.id)) return false;
+  return ALL_CARDS.filter(n => {
+    // Skip hidden built-in cards (unless they're in struggling — keep those accessible)
+    if (!n.userCreated && !n.userCategory && state.hiddenCards.has(n.id) && !state.struggling.has(n.id)) return false;
 
     // Determine overlay deck for built-in cards
     const overlayDeckId = !n.userCategory ? memberships[n.id] : null;
@@ -9425,16 +9427,16 @@ function renderBrowse() {
   }
 
   if (isCardView) {
-    filtered.forEach((nugget, idx) => {
-      const card = createCard(nugget, idx);
-      card.classList.add('card-entering');
-      container.appendChild(card);
+    filtered.forEach((cardItem, idx) => {
+      const cardEl = createCard(cardItem, idx);
+      cardEl.classList.add('card-entering');
+      container.appendChild(cardEl);
     });
   } else {
     const listView = document.createElement('div');
     listView.className = 'list-view active';
-    filtered.forEach((nugget, idx) => {
-      const item = createListItem(nugget, idx);
+    filtered.forEach((cardItem, idx) => {
+      const item = createListItem(cardItem, idx);
       item.classList.add('card-entering');
       listView.appendChild(item);
     });
@@ -9498,49 +9500,49 @@ function renderBrowseProgressive() {
   renderChunk(); // synchronous first batch → cards begin fading in immediately
 }
 
-function createCard(nugget, idx) {
-  const card = document.createElement('div');
-  card.className = 'card';
-  card.dataset.nid = nugget.id;
-  const depthLabel = nugget.depth === 'basic' ? hoverPinyin('基礎', 'jīchǔ') + ' Basic' : nugget.depth === 'intermediate' ? hoverPinyin('中級', 'zhōngjí') + ' Intermediate' : hoverPinyin('深入', 'shēnrù') + ' Deep';
+function createCard(cardEntry, idx) {
+  const cardEl = document.createElement('div');
+  cardEl.className = 'card';
+  cardEl.dataset.nid = cardEntry.id;
+  const depthLabel = cardEntry.depth === 'basic' ? hoverPinyin('基礎', 'jīchǔ') + ' Basic' : cardEntry.depth === 'intermediate' ? hoverPinyin('中級', 'zhōngjí') + ' Intermediate' : hoverPinyin('深入', 'shēnrù') + ' Deep';
   // Smart blue pill: for Forge cards use forgeCategory (meaningful type), else use category
   // vocab with POS gets a POS label instead
-  const displayCat = nugget.forgeCategory || nugget.category;
-  const typeLabel = (displayCat === 'vocab' && nugget.pos) ? getPosLabel(nugget.pos) : getCategoryLabelBilingual(displayCat);
-  const hasComp = nugget.components && nugget.components.length > 0;
-  const hasEx = nugget.examples && nugget.examples.length > 0;
+  const displayCat = cardEntry.forgeCategory || cardEntry.category;
+  const typeLabel = (displayCat === 'vocab' && cardEntry.pos) ? getPosLabel(cardEntry.pos) : getCategoryLabelBilingual(displayCat);
+  const hasComp = cardEntry.components && cardEntry.components.length > 0;
+  const hasEx = cardEntry.examples && cardEntry.examples.length > 0;
 
-  const isFav = state.favorites.has(nugget.id);
-  const charLen = (nugget.traditional || nugget.simplified).replace(/·/g, '').length;
-  card.innerHTML = `
+  const isFav = state.favorites.has(cardEntry.id);
+  const charLen = (cardEntry.traditional || cardEntry.simplified).replace(/·/g, '').length;
+  cardEl.innerHTML = `
     <div class="card-top">
       <div class="card-left">
         <div class="card-char-row ${charLen >= 10 ? 'char-row-long' : ''}">
-          <span class="card-char">${nugget.traditional}</span>
-          <button class="fav-star-inline ${isFav ? 'active' : ''}" data-fav-id="${nugget.id}" title="Toggle Favorite"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 11.0975V16.0909C3 19.1875 3 20.7358 3.73411 21.4123C4.08422 21.735 4.52615 21.9377 4.99692 21.9915C5.98402 22.1045 7.13675 21.0849 9.44216 19.0458C10.4612 18.1445 10.9708 17.6938 11.5603 17.5751C11.8506 17.5166 12.1494 17.5166 12.4397 17.5751C13.0292 17.6938 13.5388 18.1445 14.5578 19.0458C16.8633 21.0849 18.016 22.1045 19.0031 21.9915C19.4739 21.9377 19.9158 21.735 20.2659 21.4123C21 20.7358 21 19.1875 21 16.0909V11.0975C21 6.80891 21 4.6646 19.682 3.3323C18.364 2 16.2426 2 12 2C7.75736 2 5.63604 2 4.31802 3.3323C3.5108 4.14827 3.19796 5.26881 3.07672 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M15 6H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+          <span class="card-char">${cardEntry.traditional}</span>
+          <button class="fav-star-inline ${isFav ? 'active' : ''}" data-fav-id="${cardEntry.id}" title="Toggle Favorite"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 11.0975V16.0909C3 19.1875 3 20.7358 3.73411 21.4123C4.08422 21.735 4.52615 21.9377 4.99692 21.9915C5.98402 22.1045 7.13675 21.0849 9.44216 19.0458C10.4612 18.1445 10.9708 17.6938 11.5603 17.5751C11.8506 17.5166 12.1494 17.5166 12.4397 17.5751C13.0292 17.6938 13.5388 18.1445 14.5578 19.0458C16.8633 21.0849 18.016 22.1045 19.0031 21.9915C19.4739 21.9377 19.9158 21.735 20.2659 21.4123C21 20.7358 21 19.1875 21 16.0909V11.0975C21 6.80891 21 4.6646 19.682 3.3323C18.364 2 16.2426 2 12 2C7.75736 2 5.63604 2 4.31802 3.3323C3.5108 4.14827 3.19796 5.26881 3.07672 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M15 6H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
         </div>
-        <div class="card-pinyin" style="font-size: ${calcPinyinFontSize((nugget.traditional || nugget.simplified).length, formatCardPinyin(nugget))}rem">${formatCardPinyin(nugget)}</div>
-        <div class="card-english"><span class="card-english-text">${nugget.english}</span></div>
+        <div class="card-pinyin" style="font-size: ${calcPinyinFontSize((cardEntry.traditional || cardEntry.simplified).length, formatCardPinyin(cardEntry))}rem">${formatCardPinyin(cardEntry)}</div>
+        <div class="card-english"><span class="card-english-text">${cardEntry.english}</span></div>
       </div>
       <div class="card-pills">
-        <div class="pill depth ${(nugget.depth || '').toLowerCase()}">${depthLabel}</div>
+        <div class="pill depth ${(cardEntry.depth || '').toLowerCase()}">${depthLabel}</div>
         <div class="pill pos">${typeLabel}</div>
       </div>
     </div>
     <div class="card-details">
-      ${nugget.semanticNote ? `<div class="detail-section"><p class="semantic-note">${nugget.semanticNote}</p></div>` : ''}
+      ${cardEntry.semanticNote ? `<div class="detail-section"><p class="semantic-note">${cardEntry.semanticNote}</p></div>` : ''}
       ${hasComp ? `<div class="detail-section"><div class="detail-label">Character Breakdown</div>
-        <div class="components-grid">${nugget.components.map(c => `<div class="component-item"><div class="component-char">${c.char}</div><div class="component-pinyin">${c.pinyin}</div><div class="component-meaning">${c.meaning}</div></div>`).join('')}</div></div>` : ''}
-      ${hasEx ? `<div class="detail-section"><div class="detail-label">Example Sentences</div>${nugget.examples.map(ex => `<div class="example-item"><div class="ex-zh">${ex.chinese}</div><div class="ex-pinyin">${chunkSentencePinyin(ex.pinyin)}</div><div class="ex-en">${ex.english}</div></div>`).join('')}</div>` : ''}
+        <div class="components-grid">${cardEntry.components.map(c => `<div class="component-item"><div class="component-char">${c.char}</div><div class="component-pinyin">${c.pinyin}</div><div class="component-meaning">${c.meaning}</div></div>`).join('')}</div></div>` : ''}
+      ${hasEx ? `<div class="detail-section"><div class="detail-label">Example Sentences</div>${cardEntry.examples.map(ex => `<div class="example-item"><div class="ex-zh">${ex.chinese}</div><div class="ex-pinyin">${chunkSentencePinyin(ex.pinyin)}</div><div class="ex-en">${ex.english}</div></div>`).join('')}</div>` : ''}
     </div>
   `;
 
   // Mark card as user-created (deletable) or built-in (hideable) for swipe + action button
-  const isUserCard = !!nugget.userCreated;
-  card.dataset.swipeAction = isUserCard ? 'delete' : 'hide';
+  const isUserCard = !!cardEntry.userCreated;
+  cardEl.dataset.swipeAction = isUserCard ? 'delete' : 'hide';
 
   // Inject notch icon button into the last example-item of the card
-  const detailsEl = card.querySelector('.card-details');
+  const detailsEl = cardEl.querySelector('.card-details');
   if (detailsEl) {
     const trashSvg = `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M2.75 6.16667C2.75 5.70644 3.09538 5.33335 3.52143 5.33335L6.18567 5.3329C6.71502 5.31841 7.18202 4.95482 7.36214 4.41691C7.36688 4.40277 7.37232 4.38532 7.39185 4.32203L7.50665 3.94993C7.5769 3.72179 7.6381 3.52303 7.72375 3.34536C8.06209 2.64349 8.68808 2.1561 9.41147 2.03132C9.59457 1.99973 9.78848 1.99987 10.0111 2.00002H13.4891C13.7117 1.99987 13.9056 1.99973 14.0887 2.03132C14.8121 2.1561 15.4381 2.64349 15.7764 3.34536C15.8621 3.52303 15.9233 3.72179 15.9935 3.94993L16.1083 4.32203C16.1279 4.38532 16.1333 4.40277 16.138 4.41691C16.3182 4.95482 16.8778 5.31886 17.4071 5.33335H19.9786C20.4046 5.33335 20.75 5.70644 20.75 6.16667C20.75 6.62691 20.4046 7 19.9786 7H3.52143C3.09538 7 2.75 6.62691 2.75 6.16667Z"/><path opacity="0.5" d="M11.6068 21.9998H12.3937C15.1012 21.9998 16.4549 21.9998 17.3351 21.1366C18.2153 20.2734 18.3054 18.8575 18.4855 16.0256L18.745 11.945C18.8427 10.4085 18.8916 9.6402 18.45 9.15335C18.0084 8.6665 17.2628 8.6665 15.7714 8.6665H8.22905C6.73771 8.6665 5.99204 8.6665 5.55047 9.15335C5.10891 9.6402 5.15777 10.4085 5.25549 11.945L5.515 16.0256C5.6951 18.8575 5.78515 20.2734 6.66534 21.1366C7.54553 21.9998 8.89927 21.9998 11.6068 21.9998Z"/></svg>`;
     const eyeSlashSvg = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>`;
@@ -9551,14 +9553,14 @@ function createCard(nugget, idx) {
       const btn = document.createElement('button');
       btn.className = isUserCard ? 'card-action-btn delete-btn' : 'card-action-btn hide-btn';
       btn.dataset.action = isUserCard ? 'delete' : 'hide';
-      btn.dataset.nid = nugget.id;
+      btn.dataset.nid = cardEntry.id;
       btn.title = isUserCard ? 'Delete card' : 'Hide card';
       btn.innerHTML = isUserCard ? trashSvg : eyeSlashSvg;
       lastExItem.appendChild(btn);
     }
   }
 
-  card.addEventListener('click', (e) => {
+  cardEl.addEventListener('click', (e) => {
     // Star click: toggle favorite without expanding card
     const starBtn = e.target.closest('.fav-star-inline');
     if (starBtn) {
@@ -9575,32 +9577,32 @@ function createCard(nugget, idx) {
       const action = actionBtn.dataset.action;
       if (action === 'delete') {
         // Open delete confirmation modal
-        openDeleteModal(nid, card);
+        openDeleteModal(nid, cardEl);
       } else {
         // Hide is single-tap (reversible via Settings)
-        executeHideCard(nid, card);
+        executeHideCard(nid, cardEl);
       }
       return;
     }
-    card.classList.toggle('expanded');
+    cardEl.classList.toggle('expanded');
   });
 
-  return card;
+  return cardEl;
 }
 
-function createListItem(nugget, idx) {
+function createListItem(cardEntry, idx) {
   const item = document.createElement('div');
   item.className = 'compact-row';
   // Mark action type so swipe gesture knows what to do
-  item.dataset.nid = nugget.id;
-  item.dataset.swipeAction = nugget.userCreated ? 'delete' : 'hide';
-  const isFav = state.favorites.has(nugget.id);
+  item.dataset.nid = cardEntry.id;
+  item.dataset.swipeAction = cardEntry.userCreated ? 'delete' : 'hide';
+  const isFav = state.favorites.has(cardEntry.id);
   item.innerHTML = `
-    <button class="list-fav-star ${isFav ? 'active' : ''}" data-fav-id="${nugget.id}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 11.0975V16.0909C3 19.1875 3 20.7358 3.73411 21.4123C4.08422 21.735 4.52615 21.9377 4.99692 21.9915C5.98402 22.1045 7.13675 21.0849 9.44216 19.0458C10.4612 18.1445 10.9708 17.6938 11.5603 17.5751C11.8506 17.5166 12.1494 17.5166 12.4397 17.5751C13.0292 17.6938 13.5388 18.1445 14.5578 19.0458C16.8633 21.0849 18.016 22.1045 19.0031 21.9915C19.4739 21.9377 19.9158 21.735 20.2659 21.4123C21 20.7358 21 19.1875 21 16.0909V11.0975C21 6.80891 21 4.6646 19.682 3.3323C18.364 2 16.2426 2 12 2C7.75736 2 5.63604 2 4.31802 3.3323C3.5108 4.14827 3.19796 5.26881 3.07672 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M15 6H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
-    <div class="cr-char">${nugget.traditional || nugget.simplified}</div>
-    <div class="cr-pinyin">${nugget.pinyin.replace(/[,，]/g, '').replace(/\s+/g, '\u200B')}</div>
-    <div class="cr-english">${nugget.english}</div>
-    <span class="cr-depth ${(nugget.depth || '').toLowerCase()}">${nugget.depth === 'basic' ? 'Basic' : nugget.depth === 'intermediate' ? 'Intermediate' : nugget.depth === 'rich' ? 'Deep' : ''}</span>
+    <button class="list-fav-star ${isFav ? 'active' : ''}" data-fav-id="${cardEntry.id}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 11.0975V16.0909C3 19.1875 3 20.7358 3.73411 21.4123C4.08422 21.735 4.52615 21.9377 4.99692 21.9915C5.98402 22.1045 7.13675 21.0849 9.44216 19.0458C10.4612 18.1445 10.9708 17.6938 11.5603 17.5751C11.8506 17.5166 12.1494 17.5166 12.4397 17.5751C13.0292 17.6938 13.5388 18.1445 14.5578 19.0458C16.8633 21.0849 18.016 22.1045 19.0031 21.9915C19.4739 21.9377 19.9158 21.735 20.2659 21.4123C21 20.7358 21 19.1875 21 16.0909V11.0975C21 6.80891 21 4.6646 19.682 3.3323C18.364 2 16.2426 2 12 2C7.75736 2 5.63604 2 4.31802 3.3323C3.5108 4.14827 3.19796 5.26881 3.07672 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M15 6H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+    <div class="cr-char">${cardEntry.traditional || cardEntry.simplified}</div>
+    <div class="cr-pinyin">${cardEntry.pinyin.replace(/[,，]/g, '').replace(/\s+/g, '\u200B')}</div>
+    <div class="cr-english">${cardEntry.english}</div>
+    <span class="cr-depth ${(cardEntry.depth || '').toLowerCase()}">${cardEntry.depth === 'basic' ? 'Basic' : cardEntry.depth === 'intermediate' ? 'Intermediate' : cardEntry.depth === 'rich' ? 'Deep' : ''}</span>
   `;
 
   item.addEventListener('click', (e) => {
@@ -9728,15 +9730,15 @@ function chunkSentencePinyin(pinyin) {
   return groups.join(' | ');
 }
 
-function formatCardPinyin(nugget) {
+function formatCardPinyin(cardEntry) {
   // Strip commas from pinyin for display
-  const cleanPinyin = nugget.pinyin.replace(/[,，]/g, '');
-  if (!nugget.components || nugget.components.length === 0) {
+  const cleanPinyin = cardEntry.pinyin.replace(/[,，]/g, '');
+  if (!cardEntry.components || cardEntry.components.length === 0) {
     return cleanPinyin;
   }
 
-  const syllables = nugget.components.map(c => c.pinyin);
-  const numChars = (nugget.traditional || nugget.simplified).replace(/·/g, '').length;
+  const syllables = cardEntry.components.map(c => c.pinyin);
+  const numChars = (cardEntry.traditional || cardEntry.simplified).replace(/·/g, '').length;
   const originalTokens = cleanPinyin.trim().split(/\s+/);
 
   // If components don't match char count, fall back to original pinyin
@@ -9803,7 +9805,7 @@ function formatCardPinyin(nugget) {
     '百聞不如一見': [3, 3]
   };
 
-  const chars = (nugget.traditional || nugget.simplified).replace(/·/g, '');
+  const chars = (cardEntry.traditional || cardEntry.simplified).replace(/·/g, '');
   const splits = customSplits[chars];
   if (splits) {
     const groups = [];
@@ -9828,7 +9830,7 @@ function formatCardPinyin(nugget) {
 // Smart line-break helper for drill character display
 // Returns innerHTML string with <br> at a meaningful break point,
 // or null if no break is needed (caller uses textContent instead).
-function smartWrapDrillChar(text, nugget) {
+function smartWrapDrillChar(text, cardEntry) {
   const len = text.replace(/·/g, '').length;
   if (len <= 5) return null; // short enough — no wrap needed
 
@@ -9836,8 +9838,8 @@ function smartWrapDrillChar(text, nugget) {
   const safe = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
   // 1. Manual override: card author specifies exact break index
-  if (nugget.displayBreak > 0 && nugget.displayBreak < len) {
-    const bp = nugget.displayBreak;
+  if (cardEntry.displayBreak > 0 && cardEntry.displayBreak < len) {
+    const bp = cardEntry.displayBreak;
     return safe(text.slice(0, bp)) + '<br>' + safe(text.slice(bp));
   }
 
@@ -9913,7 +9915,7 @@ function matchPinyinWidth(charEl, pinyinEl) {
 }
 
 // ========== DRILL RENDERING ==========
-function renderDrillCard(nugget) {
+function renderDrillCard(cardEntry) {
   const front = document.getElementById('flip-front');
   const back = document.getElementById('flip-back');
 
@@ -9927,14 +9929,14 @@ function renderDrillCard(nugget) {
   lookupBtn.title = 'View full entry in Browse';
   lookupBtn.addEventListener('click', (e) => {
     e.stopPropagation();
-    // Find this nugget's index in the full NUGGETS array
-    const browseIdx = ALL_NUGGETS.indexOf(nugget) !== -1 ? ALL_NUGGETS.indexOf(nugget) :
-      ALL_NUGGETS.findIndex(n => n.id === nugget.id);
+    // Find this card's index in the full card library
+    const browseIdx = ALL_CARDS.indexOf(cardEntry) !== -1 ? ALL_CARDS.indexOf(cardEntry) :
+      ALL_CARDS.findIndex(n => n.id === cardEntry.id);
     if (browseIdx === -1) return;
 
     // Reset browse to ONLY show the category of this word
     state.selectedCats.clear();
-    state.selectedCats.add(nugget.category);
+    state.selectedCats.add(cardEntry.category);
     state.searchQuery = '';
     document.getElementById('search-input').value = '';
     updateCategoryBubbles('browse');
@@ -9953,7 +9955,7 @@ function renderDrillCard(nugget) {
     setTimeout(() => {
       // Re-find index in filtered list (since we changed categories)
       const filtered = getFiltered();
-      const filteredIdx = filtered.findIndex(n => n.id === nugget.id);
+      const filteredIdx = filtered.findIndex(n => n.id === cardEntry.id);
       const cards = document.querySelectorAll('.card');
       const targetIdx = filteredIdx !== -1 ? filteredIdx : 0;
       if (cards[targetIdx]) {
@@ -9966,14 +9968,14 @@ function renderDrillCard(nugget) {
   front.appendChild(lookupBtn);
 
   // Favorite star on drill cards
-  const isFav = state.favorites.has(nugget.id);
+  const isFav = state.favorites.has(cardEntry.id);
   const drillStar = document.createElement('button');
   drillStar.className = 'drill-fav-star' + (isFav ? ' active' : '');
   drillStar.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 11.0975V16.0909C3 19.1875 3 20.7358 3.73411 21.4123C4.08422 21.735 4.52615 21.9377 4.99692 21.9915C5.98402 22.1045 7.13675 21.0849 9.44216 19.0458C10.4612 18.1445 10.9708 17.6938 11.5603 17.5751C11.8506 17.5166 12.1494 17.5166 12.4397 17.5751C13.0292 17.6938 13.5388 18.1445 14.5578 19.0458C16.8633 21.0849 18.016 22.1045 19.0031 21.9915C19.4739 21.9377 19.9158 21.735 20.2659 21.4123C21 20.7358 21 19.1875 21 16.0909V11.0975C21 6.80891 21 4.6646 19.682 3.3323C18.364 2 16.2426 2 12 2C7.75736 2 5.63604 2 4.31802 3.3323C3.5108 4.14827 3.19796 5.26881 3.07672 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M15 6H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`;
   drillStar.title = 'Toggle Favorite';
   drillStar.addEventListener('click', (e) => {
     e.stopPropagation();
-    toggleFavorite(nugget.id);
+    toggleFavorite(cardEntry.id);
     drillStar.classList.toggle('active');
     // Sync back star
     const backStar = back.querySelector('.drill-fav-star');
@@ -9988,9 +9990,9 @@ function renderDrillCard(nugget) {
 
     const charDiv = document.createElement('div');
     charDiv.className = 'drill-char';
-    const rawChar = nugget.traditional || nugget.simplified;
+    const rawChar = cardEntry.traditional || cardEntry.simplified;
     const charCount = rawChar.replace(/·/g, '').length;
-    const wrapped = smartWrapDrillChar(rawChar, nugget);
+    const wrapped = smartWrapDrillChar(rawChar, cardEntry);
     if (wrapped) { charDiv.innerHTML = wrapped; } else { charDiv.textContent = rawChar; }
     // Font scaling — wrapping handles long phrases so floor is higher now
     if (charCount >= 8) {
@@ -10005,7 +10007,7 @@ function renderDrillCard(nugget) {
     const pinyinSlot = document.createElement('div');
     pinyinSlot.className = 'pinyin-slot';
 
-    const formattedPinyin = formatCardPinyin(nugget);
+    const formattedPinyin = formatCardPinyin(cardEntry);
     const pinyinText = document.createElement('div');
     pinyinText.className = 'pinyin-text';
     pinyinText.textContent = formattedPinyin;
@@ -10047,13 +10049,13 @@ function renderDrillCard(nugget) {
     // Back: English + semantic note
     const meaningDiv = document.createElement('div');
     meaningDiv.className = 'drill-meaning';
-    meaningDiv.textContent = nugget.english;
+    meaningDiv.textContent = cardEntry.english;
     back.appendChild(meaningDiv);
 
-    if (nugget.semanticNote) {
+    if (cardEntry.semanticNote) {
       const excerptDiv = document.createElement('div');
       excerptDiv.className = 'semantic-excerpt';
-      excerptDiv.textContent = nugget.semanticNote;
+      excerptDiv.textContent = cardEntry.semanticNote;
       back.appendChild(excerptDiv);
     }
   } else {
@@ -10061,7 +10063,7 @@ function renderDrillCard(nugget) {
     // Front: English
     const meaningDiv = document.createElement('div');
     meaningDiv.className = 'drill-meaning drill-meaning-front';
-    meaningDiv.textContent = nugget.english;
+    meaningDiv.textContent = cardEntry.english;
     const meaningWrap = document.createElement('div');
     meaningWrap.className = 'drill-center-wrap';
     meaningWrap.appendChild(meaningDiv);
@@ -10073,9 +10075,9 @@ function renderDrillCard(nugget) {
 
     const charDiv = document.createElement('div');
     charDiv.className = 'drill-char';
-    const rawCharBack = nugget.traditional || nugget.simplified;
+    const rawCharBack = cardEntry.traditional || cardEntry.simplified;
     const charCountBack = rawCharBack.replace(/·/g, '').length;
-    const wrappedBack = smartWrapDrillChar(rawCharBack, nugget);
+    const wrappedBack = smartWrapDrillChar(rawCharBack, cardEntry);
     if (wrappedBack) { charDiv.innerHTML = wrappedBack; } else { charDiv.textContent = rawCharBack; }
     if (charCountBack >= 8) {
       charDiv.style.fontSize = '2.2rem';
@@ -10086,7 +10088,7 @@ function renderDrillCard(nugget) {
     }
     backCenterWrap.appendChild(charDiv);
 
-    const formattedPinyinBack = formatCardPinyin(nugget);
+    const formattedPinyinBack = formatCardPinyin(cardEntry);
     const pinyinDiv = document.createElement('div');
     pinyinDiv.className = 'drill-pinyin-back';
     pinyinDiv.textContent = formattedPinyinBack;
@@ -10107,10 +10109,10 @@ function renderDrillCard(nugget) {
   lookupBtnBack.title = 'View full entry in Browse';
   lookupBtnBack.addEventListener('click', (e) => {
     e.stopPropagation();
-    const browseIdx = ALL_NUGGETS.findIndex(n => n.id === nugget.id);
+    const browseIdx = ALL_CARDS.findIndex(n => n.id === cardEntry.id);
     if (browseIdx === -1) return;
     state.selectedCats.clear();
-    state.selectedCats.add(nugget.category);
+    state.selectedCats.add(cardEntry.category);
     state.searchQuery = '';
     document.getElementById('search-input').value = '';
     updateCategoryBubbles('browse');
@@ -10125,7 +10127,7 @@ function renderDrillCard(nugget) {
     renderBrowse();
     setTimeout(() => {
       const filtered = getFiltered();
-      const filteredIdx = filtered.findIndex(n => n.id === nugget.id);
+      const filteredIdx = filtered.findIndex(n => n.id === cardEntry.id);
       const cards = document.querySelectorAll('.card');
       const targetIdx = filteredIdx !== -1 ? filteredIdx : 0;
       if (cards[targetIdx]) {
@@ -10143,7 +10145,7 @@ function renderDrillCard(nugget) {
   drillStarBack.title = 'Toggle Favorite';
   drillStarBack.addEventListener('click', (e) => {
     e.stopPropagation();
-    toggleFavorite(nugget.id);
+    toggleFavorite(cardEntry.id);
     drillStarBack.classList.toggle('active');
     // Also sync front star
     const frontStar = front.querySelector('.drill-fav-star');
@@ -10161,19 +10163,19 @@ function updateDrillSession() {
   if (pool.length === 0) return;
 
   const idx = state.drill.idx;
-  const nugget = pool[idx];
+  const currentCard = pool[idx];
 
   // Record that this card was seen — only once per card per session (prevents back-nav inflation)
-  if (!state.drill.seenThisSession.has(nugget.id)) {
-    state.drill.seenThisSession.add(nugget.id);
-    recordCardSeen(nugget.id);
+  if (!state.drill.seenThisSession.has(currentCard.id)) {
+    state.drill.seenThisSession.add(currentCard.id);
+    recordCardSeen(currentCard.id);
     // Append to session log if there's an active session
     if (state.drill.currentSessionId) {
-      sessionAppendEvent(state.drill.currentSessionId, 'seen', nugget.id);
+      sessionAppendEvent(state.drill.currentSessionId, 'seen', currentCard.id);
     }
   }
 
-  renderDrillCard(nugget);
+  renderDrillCard(currentCard);
 
   // Update session info — just progress count; deck list lives in the Decks popover
   const progress = Math.max(idx + 1, state.drill.maxVisited + 1);
@@ -10183,8 +10185,8 @@ function updateDrillSession() {
   renderProgressDots();
 
   // Sync grade buttons to explicit grades only — both neutral until user marks them
-  const isStruggling = state.struggling.has(nugget.id);
-  const isGotIt = state.drill.gotIt.has(nugget.id);
+  const isStruggling = state.struggling.has(currentCard.id);
+  const isGotIt = state.drill.gotIt.has(currentCard.id);
   document.getElementById('grade-wrong-btn').classList.toggle('marked', isStruggling);
   document.getElementById('grade-right-btn').classList.toggle('marked', isGotIt);
 
@@ -10210,9 +10212,9 @@ function renderProgressDots() {
     dot.style.width = layout.dot + 'px';
     dot.style.height = layout.dot + 'px';
 
-    const nuggetId = pool[i].id;
-    const isStruggling = state.struggling.has(nuggetId);
-    const isGotIt = state.drill.gotIt.has(nuggetId);
+    const cardId = pool[i].id;
+    const isStruggling = state.struggling.has(cardId);
+    const isGotIt = state.drill.gotIt.has(cardId);
 
     // Current dot
     if (i === state.drill.idx) {
@@ -10381,7 +10383,7 @@ let forgeReviewState = {
   originalInput: '',
   selectedWord: '',
   suggestions: [],
-  pendingNugget: null  // Holds the generated nugget before category assignment
+  pendingCard: null  // Holds the generated card before category assignment
 };
 
 /**
@@ -10445,7 +10447,7 @@ function fetchTranslationSuggestions(englishInput) {
   const headers = provider === 'groq'
     ? { 'Authorization': 'Bearer ' + groqKey, 'Content-Type': 'application/json' }
     : { 'x-api-key': anthropicKey, 'anthropic-version': '2023-06-01',
-        // Required by Anthropic for browser-direct fetch calls — see generateNugget for full note
+        // Required by Anthropic for browser-direct fetch calls — see generateCard for full note
         'anthropic-dangerous-direct-browser-access': 'true',
         'Content-Type': 'application/json' };
 
@@ -10649,11 +10651,11 @@ function executeForgeFromReview() {
     statusDiv.innerHTML = 'No API key found. Open Settings to add one.';
     return;
   }
-  generateNugget(word, provider);
+  generateCard(word, provider);
 }
 
 /**
- * The gatekeeper function — called instead of generateNugget directly.
+ * The gatekeeper function — called instead of generateCard directly.
  * Decides whether to forge immediately (Chinese input) or show review (English input).
  */
 function forgeGate(inputValue) {
@@ -10698,14 +10700,14 @@ function triggerForge(word) {
       document.getElementById('forge-status').innerHTML = 'No Anthropic API key. Open Settings to add one.';
       return;
     }
-    generateNugget(word, 'anthropic');
+    generateCard(word, 'anthropic');
   } else {
     if (!localStorage.getItem('groq-api-key')) {
       document.getElementById('forge-status').className = 'forge-status error';
       document.getElementById('forge-status').innerHTML = 'No Groq API key. Open Settings to add one.';
       return;
     }
-    generateNugget(word, 'groq');
+    generateCard(word, 'groq');
   }
 }
 
@@ -10732,11 +10734,11 @@ const USER_CATEGORIES_KEY = 'zifang-user-categories';
  */
 /**
  * Fallback pinyin lookup for forged deck names created before pinyin was stored.
- * Checks ALL_NUGGETS (the card database) for a matching Traditional or Simplified entry.
+ * Checks ALL_CARDS (the card database) for a matching Traditional or Simplified entry.
  */
 function lookupDeckPinyin(zhName) {
-  if (!zhName || !ALL_NUGGETS) return '';
-  const card = ALL_NUGGETS.find(n => n.traditional === zhName || n.simplified === zhName);
+  if (!zhName || !ALL_CARDS) return '';
+  const card = ALL_CARDS.find(n => n.traditional === zhName || n.simplified === zhName);
   return card ? card.pinyin : '';
 }
 
@@ -10772,7 +10774,7 @@ function saveDeckMemberships(memberships) {
 
 /**
  * Assign a built-in card to a user-created deck.
- * @param {number} cardId - the nugget's id
+ * @param {number} cardId - the card's id
  * @param {string} packId - the 'uc_<n>' pack ID of the user deck (or null to remove)
  */
 function setCardDeckMembership(cardId, packId) {
@@ -10798,20 +10800,20 @@ function getCardDeckMembership(cardId) {
  * Check if a card has any user-deck membership (overlay or userCategory).
  * Works for both built-in cards (overlay) and forged cards (userCategory).
  */
-function getCardEffectiveDeckId(nugget) {
+function getCardEffectiveDeckId(cardEntry) {
   // Forged cards: use userCategory → look up the uc_ id
-  if (nugget.userCategory) {
+  if (cardEntry.userCategory) {
     const cats = loadUserCategories();
-    const cat = cats.find(c => c.zhName === nugget.userCategory);
+    const cat = cats.find(c => c.zhName === cardEntry.userCategory);
     return cat ? 'uc_' + cat.id : null;
   }
   // Built-in cards: use the memberships overlay
-  return getCardDeckMembership(nugget.id);
+  return getCardDeckMembership(cardEntry.id);
 }
 
 /**
  * When a user deck is deleted, also clear all membership overlay entries for that deck.
- * Call this inside executeDeleteCategory BEFORE rebuilding nuggets.
+ * Call this inside executeDeleteCategory BEFORE rebuilding cards.
  */
 function clearDeckMembershipsForPack(packId) {
   const memberships = loadDeckMemberships();
@@ -10838,7 +10840,7 @@ function getDeckCardCount(packId) {
     const rawId = packId.slice(3);
     const cat = userCats.find(c => String(c.id) === String(rawId));
     if (!cat) return 0;
-    return ALL_NUGGETS.filter(n => {
+    return ALL_CARDS.filter(n => {
       if (n.hidden) return false;
       // Forged cards explicitly assigned to this user deck
       if (n.userCategory === cat.zhName) return true;
@@ -10850,7 +10852,7 @@ function getDeckCardCount(packId) {
 
   // Custom — unassigned forged cards only
   if (packId === 'custom') {
-    return ALL_NUGGETS.filter(n => {
+    return ALL_CARDS.filter(n => {
       if (n.hidden) return false;
       if (n.category !== 'custom') return false;
       if (n.userCategory) return false; // assigned to a named user deck
@@ -10860,16 +10862,16 @@ function getDeckCardCount(packId) {
 
   // Favorites — any card starred
   if (packId === 'favorites') {
-    return ALL_NUGGETS.filter(n => !n.hidden && n.favorite).length;
+    return ALL_CARDS.filter(n => !n.hidden && n.favorite).length;
   }
 
   // Struggling — cards currently in the struggling set
   if (packId === 'struggling') {
-    return ALL_NUGGETS.filter(n => state.struggling.has(n.id)).length;
+    return ALL_CARDS.filter(n => state.struggling.has(n.id)).length;
   }
 
   // Built-in category pack (vocab, phrase, idiom, concept, hsk1, hsk2, …)
-  return ALL_NUGGETS.filter(n => {
+  return ALL_CARDS.filter(n => {
     if (n.hidden) return false;
     if (n.category !== packId) return false;
     // Skip if this card has been overlaid onto a user-created deck
@@ -10879,10 +10881,10 @@ function getDeckCardCount(packId) {
 }
 
 /**
- * Open the category assignment bottom sheet after a nugget is generated.
+ * Open the category assignment bottom sheet after a card is generated.
  */
-function openCategorySheet(nuggetData) {
-  forgeReviewState.pendingNugget = nuggetData;
+function openCategorySheet(cardData) {
+  forgeReviewState.pendingCard = cardData;
 
   const backdrop = document.getElementById('forge-cat-backdrop');
   const sheet = document.getElementById('forge-cat-sheet');
@@ -10933,7 +10935,7 @@ function closeCategorySheet() {
   const backdrop = document.getElementById('forge-cat-backdrop');
   const sheet = document.getElementById('forge-cat-sheet');
   sheet.classList.remove('open');
-  forgeReviewState.pendingNugget = null;
+  forgeReviewState.pendingCard = null;
   // BUGFIX: kill click-catching IMMEDIATELY so a fast re-forge after dismiss
   // doesn't have its tap swallowed by the still-fading backdrop (z-index 900,
   // inset 0 = fullscreen). Inline style overrides the .on class CSS.
@@ -10964,7 +10966,7 @@ function renderCategorySquircles() {
   customBtn.style.background = 'rgba(200,75,49,0.12)';
   customBtn.innerHTML = '<span class="forge-cat-sq-ch" style="color:#c84b31">自定義</span>' +
     '<span class="forge-cat-sq-en" style="color:#c84b31;opacity:0.7">Custom</span>';
-  customBtn.addEventListener('click', () => saveNuggetToCustom());
+  customBtn.addEventListener('click', () => saveCardToCustom());
   row.insertBefore(customBtn, newBtn);
 
   const cats = loadUserCategories().filter(c => !c.hidden);
@@ -10976,7 +10978,7 @@ function renderCategorySquircles() {
     btn.innerHTML = '<span class="forge-cat-sq-ch" style="color:' + color.text + '">' + cat.zhName + '</span>' +
       '<span class="forge-cat-sq-en" style="color:' + color.sub + '">' + cat.enName + '</span>';
     btn.addEventListener('click', () => {
-      saveNuggetToCategory(cat.zhName);
+      saveCardToCategory(cat.zhName);
     });
     row.insertBefore(btn, newBtn);
   });
@@ -10985,22 +10987,22 @@ function renderCategorySquircles() {
 /**
  * Explicitly confirm the forged card stays in the system Custom deck.
  * Does NOT set userCategory — leaving it unset is what makes filtering work correctly.
- * Calling saveNuggetToCategory('Custom') would set userCategory = 'Custom', which
+ * Calling saveCardToCategory('Custom') would set userCategory = 'Custom', which
  * breaks browse/drill filtering since 'Custom' is not a user-created category.
  */
-function saveNuggetToCustom() {
-  if (!forgeReviewState.pendingNugget) { closeCategorySheet(); return; }
+function saveCardToCustom() {
+  if (!forgeReviewState.pendingCard) { closeCategorySheet(); return; }
 
-  const nugget = forgeReviewState.pendingNugget;
-  const userNuggets = JSON.parse(localStorage.getItem('user-nuggets') || '[]');
-  const existing = userNuggets.find(n => n.id === nugget.id);
+  const cardEntry = forgeReviewState.pendingCard;
+  const userCards = JSON.parse(localStorage.getItem('user-nuggets') || '[]');
+  const existing = userCards.find(n => n.id === cardEntry.id);
   if (existing) {
     // Ensure userCategory is absent — card belongs to system Custom
     delete existing.userCategory;
   }
-  localStorage.setItem('user-nuggets', JSON.stringify(userNuggets));
+  localStorage.setItem('user-nuggets', JSON.stringify(userCards));
 
-  rebuildAllNuggets();
+  rebuildAllCards();
   renderBrowseUserCats();
   updateCategoryBubbles('browse');
   renderBrowse();
@@ -11011,35 +11013,35 @@ function saveNuggetToCustom() {
   const statusDiv = document.getElementById('forge-status');
   statusDiv.className = 'forge-status success';
   statusDiv.innerHTML = '<button class="forge-status-close" onclick="this.parentElement.classList.add(\'hidden\')"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>' +
-    '<strong>' + nugget.traditional + '</strong> (' + nugget.pinyin + ') forged — saved to Custom.';
+    '<strong>' + cardEntry.traditional + '</strong> (' + cardEntry.pinyin + ') forged — saved to Custom.';
   document.getElementById('forge-word-input').value = '';
 
   closeCategorySheet();
-  forgeReviewState.pendingNugget = null;
+  forgeReviewState.pendingCard = null;
 }
 
 /**
- * Save the pending nugget with a specific user-created category name, then close the sheet.
+ * Save the pending card with a specific user-created category name, then close the sheet.
  */
-function saveNuggetToCategory(categoryName) {
-  if (!forgeReviewState.pendingNugget) { closeCategorySheet(); return; }
+function saveCardToCategory(categoryName) {
+  if (!forgeReviewState.pendingCard) { closeCategorySheet(); return; }
 
-  const nugget = forgeReviewState.pendingNugget;
+  const cardEntry = forgeReviewState.pendingCard;
 
   // The card was already saved to Custom during generation.
   // Now update its userCategory field in localStorage.
-  const userNuggets = JSON.parse(localStorage.getItem('user-nuggets') || '[]');
-  const existing = userNuggets.find(n => n.id === nugget.id);
+  const userCards = JSON.parse(localStorage.getItem('user-nuggets') || '[]');
+  const existing = userCards.find(n => n.id === cardEntry.id);
   if (existing) {
     existing.userCategory = categoryName;
   } else {
     // Shouldn't happen, but safety net — save it if somehow missing
-    nugget.userCategory = categoryName;
-    userNuggets.push(nugget);
+    cardEntry.userCategory = categoryName;
+    userCards.push(cardEntry);
   }
-  localStorage.setItem('user-nuggets', JSON.stringify(userNuggets));
+  localStorage.setItem('user-nuggets', JSON.stringify(userCards));
 
-  rebuildAllNuggets();
+  rebuildAllCards();
   renderBrowseUserCats();
   updateCategoryBubbles('browse');
   renderBrowse();
@@ -11050,30 +11052,30 @@ function saveNuggetToCategory(categoryName) {
   const statusDiv = document.getElementById('forge-status');
   statusDiv.className = 'forge-status success';
   statusDiv.innerHTML = '<button class="forge-status-close" onclick="this.parentElement.classList.add(\'hidden\')"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>' +
-    '<strong>' + nugget.traditional + '</strong> (' + nugget.pinyin + ') forged — saved to ' + categoryName + '.';
+    '<strong>' + cardEntry.traditional + '</strong> (' + cardEntry.pinyin + ') forged — saved to ' + categoryName + '.';
   document.getElementById('forge-word-input').value = '';
 
   closeCategorySheet();
-  forgeReviewState.pendingNugget = null;
+  forgeReviewState.pendingCard = null;
 }
 
 // ── Forge inline card editor ─────────────────────────────────────────────────
-var _forgeEditNuggetId = null;
+var _forgeEditCardId = null;
 
 function openForgeEdit() {
-  var userNuggets = JSON.parse(localStorage.getItem('user-nuggets') || '[]');
-  if (!userNuggets.length) return;
-  var nugget = userNuggets[userNuggets.length - 1];
-  _forgeEditNuggetId = nugget.id;
+  var userCards = JSON.parse(localStorage.getItem('user-nuggets') || '[]');
+  if (!userCards.length) return;
+  var cardEntry = userCards[userCards.length - 1];
+  _forgeEditCardId = cardEntry.id;
 
   function get(id) { return document.getElementById(id); }
-  get('fedit-traditional').value = nugget.traditional || '';
-  get('fedit-simplified').value  = nugget.simplified  || '';
-  get('fedit-pinyin').value      = nugget.pinyin      || '';
-  get('fedit-english').value     = nugget.english     || '';
-  get('fedit-category').value    = nugget.forgeCategory || nugget.category || 'vocab';
-  get('fedit-depth').value       = nugget.depth       || 'intermediate';
-  get('fedit-semantic').value    = nugget.semanticNote || '';
+  get('fedit-traditional').value = cardEntry.traditional || '';
+  get('fedit-simplified').value  = cardEntry.simplified  || '';
+  get('fedit-pinyin').value      = cardEntry.pinyin      || '';
+  get('fedit-english').value     = cardEntry.english     || '';
+  get('fedit-category').value    = cardEntry.forgeCategory || cardEntry.category || 'vocab';
+  get('fedit-depth').value       = cardEntry.depth       || 'intermediate';
+  get('fedit-semantic').value    = cardEntry.semanticNote || '';
 
   var panel = document.getElementById('forge-edit-panel');
   panel.style.display = 'block';
@@ -11082,18 +11084,18 @@ function openForgeEdit() {
 
 function closeForgeEdit() {
   document.getElementById('forge-edit-panel').style.display = 'none';
-  _forgeEditNuggetId = null;
+  _forgeEditCardId = null;
 }
 
 function saveForgeEdit() {
-  if (_forgeEditNuggetId === null) return;
+  if (_forgeEditCardId === null) return;
 
   function get(id) { return document.getElementById(id); }
-  var userNuggets = JSON.parse(localStorage.getItem('user-nuggets') || '[]');
-  var idx = userNuggets.findIndex(function(n) { return n.id === _forgeEditNuggetId; });
+  var userCards = JSON.parse(localStorage.getItem('user-nuggets') || '[]');
+  var idx = userCards.findIndex(function(n) { return n.id === _forgeEditCardId; });
   if (idx === -1) { closeForgeEdit(); return; }
 
-  var n = userNuggets[idx];
+  var n = userCards[idx];
   n.traditional   = get('fedit-traditional').value.trim() || n.traditional;
   n.simplified    = get('fedit-simplified').value.trim()  || n.simplified;
   n.pinyin        = get('fedit-pinyin').value.trim()       || n.pinyin;
@@ -11102,8 +11104,8 @@ function saveForgeEdit() {
   n.depth         = get('fedit-depth').value;
   n.semanticNote  = get('fedit-semantic').value.trim();
 
-  localStorage.setItem('user-nuggets', JSON.stringify(userNuggets));
-  rebuildAllNuggets();
+  localStorage.setItem('user-nuggets', JSON.stringify(userCards));
+  rebuildAllCards();
   renderBrowse();
 
   var statusDiv = document.getElementById('forge-status');
@@ -11146,7 +11148,7 @@ function showCategoryPicker() {
   document.getElementById('forge-cat-title-zh').textContent = '新分類';
   document.getElementById('forge-cat-title-en').textContent = 'New Category';
 
-  const word = forgeReviewState.pendingNugget ? forgeReviewState.pendingNugget.traditional : '';
+  const word = forgeReviewState.pendingCard ? forgeReviewState.pendingCard.traditional : '';
   srcDiv.innerHTML = 'Llama inferred from <strong>' + word + '</strong> · select or add context';
 
   // Show loading state
@@ -11251,7 +11253,7 @@ function setupCategorySheetEvents() {
   });
 
   // Skip link — just close the sheet. Card already defaults to Custom since userCategory
-  // is unset on forge. No need to call saveNuggetToCategory('Custom') which would
+  // is unset on forge. No need to call saveCardToCategory('Custom') which would
   // incorrectly set userCategory = 'Custom' and break browse/drill filtering.
   document.getElementById('forge-cat-skip').addEventListener('click', () => {
     closeCategorySheet();
@@ -11291,7 +11293,7 @@ function setupCategorySheetEvents() {
     statusDiv.textContent = 'Llama refreshing...';
     statusDiv.className = 'forge-cat-ctx-status refreshing';
     _catCtxTimer = setTimeout(() => {
-      const word = forgeReviewState.pendingNugget ? forgeReviewState.pendingNugget.traditional : '';
+      const word = forgeReviewState.pendingCard ? forgeReviewState.pendingCard.traditional : '';
       fetchCategoryNames(word, val);
     }, 500);
   });
@@ -11321,12 +11323,12 @@ function setupCategorySheetEvents() {
 
     if (customVal) {
       // User typed their own name — use it exactly, no English sub-label.
-      // Derive pinyin from the pending nugget if its chars match the deck name,
+      // Derive pinyin from the pending card if its chars match the deck name,
       // otherwise fall back to a library lookup. This ensures hover/long-press
       // pinyin tooltips work on forged-deck chips (previously: silently empty).
       zhName = customVal;
       enName = '';
-      const _pending = forgeReviewState.pendingNugget;
+      const _pending = forgeReviewState.pendingCard;
       if (_pending && (_pending.traditional === customVal || _pending.simplified === customVal) && _pending.pinyin) {
         pinyin = _pending.pinyin;
       } else {
@@ -11355,8 +11357,8 @@ function setupCategorySheetEvents() {
     saveLoadedPacks();
     saveSelectedCats();
 
-    // Save nugget to this category
-    saveNuggetToCategory(zhName);
+    // Save card to this category
+    saveCardToCategory(zhName);
   });
 
   // Review panel close button
@@ -11366,7 +11368,7 @@ function setupCategorySheetEvents() {
 let _forgeClarifyState = null;
 let _forgeInRetry = false;
 
-function validateNugget(d) {
+function validateGeneratedCard(d) {
   const issues = [];
 
   // Required fields
@@ -11459,22 +11461,22 @@ function resolveForgeClarification(idx) {
   // "Yes — forge XXXX" → forge the full chengyu directly
   const yesMatch = chosen.match(/^Yes\s*[—\-–]\s*forge\s+(.+)$/i);
   if (yesMatch) {
-    generateNugget(yesMatch[1].trim(), provider);
+    generateCard(yesMatch[1].trim(), provider);
     return;
   }
 
   // "No — forge XXXX as-is" → force original, suppress pre-flight
   const noMatch = chosen.match(/^No\s*[—\-–]\s*forge\s+(.+?)\s+as-is$/i);
   if (noMatch) {
-    generateNugget(noMatch[1].trim(), provider, 'forge as-is, skip pre-flight check');
+    generateCard(noMatch[1].trim(), provider, 'forge as-is, skip pre-flight check');
     return;
   }
 
   // Reading specification: "cháng — long, length, duration"
-  generateNugget(originalWord, provider, 'user selected reading: ' + chosen);
+  generateCard(originalWord, provider, 'user selected reading: ' + chosen);
 }
 
-function generateNugget(word, provider, clarification, attempt) {
+function generateCard(word, provider, clarification, attempt) {
   attempt = attempt || 1;
   const statusDiv = document.getElementById('forge-status');
 
@@ -11632,14 +11634,14 @@ displayBreak: positive integer only when 6+ chars AND a naive midpoint would spl
       if (ch === '}') { depth--; if (depth === 0) { jsonEnd = i; break; } }
     }
     if (jsonEnd === -1) throw new Error('Malformed JSON in response — unbalanced braces');
-    const nuggetData = JSON.parse(cleanStr.slice(jsonStart, jsonEnd + 1));
+    const cardData = JSON.parse(cleanStr.slice(jsonStart, jsonEnd + 1));
 
     // Clarification gate — model is asking which reading/form the user intended
-    if (nuggetData.needsClarification === true) {
+    if (cardData.needsClarification === true) {
       if (forgeBtn) { forgeBtn.disabled = false; forgeBtn.classList.remove('loading'); }
       showForgeClarification(
-        nuggetData.question || 'Which did you mean?',
-        Array.isArray(nuggetData.options) ? nuggetData.options : [],
+        cardData.question || 'Which did you mean?',
+        Array.isArray(cardData.options) ? cardData.options : [],
         word,
         provider
       );
@@ -11647,13 +11649,13 @@ displayBreak: positive integer only when 6+ chars AND a naive midpoint would spl
     }
 
     // Deterministic validator — catches structural errors before saving
-    const validation = validateNugget(nuggetData);
+    const validation = validateGeneratedCard(cardData);
     if (!validation.ok) {
       if (attempt < 2) {
         const retryMsg = 'Your previous response had these issues — fix all of them: ' + validation.issues.join('; ');
         const retryContext = clarification ? clarification + '\n' + retryMsg : retryMsg;
         _forgeInRetry = true;
-        generateNugget(word, provider, retryContext, 2);
+        generateCard(word, provider, retryContext, 2);
         return;
       } else {
         if (forgeBtn) { forgeBtn.disabled = false; forgeBtn.classList.remove('loading'); }
@@ -11664,23 +11666,23 @@ displayBreak: positive integer only when 6+ chars AND a naive midpoint would spl
       }
     }
 
-    // Build a complete nugget object matching the NUGGETS format
-    const userNuggets = JSON.parse(localStorage.getItem('user-nuggets') || '[]');
+    // Build a complete card object matching the existing card schema
+    const userCards = JSON.parse(localStorage.getItem('user-nuggets') || '[]');
     const newId = 10000 + Date.now() % 90000;
 
-    const newNugget = {
+    const newCard = {
       id: newId,
-      traditional: nuggetData.traditional || word,
-      simplified: nuggetData.simplified || nuggetData.traditional || word,
-      pinyin: nuggetData.pinyin || '',
-      english: nuggetData.english || '',
+      traditional: cardData.traditional || word,
+      simplified: cardData.simplified || cardData.traditional || word,
+      pinyin: cardData.pinyin || '',
+      english: cardData.english || '',
       category: 'custom',
-      forgeCategory: ['vocab','phrase','idiom','concept','connector'].includes(nuggetData.category) ? nuggetData.category : 'vocab',
-      depth: ['basic','intermediate','rich'].includes(nuggetData.depth) ? nuggetData.depth : 'intermediate',
-      pos: nuggetData.pos || null,
-      semanticNote: nuggetData.semanticNote || '',
-      components: Array.isArray(nuggetData.components) ? nuggetData.components : [],
-      examples: Array.isArray(nuggetData.examples) ? nuggetData.examples.map(function(ex) {
+      forgeCategory: ['vocab','phrase','idiom','concept','connector'].includes(cardData.category) ? cardData.category : 'vocab',
+      depth: ['basic','intermediate','rich'].includes(cardData.depth) ? cardData.depth : 'intermediate',
+      pos: cardData.pos || null,
+      semanticNote: cardData.semanticNote || '',
+      components: Array.isArray(cardData.components) ? cardData.components : [],
+      examples: Array.isArray(cardData.examples) ? cardData.examples.map(function(ex) {
         return {
           chinese: ex.chinese || ex.zh || '',
           pinyin: ex.pinyin || '',
@@ -11691,20 +11693,20 @@ displayBreak: positive integer only when 6+ chars AND a naive midpoint would spl
     };
 
     // Save immediately to Custom so the card is never lost
-    userNuggets.push(newNugget);
-    localStorage.setItem('user-nuggets', JSON.stringify(userNuggets));
+    userCards.push(newCard);
+    localStorage.setItem('user-nuggets', JSON.stringify(userCards));
 
-    // Rebuild ALL_NUGGETS so Browse sees it right away
-    rebuildAllNuggets();
+    // Rebuild ALL_CARDS so Browse sees it right away
+    rebuildAllCards();
 
     statusDiv.className = 'forge-status success';
     statusDiv.innerHTML = '<button class="forge-status-close" onclick="this.parentElement.classList.add(\'hidden\')"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>' +
-      '<strong>' + newNugget.traditional + '</strong> (' + newNugget.pinyin + ') forged — assign a deck below.';
+      '<strong>' + newCard.traditional + '</strong> (' + newCard.pinyin + ') forged — assign a deck below.';
     document.getElementById('forge-word-input').value = '';
 
     // Open category sheet — wrapped so a DOM error here never overwrites the
     // success message or makes the user think the card wasn't saved (it was).
-    try { openCategorySheet(newNugget); } catch(e) { console.warn('Category sheet error (card was saved):', e); }
+    try { openCategorySheet(newCard); } catch(e) { console.warn('Category sheet error (card was saved):', e); }
   })
   .catch(function(err) {
     clearTimeout(_forgeTimeout);
@@ -11749,7 +11751,7 @@ displayBreak: positive integer only when 6+ chars AND a naive midpoint would spl
 const STAGE_USAGE_KEY = 'nugget-stage-usage';
 
 let stageState = {
-  selectedVocab: new Set(),   // Set of nugget IDs
+  selectedVocab: new Set(),   // Set of card IDs
   vocabPickerOpen: false,
   vocabSearchQuery: '',
   // vocabCatFilters is aliased to state.selectedCats below — see UNIFIED DECK
@@ -11801,25 +11803,25 @@ function loadStageUsage() {
   } catch(e) { return {}; }
 }
 
-function recordStageUsage(nuggetIds) {
+function recordStageUsage(cardIds) {
   const usage = loadStageUsage();
-  nuggetIds.forEach(function(id) {
+  cardIds.forEach(function(id) {
     usage[id] = (usage[id] || 0) + 1;
   });
   localStorage.setItem(STAGE_USAGE_KEY, JSON.stringify(usage));
 }
 
-function getStageUsageCount(nuggetId) {
+function getStageUsageCount(cardId) {
   const usage = loadStageUsage();
-  return usage[nuggetId] || 0;
+  return usage[cardId] || 0;
 }
 
 function getStageVocabList() {
   // First, exclude cards that are not "in the system"
   const _wsCats = loadUserCategories();
-  let pool = ALL_NUGGETS.filter(n => {
-    // Skip built-in nuggets the user has manually hidden
-    if (!n.userCreated && !n.userCategory && state.hiddenNuggets.has(n.id)) return false;
+  let pool = ALL_CARDS.filter(n => {
+    // Skip built-in cards the user has manually hidden
+    if (!n.userCreated && !n.userCategory && state.hiddenCards.has(n.id)) return false;
     // Skip forged cards from archived/unloaded user decks — UNLESS the Custom
     // pack is loaded, in which case the card stays visible via the catch-all.
     if (!n.userCategory) return true;
@@ -12110,7 +12112,7 @@ function getStageTopic() {
   if (custom) return custom;
   if (stageState.topicPreset === '__surprise__') {
     // Pick a random card from whatever is currently loaded in Browse
-    const pool = ALL_NUGGETS.filter(n =>
+    const pool = ALL_CARDS.filter(n =>
       isCatLoaded(n.category) &&
       !['favorites', 'struggling'].includes(n.category)
     );
@@ -12468,9 +12470,9 @@ function getHskHint(level) {
 }
 
 function buildStageUserMessage() {
-  const selectedNuggets = ALL_NUGGETS.filter(n => stageState.selectedVocab.has(n.id));
+  const selectedCards = ALL_CARDS.filter(n => stageState.selectedVocab.has(n.id));
   const charKey = stageState.charset === 'traditional' ? 'traditional' : 'simplified';
-  const vocabList = selectedNuggets.map(n =>
+  const vocabList = selectedCards.map(n =>
     `${n[charKey] || n.traditional} (${n.pinyin}) — ${n.english}`
   ).join('\n');
 
@@ -12873,9 +12875,9 @@ function renderDialogueOutput(dialogue) {
     vocabUsed + ' vocab \u00B7 HSK ' + stageState.hskLevel + ' \u00B7 ' + stageState.length + ' \u00B7 ' + stageState.speakers + ' speakers' + (stageState.spicyMode ? ' \u00B7 \uD83D\uDE08' : '') + (stageState.extended ? ' \u00B7 extended' : '');
 
   // Build vocab set for highlighting (include both character sets for robust matching)
-  const selectedNuggets = ALL_NUGGETS.filter(n => stageState.selectedVocab.has(n.id));
+  const selectedCards = ALL_CARDS.filter(n => stageState.selectedVocab.has(n.id));
   const vocabChars = [];
-  selectedNuggets.forEach(n => {
+  selectedCards.forEach(n => {
     if (n.traditional) vocabChars.push(n.traditional);
     if (n.simplified && n.simplified !== n.traditional) vocabChars.push(n.simplified);
   });
@@ -13143,8 +13145,8 @@ function renderSessionDetail(sessionId) {
   s.events.forEach(e => { if (e.action === 'got' || e.action === 'struggle') verdicts[e.cardId] = e.action; });
 
   // Look up each card by ID
-  const nuggetMap = (typeof ALL_NUGGETS !== 'undefined')
-    ? new Map(ALL_NUGGETS.map(n => [n.id, n]))
+  const cardMap = (typeof ALL_CARDS !== 'undefined')
+    ? new Map(ALL_CARDS.map(n => [n.id, n]))
     : new Map();
 
   let html = '';
@@ -13159,7 +13161,7 @@ function renderSessionDetail(sessionId) {
   html += '<div class="session-cardlist">';
   html +=   '<div class="session-cardlist-title">Cards</div>';
   s.cardIds.forEach(cardId => {
-    const n = nuggetMap.get(cardId);
+    const n = cardMap.get(cardId);
     const label = n
       ? (n.traditional || n.simplified || n.chinese || ('#' + cardId))
       : ('Card #' + cardId);
@@ -13215,18 +13217,18 @@ function clearDrillSession() {
 function restoreDrillSession() {
   try {
     const raw = localStorage.getItem(DRILL_SESSION_KEY);
-    console.log('[字坊] restoreDrillSession: raw exists?', !!raw, 'ALL_NUGGETS.length=', ALL_NUGGETS.length);
+    console.log('[字坊] restoreDrillSession: raw exists?', !!raw, 'ALL_CARDS.length=', ALL_CARDS.length);
     if (!raw) { console.log('[字坊] restoreDrillSession: no saved session'); return false; }
     const data = JSON.parse(raw);
     console.log('[字坊] restoreDrillSession: poolIds.length=', data.poolIds && data.poolIds.length, 'idx=', data.idx);
     if (!data.poolIds || !data.poolIds.length) { console.log('[字坊] restoreDrillSession: empty poolIds'); return false; }
-    // Rebuild pool from saved IDs — look up each nugget in ALL_NUGGETS
-    const nuggetMap = new Map(ALL_NUGGETS.map(n => [n.id, n]));
-    const pool = data.poolIds.map(id => nuggetMap.get(id)).filter(Boolean);
+    // Rebuild pool from saved IDs — look up each card in ALL_CARDS
+    const cardMap = new Map(ALL_CARDS.map(n => [n.id, n]));
+    const pool = data.poolIds.map(id => cardMap.get(id)).filter(Boolean);
     const required = Math.ceil(data.poolIds.length * 0.8);
-    console.log('[字坊] restoreDrillSession: found', pool.length, '/', data.poolIds.length, 'nuggets, required >=', required);
+    console.log('[字坊] restoreDrillSession: found', pool.length, '/', data.poolIds.length, 'cards, required >=', required);
     // Require at least 80% of cards to still exist (graceful handling of deletions)
-    if (pool.length < required) { console.log('[字坊] restoreDrillSession: too few nuggets found, aborting'); return false; }
+    if (pool.length < required) { console.log('[字坊] restoreDrillSession: too few cards found, aborting'); return false; }
     state.drill.pool = pool;
     state.drill.idx = Math.min(data.idx || 0, pool.length - 1);
     state.drill.mode = data.mode || 'char';
@@ -13272,7 +13274,7 @@ function navigateToTab(tabName) {
 
   // Auto-refresh Browse when switching to it — picks up newly forged cards + new decks
   if (tabName === 'browse') {
-    rebuildAllNuggets();
+    rebuildAllCards();
     renderBrowseUserCats();
     updateCategoryBubbles('browse');
     renderBrowse();
@@ -13287,7 +13289,7 @@ function navigateToTab(tabName) {
 
   // Sync Workshop user-category pills when switching to Workshop (tab id: 'stage')
   if (tabName === 'stage') {
-    rebuildAllNuggets();
+    rebuildAllCards();
     renderWorkshopUserCats();
     renderVocabPicker();
   }
@@ -13605,11 +13607,11 @@ function saveHiddenPacks(set) {
 // Stores the card awaiting delete confirmation from the modal
 let _pendingCardDelete = { nid: null, el: null };
 
-function openDeleteModal(nuggetId, cardEl) {
-  _pendingCardDelete = { nid: nuggetId, el: cardEl };
+function openDeleteModal(cardId, cardEl) {
+  _pendingCardDelete = { nid: cardId, el: cardEl };
   // Find the card's name to show in the modal subtitle
-  const nugget = ALL_NUGGETS.find(n => n.id === nuggetId);
-  const title = nugget ? (nugget.traditional || nugget.simplified || '') : '';
+  const cardEntry = ALL_CARDS.find(n => n.id === cardId);
+  const title = cardEntry ? (cardEntry.traditional || cardEntry.simplified || '') : '';
   document.getElementById('delete-modal-title').textContent = 'Delete this card?';
   document.getElementById('delete-modal-sub').textContent = title
     ? 'Permanently delete "' + title + '". This cannot be undone.'
@@ -13660,43 +13662,43 @@ function wireDeleteModal() {
 
 /**
  * Hard-delete a single user-forged card. Animates the element out, then
- * removes from localStorage, ALL_NUGGETS, and all state references.
- * @param {number} nuggetId - the card's id
+ * removes from localStorage, ALL_CARDS, and all state references.
+ * @param {number} cardId - the card's id
  * @param {Element} el - the .card or .compact-row DOM element (for exit animation)
  */
-function executeDeleteCard(nuggetId, el) {
+function executeDeleteCard(cardId, el) {
   // Animate out
   if (el) {
     el.classList.add('swipe-confirming');
-    el.addEventListener('animationend', () => _finishDeleteCard(nuggetId), { once: true });
+    el.addEventListener('animationend', () => _finishDeleteCard(cardId), { once: true });
   } else {
-    _finishDeleteCard(nuggetId);
+    _finishDeleteCard(cardId);
   }
 }
-function _finishDeleteCard(nuggetId) {
+function _finishDeleteCard(cardId) {
   // Capture any user-deck assignment BEFORE we remove the card, so we can tell
   // afterward whether that deck is now empty. A forged deck with zero cards has
   // no reason to exist (per app contract: forged decks are defined by their
   // cards, not by metadata alone), so we auto-delete it below.
-  const preDeleteUserNuggets = loadUserNuggets();
-  const deletedCard = preDeleteUserNuggets.find(n => n.id === nuggetId);
+  const preDeleteUserCards = loadUserCards();
+  const deletedCard = preDeleteUserCards.find(n => n.id === cardId);
   const deletedUserCategory = deletedCard ? deletedCard.userCategory : null;
 
-  const userNuggets = preDeleteUserNuggets.filter(n => n.id !== nuggetId);
-  localStorage.setItem('user-nuggets', JSON.stringify(userNuggets));
-  state.favorites.delete(nuggetId);
-  state.struggling.delete(nuggetId);
-  stageState.selectedVocab.delete(nuggetId);
+  const userCards = preDeleteUserCards.filter(n => n.id !== cardId);
+  localStorage.setItem('user-nuggets', JSON.stringify(userCards));
+  state.favorites.delete(cardId);
+  state.struggling.delete(cardId);
+  stageState.selectedVocab.delete(cardId);
   saveFavorites();
   saveStruggling();
-  rebuildAllNuggets();
+  rebuildAllCards();
 
   // Auto-delete the user deck if that was its last card.
   // executeDeleteCategory handles the full teardown (localStorage, state,
-  // ALL_NUGGETS rebuild, and re-renders for all four tabs) — so we short-circuit
+  // ALL_CARDS rebuild, and re-renders for all four tabs) — so we short-circuit
   // and return early to avoid duplicate renders below.
   if (deletedUserCategory) {
-    const stillHasCards = userNuggets.some(n => n.userCategory === deletedUserCategory);
+    const stillHasCards = userCards.some(n => n.userCategory === deletedUserCategory);
     if (!stillHasCards) {
       const cats = loadUserCategories();
       const orphanCat = cats.find(c => c.zhName === deletedUserCategory);
@@ -13714,7 +13716,7 @@ function _finishDeleteCard(nuggetId) {
   renderVocabPicker();
   // Drill: remove from active pool if mid-session
   if (state.drill.phase === 'session') {
-    const poolIdx = state.drill.pool.findIndex(n => n.id === nuggetId);
+    const poolIdx = state.drill.pool.findIndex(n => n.id === cardId);
     if (poolIdx !== -1) {
       state.drill.pool.splice(poolIdx, 1);
       // Adjust current index if the removed card was at or before current position
@@ -13725,8 +13727,8 @@ function _finishDeleteCard(nuggetId) {
       if (state.drill.idx >= state.drill.pool.length) {
         state.drill.idx = Math.max(0, state.drill.pool.length - 1);
       }
-      state.drill.gotIt.delete(nuggetId);
-      state.drill.seenThisSession.delete(nuggetId);
+      state.drill.gotIt.delete(cardId);
+      state.drill.seenThisSession.delete(cardId);
       // If pool is now empty, end the session
       if (state.drill.pool.length === 0) {
         state.drill.phase = 'setup';
@@ -13744,26 +13746,26 @@ function _finishDeleteCard(nuggetId) {
 
 /**
  * Hide a single built-in card. Reversible via Settings.
- * @param {number} nuggetId
+ * @param {number} cardId
  * @param {Element} el - the .card or .compact-row DOM element (for exit animation)
  */
-function executeHideCard(nuggetId, el) {
+function executeHideCard(cardId, el) {
   if (el) {
     el.classList.add('swipe-confirming');
-    el.addEventListener('animationend', () => _finishHideCard(nuggetId), { once: true });
+    el.addEventListener('animationend', () => _finishHideCard(cardId), { once: true });
   } else {
-    _finishHideCard(nuggetId);
+    _finishHideCard(cardId);
   }
 }
-function _finishHideCard(nuggetId) {
-  state.hiddenNuggets.add(nuggetId);
-  saveHiddenNuggets();
+function _finishHideCard(cardId) {
+  state.hiddenCards.add(cardId);
+  saveHiddenCards();
 
   // ── Cross-tab state propagation ──
   renderBrowse();
   // Drill: remove hidden card from active pool if mid-session
   if (state.drill.phase === 'session') {
-    const poolIdx = state.drill.pool.findIndex(n => n.id === nuggetId);
+    const poolIdx = state.drill.pool.findIndex(n => n.id === cardId);
     if (poolIdx !== -1) {
       state.drill.pool.splice(poolIdx, 1);
       if (poolIdx <= state.drill.idx && state.drill.idx > 0) {
@@ -13772,8 +13774,8 @@ function _finishHideCard(nuggetId) {
       if (state.drill.idx >= state.drill.pool.length) {
         state.drill.idx = Math.max(0, state.drill.pool.length - 1);
       }
-      state.drill.gotIt.delete(nuggetId);
-      state.drill.seenThisSession.delete(nuggetId);
+      state.drill.gotIt.delete(cardId);
+      state.drill.seenThisSession.delete(cardId);
       if (state.drill.pool.length === 0) {
         state.drill.phase = 'setup';
         clearDrillSession();
@@ -13785,7 +13787,7 @@ function _finishHideCard(nuggetId) {
 
 /**
  * Hard-delete a user-forged category and ALL cards that belong to it.
- * Cleans every layer: localStorage, state, ALL_NUGGETS, and all 4 tab views.
+ * Cleans every layer: localStorage, state, ALL_CARDS, and all 4 tab views.
  */
 function executeDeleteCategory(rawId) {
   const cats = loadUserCategories();
@@ -13799,12 +13801,12 @@ function executeDeleteCategory(rawId) {
   saveUserCategories(newCats);
 
   // 2. Hard-delete all cards belonging to this category from user-nuggets
-  const userNuggets = loadUserNuggets();
+  const userCards = loadUserCards();
   const deletedIds = new Set(
-    userNuggets.filter(n => n.userCategory === catName).map(n => n.id)
+    userCards.filter(n => n.userCategory === catName).map(n => n.id)
   );
-  const remainingNuggets = userNuggets.filter(n => n.userCategory !== catName);
-  localStorage.setItem('user-nuggets', JSON.stringify(remainingNuggets));
+  const remainingCards = userCards.filter(n => n.userCategory !== catName);
+  localStorage.setItem('user-nuggets', JSON.stringify(remainingCards));
 
   // 3. Clean all state references
   state.loadedPacks.delete('uc_' + rawId);
@@ -13828,8 +13830,8 @@ function executeDeleteCategory(rawId) {
   saveFavorites();
   saveStruggling();
 
-  // 5. Rebuild the in-memory nugget array without the deleted cards
-  rebuildAllNuggets();
+  // 5. Rebuild the in-memory card array without the deleted cards
+  rebuildAllCards();
 
   // 6. Re-render every layer that shows category state
   renderPacksPanel();
@@ -14275,7 +14277,7 @@ document.getElementById('drill-btn-all').addEventListener('click', () => {
   });
 
   // Deferred heavy work. cascadeDuration = (N-1) * 80ms + 400ms wobble.
-  // updateSmartCount scans all loaded nuggets to refresh the count badge
+  // updateSmartCount scans all loaded cards to refresh the count badge
   // and max-clamp the stepper — fine to land AFTER the cascade visual since
   // the count display is ambient, not the primary feedback signal.
   // updateCategoryBubbles('browse') is a cheap classList pass so we could
@@ -14562,10 +14564,10 @@ function resumeSession(sessionId) {
   session.events.forEach(e => {
     if (e.action === 'got' || e.action === 'struggle') verdicted.add(e.cardId);
   });
-  const nuggetMap = new Map(ALL_NUGGETS.map(n => [n.id, n]));
+  const cardMap = new Map(ALL_CARDS.map(n => [n.id, n]));
   const remaining = session.cardIds
     .filter(id => !verdicted.has(id))
-    .map(id => nuggetMap.get(id))
+    .map(id => cardMap.get(id))
     .filter(Boolean);
 
   if (remaining.length === 0) {
@@ -14702,16 +14704,16 @@ document.addEventListener('keydown', (e) => {
 
 // Grade buttons (attach once)
 document.getElementById('grade-wrong-btn').addEventListener('click', () => {
-  const nugget = state.drill.pool[state.drill.idx];
-  if (!nugget) return;
-  recordCardStruggle(nugget.id);
-  state.struggling.add(nugget.id);
-  state.drill.gotIt.delete(nugget.id);
+  const currentCard = state.drill.pool[state.drill.idx];
+  if (!currentCard) return;
+  recordCardStruggle(currentCard.id);
+  state.struggling.add(currentCard.id);
+  state.drill.gotIt.delete(currentCard.id);
   saveStruggling();
   updateStrugglingBubble();
   // Append to session log
   if (state.drill.currentSessionId) {
-    sessionAppendEvent(state.drill.currentSessionId, 'struggle', nugget.id);
+    sessionAppendEvent(state.drill.currentSessionId, 'struggle', currentCard.id);
   }
   document.getElementById('grade-wrong-btn').classList.add('marked');
   document.getElementById('grade-right-btn').classList.remove('marked');
@@ -14721,16 +14723,16 @@ document.getElementById('grade-wrong-btn').addEventListener('click', () => {
 });
 
 document.getElementById('grade-right-btn').addEventListener('click', () => {
-  const nugget = state.drill.pool[state.drill.idx];
-  if (!nugget) return;
-  recordCardGotIt(nugget.id);
-  state.drill.gotIt.add(nugget.id);
-  state.struggling.delete(nugget.id);
+  const currentCard = state.drill.pool[state.drill.idx];
+  if (!currentCard) return;
+  recordCardGotIt(currentCard.id);
+  state.drill.gotIt.add(currentCard.id);
+  state.struggling.delete(currentCard.id);
   saveStruggling();
   updateStrugglingBubble();
   // Append to session log
   if (state.drill.currentSessionId) {
-    sessionAppendEvent(state.drill.currentSessionId, 'got', nugget.id);
+    sessionAppendEvent(state.drill.currentSessionId, 'got', currentCard.id);
   }
   document.getElementById('grade-right-btn').classList.add('marked');
   document.getElementById('grade-wrong-btn').classList.remove('marked');
@@ -15128,7 +15130,7 @@ function showDemoWrap() {
   const wrap  = _demoWrap();
 
   // Render card content before layout shift so height is accurate
-  renderSettingsDemoCard(DEMO_NUGGETS[_demoNuggetIndex]);
+  renderSettingsDemoCard(DEMO_CARDS[_demoCardIndex]);
 
   // FIRST — record panel's current position
   const first = panel.getBoundingClientRect();
@@ -15374,7 +15376,7 @@ const THEME_ORDER = ['default', 'night-study', 'bamboo-grove', 'clean-slate'];
 let settingsThemeIndex = 0;
 
 // ── Demo card data ──────────────────────────────────────────────────────────
-const DEMO_NUGGETS = [
+const DEMO_CARDS = [
   {
     id: 9001,
     traditional:  '示範',
@@ -15475,10 +15477,10 @@ const DEMO_NUGGETS = [
     ]
   }
 ];
-let _demoNuggetIndex = 0;
+let _demoCardIndex = 0;
 let _demoFlipped = false;
 
-function renderSettingsDemoCard(nugget) {
+function renderSettingsDemoCard(cardEntry) {
   const front = document.getElementById('settings-demo-front');
   const back  = document.getElementById('settings-demo-back');
   const flip  = document.getElementById('settings-demo-flip');
@@ -15495,8 +15497,8 @@ function renderSettingsDemoCard(nugget) {
 
   const charDiv = document.createElement('div');
   charDiv.className = 'drill-char';
-  charDiv.textContent = nugget.traditional || nugget.simplified;
-  const charCount = (nugget.traditional || nugget.simplified).length;
+  charDiv.textContent = cardEntry.traditional || cardEntry.simplified;
+  const charCount = (cardEntry.traditional || cardEntry.simplified).length;
   if (charCount >= 5) charDiv.style.fontSize = '2.6rem';
   centerWrap.appendChild(charDiv);
 
@@ -15505,7 +15507,7 @@ function renderSettingsDemoCard(nugget) {
 
   const pinyinText = document.createElement('div');
   pinyinText.className = 'pinyin-text revealed'; // always revealed in demo
-  pinyinText.textContent = nugget.pinyin;
+  pinyinText.textContent = cardEntry.pinyin;
 
   const revealBtn = document.createElement('div');
   revealBtn.className = 'reveal-pinyin hidden';
@@ -15520,13 +15522,13 @@ function renderSettingsDemoCard(nugget) {
   back.innerHTML = '';
   const meaningDiv = document.createElement('div');
   meaningDiv.className = 'drill-meaning';
-  meaningDiv.textContent = nugget.english;
+  meaningDiv.textContent = cardEntry.english;
   back.appendChild(meaningDiv);
 
-  if (nugget.semanticNote) {
+  if (cardEntry.semanticNote) {
     const excerptDiv = document.createElement('div');
     excerptDiv.className = 'semantic-excerpt';
-    excerptDiv.textContent = nugget.semanticNote;
+    excerptDiv.textContent = cardEntry.semanticNote;
     back.appendChild(excerptDiv);
   }
 
@@ -15544,15 +15546,15 @@ function updateSettingsPreview(themeId) {
   settingsThemeIndex = THEME_ORDER.indexOf(themeId);
   if (settingsThemeIndex < 0) settingsThemeIndex = 0;
 
-  // Pick a random demo nugget (different from last shown)
-  const prev = _demoNuggetIndex;
-  let next = Math.floor(Math.random() * DEMO_NUGGETS.length);
-  if (DEMO_NUGGETS.length > 1 && next === prev) next = (next + 1) % DEMO_NUGGETS.length;
-  _demoNuggetIndex = next;
+  // Pick a random demo card (different from last shown)
+  const prev = _demoCardIndex;
+  let next = Math.floor(Math.random() * DEMO_CARDS.length);
+  if (DEMO_CARDS.length > 1 && next === prev) next = (next + 1) % DEMO_CARDS.length;
+  _demoCardIndex = next;
 
   // Only re-render if the demo card is currently showing
   if (_demoVisible) {
-    renderSettingsDemoCard(DEMO_NUGGETS[_demoNuggetIndex]);
+    renderSettingsDemoCard(DEMO_CARDS[_demoCardIndex]);
   }
 }
 
@@ -15648,7 +15650,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // drill-cat-toggle-btn removed — replaced by drill-btn-all (都 squircle)
 
-  rebuildAllNuggets(); // Load user-created nuggets before first render
+  rebuildAllCards(); // Load user-created cards before first render
   setupCategorySheetEvents(); // Wire up the category assignment bottom sheet
   wireDeleteModal(); // Wire up the delete confirmation modal buttons
   renderBrowseUserCats(); // Inject any existing forged decks into Browse filter bar
@@ -15835,7 +15837,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       selectedWord: forgeReviewState.selectedWord,
       btnDisabled: btn.disabled,
       btnLoading: btn.classList.contains('loading'),
-      pendingNugget: !!forgeReviewState.pendingNugget
+      pendingCard: !!forgeReviewState.pendingCard
     });
     if (reviewPanel && reviewPanel.classList.contains('show')) {
       // Input changed since panel opened — user refined their search. Re-run lookup.
@@ -15888,7 +15890,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             reviewShown: document.getElementById('forge-review')?.classList.contains('show'),
             forgeStatus: document.getElementById('forge-status')?.className,
             forgeStatusText: document.getElementById('forge-status')?.textContent?.slice(0, 120),
-            pendingNugget: !!forgeReviewState.pendingNugget,
+            pendingCard: !!forgeReviewState.pendingCard,
             selectedWord: forgeReviewState.selectedWord
           });
         }
@@ -15924,7 +15926,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       return;
     }
     document.getElementById('forge-opus-modal').style.display = 'none';
-    generateNugget(word, 'anthropic');
+    generateCard(word, 'anthropic');
   });
 
   // Help modal
@@ -15939,8 +15941,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   });
 
-  // Initialize ALL_NUGGETS with any saved user nuggets
-  rebuildAllNuggets();
+  // Initialize ALL_CARDS with any saved user cards
+  rebuildAllCards();
 
   // ========== STAGE TAB EVENT HANDLERS ==========
   // Stage title
@@ -17171,7 +17173,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     function doSave() {
       const title = inp.value.trim() || defaultTitle;
-      const vocabLabels = ALL_NUGGETS
+      const vocabLabels = ALL_CARDS
         .filter(n => stageState.selectedVocab.has(n.id))
         .map(n => n.traditional || n.simplified || n.id);
       const entry = {
