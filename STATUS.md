@@ -37,6 +37,11 @@ HSK6 enrichment is **complete and live**: all 2500 cards (IDs 5001–7500) are e
 
 ## Decisions
 
+### 2026-07-30 — Favicon built
+**What:** Generated favicon.ico + 16/32/180/192/512 PNGs + site.webmanifest, saved to project root, link tags added to `index.html` `<head>`. Icon is a two-card "deck" shape in `--ink #2c2416` on `--rice #f5f0e8` — real tokens, kept light to match Zifang's actual paper-toned brand. Speech-bubble and ink-brush concepts were rejected as overclaiming capabilities Zifang doesn't have (no chat interface, no handwriting practice).
+**Why:** Continuing the portfolio-wide favicon rollout (see `webdev/_docs/favicon-pipeline-STATUS.md`).
+**How to apply:** Not yet committed/pushed — hard-refresh after deploy to confirm the tab icon updates.
+
 ### 2026-07-17 — Supporting Forge evidence and session seed moved under `_docs/`
 **What:** Moved `RECON.md` and `SEED.md` from the project root to `_docs/`.
 **Why:** RECON remains useful empirical evidence and SEED remains historical handoff context, but neither is a root-level source of truth for day-to-day Zifang work.
