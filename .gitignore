@@ -9,9 +9,8 @@ Screenshot*.png
 .env
 .env.*
 
-# Loader scripts have a Supabase service_role (admin) key hardcoded inline.
-# Gitignored so a stray `git add .` can't publish them. Back them up outside git,
-# or move the key into .env and delete these two lines.
+# Local admin/upload scripts read Supabase service_role credentials from .env.
+# Keep them out of the public repo even without inline secrets.
 upload-*.js
 migrate.js
 

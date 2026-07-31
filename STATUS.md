@@ -2,7 +2,7 @@
 attention: Active
 state: Live
 form: Website
-updated: 2026-07-17
+updated: 2026-07-31
 live_url: null
 ---
 
@@ -16,7 +16,7 @@ live_url: null
 - When an idea matures into a decision, move it. When a decision is superseded, strike it through and note what replaced it.
 - Reference [INTENT.md](INTENT.md) for LLM doctrine, the pending queue for backlog, [markdowns/zifang-design-system.md](markdowns/zifang-design-system.md) for architecture.
 
-**Last updated:** 2026-07-24
+**Last updated:** 2026-07-31
 
 ## Where I left off
 
@@ -24,18 +24,23 @@ HSK6 enrichment is **complete and live**: all 2500 cards (IDs 5001–7500) are e
 
 ## Back Burner
 
-- <!-- bb:supabase-key --> Move the Supabase `service_role` key out of `upload-*.js`/`migrate.js` into an untracked `.env` (scripts read `process.env`). NOT urgent — 2026-07-12 check confirmed those files are untracked and were never pushed, and they're now gitignored so `git add .` can't leak them. Rotation only needed if a leak is ever confirmed. See `_meta/SECRETS-HYGIENE.md`.
 - <!-- bb:forge-validator --> Forge correctness layers (per 2026-05-26 decision): Layer 1 deterministic validator first (free, biggest mechanical-error catch), then same-model critic, then Sonnet routing
 
 ## Log
 
-- 2026-07-12: The 2026-07-01 `service_role` "exposure" was investigated and is **not a public leak**: the scripts holding the admin key (`upload-*.js`, `migrate.js`) are **untracked and were never committed** to the public `cubicleaf/Zifang` repo (which tracks only `index.html`, carrying the public-by-design `anon` key). The latent risk — a stray `git add .` sweeping the secret scripts in — was closed by gitignoring `.env`/`upload-*.js`/`migrate.js`/`data/contacts.json`. Remaining work is hygiene, not an emergency: move the key to `.env` (see Back-burner + `_meta/SECRETS-HYGIENE.md`).
-- 2026-07-12: Investigated the 2026-07-01 `service_role` "exposure" — it is NOT public. The upload scripts and `migrate.js` that hold the admin key are untracked and were never committed (`git log --all` empty for them); the public repo tracks only `index.html`, which carries the `anon` key (public by design). Closed the latent risk by gitignoring `.env`, `upload-*.js`, `migrate.js`, and `data/contacts.json` so a stray `git add .` can't leak them. Full hygiene guide: `_meta/SECRETS-HYGIENE.md`.
+- 2026-07-31: Supabase admin-key hygiene cleanup is complete. Created an untracked project-root `.env`, moved the `service_role` credential out of `upload-*.js` and `migrate.js`, added loud missing-env failure guards to those scripts, and created `_meta/SECRETS-HYGIENE.md` so the procedure is actually documented. No public leak was found; no key rotation performed.
+- 2026-07-12: The 2026-07-01 `service_role` "exposure" was investigated and is **not a public leak**: the scripts holding the admin key (`upload-*.js`, `migrate.js`) are **untracked and were never committed** to the public `cubicleaf/Zifang` repo (which tracks only `index.html`, carrying the public-by-design `anon` key). The latent risk — a stray `git add .` sweeping the secret scripts in — was closed by gitignoring `.env`/`upload-*.js`/`migrate.js`/`data/contacts.json`. The remaining work at that point was hygiene only, and it was completed on 2026-07-31.
+- 2026-07-12: Investigated the 2026-07-01 `service_role` "exposure" — it is NOT public. The upload scripts and `migrate.js` that hold the admin key are untracked and were never committed (`git log --all` empty for them); the public repo tracks only `index.html`, which carries the `anon` key (public by design). Closed the latent risk by gitignoring `.env`, `upload-*.js`, `migrate.js`, and `data/contacts.json` so a stray `git add .` can't leak them. The hygiene guide now lives at `_meta/SECRETS-HYGIENE.md`.
 - 2026-07-11: `tims-ux-playbook/SKILL.md` (which lived in this folder as a birthplace accident) is now DEPRECATED. The playbook's canonical home is `~/Documents/ux-playbook/` (canon/corpus split + generated skill). The local copy carries a deprecation banner; safe to archive/delete during the planned location cleanup. Zifang's own design docs (`markdowns/zifang-design-system.md` etc.) are unaffected.
 - 2026-07-10: Reshaped to the two-axis STATUS format (SPEC-converged-v1 §2). Formatting migration only — `updated:` deliberately not bumped.
 - 2026-07-15: Migrated the header from the retired `relationship / kind` pilot to the canonical `attention / state / form` schema. Zifang now reads as `Active / Live / Website`: a real deployed working surface, not just a prototype shorthand.
 
 ## Decisions
+
+### 2026-07-31 — Supabase admin key moved into untracked `.env`
+**What:** Removed the inline `service_role` credential from `migrate.js` and all `upload-*.js` scripts. Those local admin scripts now read `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` from the untracked project-root `.env`, fail loudly if either is missing, and point to `_meta/SECRETS-HYGIENE.md` for the maintenance rule.
+**Why:** The key was never publicly leaked, but leaving it inline in local scripts was bad hygiene and kept the project record stuck between "not urgent" and "not actually fixed."
+**How to apply:** Keep the real values only in `.env`. Run the scripts from the project root. Rotate the key only if a real exposure is confirmed later.
 
 ### 2026-07-30 — Favicon built
 **What:** Generated favicon.ico + 16/32/180/192/512 PNGs + site.webmanifest, saved to project root, link tags added to `index.html` `<head>`. Icon is a two-card "deck" shape in `--ink #2c2416` on `--rice #f5f0e8` — real tokens, kept light to match Zifang's actual paper-toned brand. Speech-bubble and ink-brush concepts were rejected as overclaiming capabilities Zifang doesn't have (no chat interface, no handwriting practice).
@@ -70,7 +75,7 @@ This session enriched cards 6901–6940 (2 batches of 20) in `data/hsk6-enriched
 ### 2026-07-01 — HSK6 enrichment continued to 6900 (IDs 6841–6900 complete, 60/600 cards this leg)
 This session enriched cards 6841–6900 (3 batches of 20) in `data/hsk6-enriched.json`, adding `pos`, `semanticNote`, `components`, and `examples` for each. Verified before/after: 1840→1900 total cards, max ID 6840→6900, zero errors from `/tmp/patch_hsk6.py`.
 **Why:** Continuing the multi-session HSK6 enrichment project toward ID 7500.
-**How to apply:** 600 cards (6901–7500, ~30 batches) remain. Same judgment call as the 6500 session: kept skeleton's non-Taiwan-standard `traditional` field values untouched (e.g. 委托, 为难, 违背, 蔚蓝 stay as-is in the base record), but used Taiwan-standard forms (委託, 為難, 違背, 蔚藍) inside `components`/`examples`. Also found and flagged, not fixed: `upload-hsk6-enriched.js` has a Supabase `service_role` key hardcoded in plaintext inside a git-tracked project — rotate the key and move it to an untracked `.env` before the next Supabase sync.
+**How to apply:** 600 cards (6901–7500, ~30 batches) remain. Same judgment call as the 6500 session: kept skeleton's non-Taiwan-standard `traditional` field values untouched (e.g. 委托, 为难, 违背, 蔚蓝 stay as-is in the base record), but used Taiwan-standard forms (委託, 為難, 違背, 蔚藍) inside `components`/`examples`. At the time, `upload-hsk6-enriched.js` still held a plaintext `service_role` key and was flagged for cleanup. That hygiene fix was completed on 2026-07-31; the script was local/untracked, not a public repo leak.
 
 ### 2026-06-12 — HSK6 flashcard enrichment reached 6500 (IDs 5001–6500 complete, 1500/1500 cards)
 This session enriched cards 6381–6500 (6 batches of 20) in `data/hsk6-enriched.json`, adding `pos`, `semanticNote`, `components`, and `examples` (Traditional Chinese, Taiwan-standard register) for each. Verified: 1500 total cards, IDs 5001–6500 present, no duplicates, no gaps.
