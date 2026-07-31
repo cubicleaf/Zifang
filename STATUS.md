@@ -28,6 +28,7 @@ HSK6 enrichment is **complete and live**: all 2500 cards (IDs 5001–7500) are e
 
 ## Log
 
+- 2026-07-31: Migrated Zifang's Groq default off the deprecated `llama-3.3-70b-versatile` model and onto `openai/gpt-oss-120b`. Centralized the Groq model ID in `index.html`, updated all Groq request paths to use it, and refreshed stale Llama-specific UI copy so the key/model settings match the current setup before a new API key is entered.
 - 2026-07-31: Began the runtime terminology cleanup away from legacy `nugget` wording. Safe pass completed in `index.html`: core Forge/runtime identifiers now use `card` language (`generateCard`, `validateGeneratedCard`, `ALL_CARDS`, `pendingCard`, `userCards`, etc.). Verified with a JS syntax check on the extracted inline script. Remaining `nugget` strings are intentionally limited to persistence-sensitive localStorage/cache/theme/auth keys and compatibility comments around them.
 - 2026-07-31: Supabase admin-key hygiene cleanup is complete. Created an untracked project-root `.env`, moved the `service_role` credential out of `upload-*.js` and `migrate.js`, added loud missing-env failure guards to those scripts, and created `_meta/SECRETS-HYGIENE.md` so the procedure is actually documented. No public leak was found; no key rotation performed.
 - 2026-07-12: The 2026-07-01 `service_role` "exposure" was investigated and is **not a public leak**: the scripts holding the admin key (`upload-*.js`, `migrate.js`) are **untracked and were never committed** to the public `cubicleaf/Zifang` repo (which tracks only `index.html`, carrying the public-by-design `anon` key). The latent risk — a stray `git add .` sweeping the secret scripts in — was closed by gitignoring `.env`/`upload-*.js`/`migrate.js`/`data/contacts.json`. The remaining work at that point was hygiene only, and it was completed on 2026-07-31.
@@ -37,6 +38,11 @@ HSK6 enrichment is **complete and live**: all 2500 cards (IDs 5001–7500) are e
 - 2026-07-15: Migrated the header from the retired `relationship / kind` pilot to the canonical `attention / state / form` schema. Zifang now reads as `Active / Live / Website`: a real deployed working surface, not just a prototype shorthand.
 
 ## Decisions
+
+### 2026-07-31 — Groq default moved from deprecated Llama 3.3 to GPT-OSS 120B
+**What:** Replaced Zifang's hard-coded Groq model target `llama-3.3-70b-versatile` with a single `GROQ_DEFAULT_MODEL` constant set to `openai/gpt-oss-120b`, and updated the settings/help copy so the app no longer describes the Groq path as specifically Llama-based.
+**Why:** Groq has deprecated Llama 3.3 70B Versatile and will stop serving it on 2026-08-16 for free and developer-tier usage. Leaving the old model string scattered through the app would create a silent break.
+**How to apply:** Keep Groq as the free default unless there is a reason to optimize differently later. If Zifang switches again, change the centralized Groq constant first and verify all browser-direct Groq paths still inherit it.
 
 ### 2026-07-31 — Runtime terminology starts moving from `nugget` to `card`
 **What:** Renamed the safe in-memory/runtime layer in `index.html` away from `nugget` language: Forge now calls `generateCard()` / `validateGeneratedCard()`, the merged library is `ALL_CARDS`, and pending/generated/user-created card objects now use `card`-based variable names.

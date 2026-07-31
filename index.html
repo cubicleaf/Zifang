@@ -7294,8 +7294,8 @@ footer .footer-line {
       <div class="settings-pane" id="settings-pane-keys">
         <div class="settings-key-group" id="settings-groq-key-group">
           <div class="groq-label-row">
-            <label class="settings-key-label">Groq API Key — Llama (free)</label>
-            <button class="groq-info-btn" id="groq-info-btn" aria-label="About Llama / Groq" aria-expanded="false">
+            <label class="settings-key-label">Groq API Key — GPT-OSS (free)</label>
+            <button class="groq-info-btn" id="groq-info-btn" aria-label="About Groq OSS models" aria-expanded="false">
               <svg width="15" height="15" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M13.5,20.88A9.29,9.29,0,0,1,12,21,9,9,0,0,1,12,3a9.29,9.29,0,0,1,1.5.12,9,9,0,0,0,0,17.76Z" style="fill: rgba(90,56,0,0.12);"/>
                 <circle cx="12" cy="12" r="9" style="fill:none; stroke:#5a3800; stroke-linecap:round; stroke-linejoin:round; stroke-width:2;"/>
@@ -7306,7 +7306,7 @@ footer .footer-line {
           <div class="groq-info-panel" id="groq-info-panel">
             <div class="groq-info-panel-inner">
               <div class="groq-info-body">
-                <p><strong>Llama 3.3</strong> is Meta's open-source 70B language model, served by Groq on specialized inference chips — which is why it's fast despite being a large model.</p>
+                <p><strong>Groq's OSS models</strong> give Zifang a fast browser-direct default. The old Llama 3.3 default is being retired, so Zifang now targets GPT-OSS on Groq instead.</p>
                 <p>In Zifang it powers <strong>Forge</strong> (generates full card data for any Chinese word: pinyin, examples, components, semantic notes) and <strong>Workshop</strong> (writes HSK-calibrated dialogues between your characters).</p>
                 <p><strong>Free tier limits:</strong> 100,000 tokens/day and 30 requests/minute, resetting at midnight UTC. A Forge card costs ~500 tokens; a Workshop dialogue ~1,000. Most sessions stay well under the cap.</p>
               </div>
@@ -7326,7 +7326,7 @@ footer .footer-line {
           <label class="settings-key-label">Default Forge Model</label>
           <div class="model-selector">
             <div class="model-option selected" id="model-opt-groq" data-model="groq">
-              <div class="model-opt-name">Llama via Groq</div>
+              <div class="model-opt-name">Groq GPT-OSS</div>
               <div class="model-opt-badge free">Free</div>
               <div class="model-opt-desc">Fast, free, no credit card needed</div>
             </div>
@@ -7787,7 +7787,7 @@ footer .footer-line {
             </div>
           </div>
         </div>
-        <p class="forge-help-note">Groq is free and uses Meta's Llama model to generate your cards. Your key is stored locally in your browser — it never leaves your device.</p>
+        <p class="forge-help-note">Groq is the free default path for generating your cards in Zifang, currently using GPT-OSS. Your key is stored locally in your browser — it never leaves your device.</p>
       </div>
     </div>
 
@@ -10429,6 +10429,8 @@ function hideForgeReview() {
  * Call the LLM to translate English input into Chinese suggestions.
  * Uses whichever API key is available (Groq first since it's free).
  */
+const GROQ_DEFAULT_MODEL = 'openai/gpt-oss-120b';
+
 function fetchTranslationSuggestions(englishInput) {
   const groqKey = localStorage.getItem('groq-api-key');
   const anthropicKey = localStorage.getItem('anthropic-api-key');
@@ -10458,7 +10460,7 @@ function fetchTranslationSuggestions(englishInput) {
   let reqBody = {};
   if (provider === 'groq') {
     reqBody = {
-      model: 'llama-3.3-70b-versatile',
+      model: GROQ_DEFAULT_MODEL,
       messages: [
         { role: 'system', content: sysPrompt },
         { role: 'user', content: userMsg }
@@ -11149,7 +11151,7 @@ function showCategoryPicker() {
   document.getElementById('forge-cat-title-en').textContent = 'New Category';
 
   const word = forgeReviewState.pendingCard ? forgeReviewState.pendingCard.traditional : '';
-  srcDiv.innerHTML = 'Llama inferred from <strong>' + word + '</strong> · select or add context';
+  srcDiv.innerHTML = 'Groq inferred from <strong>' + word + '</strong> · select or add context';
 
   // Show loading state
   optsDiv.innerHTML = '<div class="forge-review-loading" style="width:100%">Generating category names...</div>';
@@ -11179,7 +11181,7 @@ function fetchCategoryNames(word, context) {
     method: 'POST',
     headers: { 'Authorization': 'Bearer ' + groqKey, 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      model: 'llama-3.3-70b-versatile',
+      model: GROQ_DEFAULT_MODEL,
       messages: [
         { role: 'system', content: sysPrompt },
         { role: 'user', content: 'Suggest category names for: ' + word }
@@ -11290,7 +11292,7 @@ function setupCategorySheetEvents() {
     const statusDiv = document.getElementById('forge-cat-ctx-status');
     clearTimeout(_catCtxTimer);
     if (!val) { statusDiv.textContent = ''; statusDiv.className = 'forge-cat-ctx-status'; return; }
-    statusDiv.textContent = 'Llama refreshing...';
+    statusDiv.textContent = 'Groq refreshing...';
     statusDiv.className = 'forge-cat-ctx-status refreshing';
     _catCtxTimer = setTimeout(() => {
       const word = forgeReviewState.pendingCard ? forgeReviewState.pendingCard.traditional : '';
@@ -11566,7 +11568,7 @@ displayBreak: positive integer only when 6+ chars AND a naive midpoint would spl
   let body = {};
   if (provider === 'groq') {
     body = {
-      model: 'llama-3.3-70b-versatile',
+      model: GROQ_DEFAULT_MODEL,
       messages: [
         {role: 'system', content: sysPrompt},
         {role: 'user', content: 'PRE-FLIGHT: polysemous single chars 長/重/行/得/著 → needsClarification. Chengyu fragment (2–3 char opening of known chengyu) → needsClarification. Otherwise forge.\n\nGenerate a complete flashcard for: ' + word + (clarification ? '\nContext: ' + clarification : '')}
@@ -12662,7 +12664,7 @@ function generateDialogue() {
   try {
     const lc = LENGTH_CONFIG[stageState.length] || LENGTH_CONFIG['short'];
     body = {
-      model: 'llama-3.3-70b-versatile',
+      model: GROQ_DEFAULT_MODEL,
       messages: [
         { role: 'system', content: buildStageSystemPrompt() },
         { role: 'user', content: buildStageUserMessage() }
@@ -12770,7 +12772,7 @@ function extendDialogue(lineFactor, tokenFactor) {
   let body;
   try {
     body = {
-      model: 'llama-3.3-70b-versatile',
+      model: GROQ_DEFAULT_MODEL,
       messages: [
         { role: 'system', content: buildStageSystemPrompt() },
         { role: 'user', content:
@@ -16775,7 +16777,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: 'llama-3.3-70b-versatile',
+        model: GROQ_DEFAULT_MODEL,
         messages: [
           { role: 'system', content: enrichPrompt },
           { role: 'user', content: 'Enrich this character. Return ONLY valid JSON.' }
@@ -17248,9 +17250,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 <div class="model-warn-overlay" id="model-warn-modal">
   <div class="model-warn-panel">
     <div class="model-warn-title">Paid option</div>
-    <div class="model-warn-body">Claude Sonnet requires an Anthropic API key and will incur costs. Llama via Groq is free and works well for most cards — no credit card needed.</div>
+    <div class="model-warn-body">Claude Sonnet requires an Anthropic API key and will incur costs. Groq GPT-OSS is free and works well for most cards — no credit card needed.</div>
     <div class="model-warn-btns">
-      <button class="model-warn-cancel" id="model-warn-cancel">Keep Llama</button>
+      <button class="model-warn-cancel" id="model-warn-cancel">Keep Groq</button>
       <button class="model-warn-confirm" id="model-warn-confirm">I have a key</button>
     </div>
   </div>
