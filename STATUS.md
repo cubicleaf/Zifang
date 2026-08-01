@@ -39,6 +39,11 @@ HSK6 enrichment is **complete and live**: all 2500 cards (IDs 5001–7500) are e
 
 ## Decisions
 
+### 2026-07-31 — Favicon replaced with the real Drill tab icon, in the real Drill blue
+**What:** The favicon originally shipped as an invented "two overlapping rounded-rect cards" abstraction, ink on rice. Replaced with the actual Drill tab SVG path from `index.html` (the two-layer document/badge icon at line ~7438, rendered with `fill="currentColor"`), recolored to the genuine Drill accent `#4682b4` (from the `accents` map at line ~9286, not a guessed blue). Shell converted from a circle to the portfolio-wide squircle. Sized 30% larger than the original cards concept, then 20% larger, then 20% larger again per direct feedback — final size is 1.87x the original. At this size the icon's own width measures 95.3% of canvas, the same fill as the outer shell itself, so it now sits right up against the shell's rounded corners with no margin — worth a visual gut-check against the other favicons before treating this as final.
+**Why:** Tim wanted the favicon to match the app's real Drill tab exactly rather than an approximation, and asked me to find the actual SVG in the codebase rather than reinvent it.
+**How to apply:** Files at repo root (favicon.ico, 16/32/180/192/512 PNGs), no HTML changes needed — link tags already wired. If Drill's accent color or icon ever changes in-app, the favicon should be regenerated to match, not treated as independently locked.
+
 ### 2026-07-31 — Groq default moved from deprecated Llama 3.3 to GPT-OSS 120B
 **What:** Replaced Zifang's hard-coded Groq model target `llama-3.3-70b-versatile` with a single `GROQ_DEFAULT_MODEL` constant set to `openai/gpt-oss-120b`, and updated the settings/help copy so the app no longer describes the Groq path as specifically Llama-based.
 **Why:** Groq has deprecated Llama 3.3 70B Versatile and will stop serving it on 2026-08-16 for free and developer-tier usage. Leaving the old model string scattered through the app would create a silent break.
