@@ -2,7 +2,7 @@
 attention: Active
 state: Live
 form: Website
-updated: 2026-07-31
+updated: 2026-09-17
 live_url: null
 ---
 
@@ -16,7 +16,7 @@ live_url: null
 - When an idea matures into a decision, move it. When a decision is superseded, strike it through and note what replaced it.
 - Reference [INTENT.md](INTENT.md) for LLM doctrine, the pending queue for backlog, [markdowns/zifang-design-system.md](markdowns/zifang-design-system.md) for architecture.
 
-**Last updated:** 2026-07-31
+**Last updated:** 2026-09-17
 
 ## Where I left off
 
@@ -37,10 +37,17 @@ Scratchpad wording is kept verbatim so the notes and this file stay greppable ag
 ## Back Burner
 
 - <!-- bb:forge-validator --> Forge correctness layers (per 2026-05-26 decision): Layer 1 deterministic validator first (free, biggest mechanical-error catch), then same-model critic, then Sonnet routing. **Blocker found 2026-08-02:** Layer 3 cannot fire as specified — `const provider = groqKey ? 'groq' : 'anthropic'` (`index.html:10444`) makes Groq win unconditionally whenever a Groq key exists, so a user with both keys can never reach Sonnet. Fix that line before building routing logic.
-- <!-- bb:offline-fallback --> **No offline fallback exists.** `index.html:8529` claims inline arrays are kept as a fallback; `15614` says they were removed and Supabase is the only source. `15614` is correct. If the Supabase fetch fails, `ALL_CARDS` holds only the user's own forged cards and all 3,791 curated HSK cards vanish. Total content outage with no degraded mode on a project marked `state: Live`. A `localStorage` cache of the last successful fetch would close it cheaply. (Found incidentally during the 2026-08-02 reconciliation, not in the scratchpad.)
 - <!-- bb:moria --> **"get moria sorted"** — ambiguous ask, low stakes, behind the spicy password gate. Two divergent assets exist: `moria.html` (standalone, viewBox 500×680, 111 drawing elements, Tengwar arch text) and the inline gate injected at `index.html:16918` (viewBox 200×230, 19 elements). Likely means port the good art in, or delete the standalone so it stops implying unfinished work. `moria/` also holds 10 reference screenshots from 2026-04-01, so a third reading is "finish the art from those." Needs Tim to say which.
 
 ## Log
+
+- 2026-09-17: Shipped the offline card cache (IndexedDB) and the `.offline-notice` strip; see Decisions.
+  Also corrected the stale `// inline arrays kept as offline fallback` comment on the `ALL_CARDS`
+  declaration (one of the `open:cheap-correctness-batch` items). **Line numbers cited elsewhere in this
+  file and in `_docs/2026-08-02-scratchpad-reconciliation.md` are now shifted** — the patch inserted
+  +48 lines at old-3501 (CSS), +5 at old-7265 (markup), +82 at old-8330 (JS), and +15 across the
+  boot block at old-15611. Net +150. For any reference above old-3501 the number is unchanged; above
+  old-8330 add ~135; above old-15611 add ~150. Staged locally, **not deployed**.
 
 - 2026-08-02: Reconciled Tim's out-of-repo scratchpad (13 bullets) against the code at `e7a034c`. Decomposed to 20 atomic line-items: 5 Done, 1 Done differently, 5 Premise false, 9 Not started. Report at [_docs/2026-08-02-scratchpad-reconciliation.md](_docs/2026-08-02-scratchpad-reconciliation.md). Live items moved to **Open** above in the scratchpad's own vocabulary so the two are greppable against each other. Two kills recorded under Decisions ("decks in github", "expand decks using llama") plus one skip (SVG FC theme swatches). Three incidental defects found that were not in the scratchpad: no offline fallback (Back Burner), Sonnet routing unreachable (Back Burner), Workshop script default is Simplified against project doctrine (Open, cheap batch). Verified by extracting `drillFontSize`/`calcPinyinFontSize`/the score model verbatim and running them over all 3,791 HSK5+HSK6 cards — longest headword is 4 chars, so the drill font ladder's 5/7/8+ branches never fire on shipped decks, and `calcPinyinFontSize` clamps on ordinary 1-char cards instead. No app code changed this session.
 
@@ -54,6 +61,26 @@ Scratchpad wording is kept verbatim so the notes and this file stay greppable ag
 - 2026-07-15: Migrated the header from the retired `relationship / kind` pilot to the canonical `attention / state / form` schema. Zifang now reads as `Active / Live / Website`: a real deployed working surface, not just a prototype shorthand.
 
 ## Decisions
+
+### 2026-09-17 — Offline fallback shipped as an IndexedDB cache, not localStorage
+**What:** `fetchCards()` results are now cached to IndexedDB (`zifang-cache` / `kv` / `remote-cards-v1`)
+on every successful load, and restored when Supabase is unreachable *or* returns an empty set. A quiet
+`.offline-notice` strip under the header reports the degraded state. Closes the old
+`bb:offline-fallback` item.
+
+**Why:** The Supabase project was paused on 2026-08-07 for free-tier inactivity, and
+`zifang.vercel.app` served **0 cards for ~6 weeks** — confirmed live on 2026-09-17
+(`ALL_CARDS = 0`, `_remoteCards = 0`; `fkgjduganefwmakxxnqt.supabase.co` did not resolve in DNS
+even against 8.8.8.8). The failure was silent to the user: the catch block logged "falling back to
+inline data" for inline arrays that had been removed. A `state: Live` project had no degraded mode.
+
+**How to apply:** The old Back Burner note proposed localStorage and said it would "close it cheaply."
+**That premise was wrong** — HSK5 (1.80 MB) + HSK6 (3.37 MB) is ~5.2 MB of JSON, over the ~5 MB
+localStorage ceiling, so a localStorage cache would have thrown `QuotaExceededError` on write.
+IndexedDB has no practical limit and is already async. Verified by writing and restoring all 3,791
+cards with Supabase down. **This does not un-pause Supabase** — free-tier projects re-pause after
+7 days of inactivity, so the cache is the safety net, not the fix.
+
 
 ### 2026-08-02 — Killed: "decks in github instead of the html", "expand decks using llama", SVG FC theme swatches
 **What:** Three scratchpad items retired rather than built.
