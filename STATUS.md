@@ -2,7 +2,7 @@
 attention: Active
 state: Live
 form: Website
-updated: 2026-09-17
+updated: 2026-09-29
 live_url: null
 ---
 
@@ -40,6 +40,9 @@ Scratchpad wording is kept verbatim so the notes and this file stay greppable ag
 - <!-- bb:moria --> **"get moria sorted"** — ambiguous ask, low stakes, behind the spicy password gate. Two divergent assets exist: `moria.html` (standalone, viewBox 500×680, 111 drawing elements, Tengwar arch text) and the inline gate injected at `index.html:16918` (viewBox 200×230, 19 elements). Likely means port the good art in, or delete the standalone so it stops implying unfinished work. `moria/` also holds 10 reference screenshots from 2026-04-01, so a third reading is "finish the art from those." Needs Tim to say which.
 
 ## Log
+
+- 2026-09-29: Cleared the root of two one-off HTML prototypes, a pre-HSK4 HTML snapshot, and two loose screenshots. They are preserved under `_docs/prototypes/`, `_docs/snapshots/`, and `_docs/captures/`, with a root `README.md` explaining the live app, operational scripts, and reference folders. `moria.html` and its companion `moria/` remain together at the root because that is a separate active surface. No files were deleted; `old images/` was untouched.
+
 
 - 2026-09-17: Shipped the offline card cache (IndexedDB) and the `.offline-notice` strip; see Decisions.
   Also corrected the stale `// inline arrays kept as offline fallback` comment on the `ALL_CARDS`
