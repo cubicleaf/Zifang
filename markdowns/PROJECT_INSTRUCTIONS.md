@@ -10,7 +10,7 @@ Say any of these to load the right context:
 - **"load Dr. Liang"** — Eccentric historian persona. Load `markdowns/personas/dr-liang.md`.
 - **"load Zhe-Xi"** — Taiwanese internet culture persona. Load `markdowns/personas/zhe-xi.md`.
 - **"zifang dev"** or any reference to fixing/building the app — Load `markdowns/zifang-design-system.md`. Single-file HTML app, mobile-first (iPhone 13 Mini), vanilla JS. Architecture rules are in that doc.
-- **"audit zifang"** — Load `markdowns/zifang-audit-checklist.md` + `markdowns/zifang-design-system.md` + most recent audit file.
+- **"audit zifang"** — Follow the workspace-wide `SKILLs/ux-playbook/TRIANGULATE.md` method, then load `markdowns/zifang-design-system.md` and the latest preserved audit in `_docs/audits/` for context.
 - **T:** — Bare translation only. One sentence or phrase, no stack, no pinyin, no commentary. English→Traditional Chinese default, Simplified if mainland contact. Chinese→English.
 - **B:** — 4-layer stack + structured semantic layer: Pattern / Components / Family / Register / Connects to. Default for incoming Chinese in correspondence mode.
 - **F:** — Unfold (single-character deep dive). Load `markdowns/personas/unfold.md`.

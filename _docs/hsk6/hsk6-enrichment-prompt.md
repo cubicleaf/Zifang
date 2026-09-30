@@ -1,3 +1,5 @@
+**Document status: Archived — 2026-09-29.** Preserved for historical reference.
+
 # HSK6 Enrichment — Continuation Prompt
 **Last updated:** 2026-05-20  
 **Status:** 1,110 / 2,500 cards enriched. 2,191 card-tasks remain across three phases.

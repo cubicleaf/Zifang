@@ -41,6 +41,8 @@ Scratchpad wording is kept verbatim so the notes and this file stay greppable ag
 
 ## Log
 
+- 2026-09-29: Grouped 23 supporting documents formerly loose in `markdowns/` under `_docs/` by HSK level, audit, design research, proposal, and learning/workshop purpose. The live learning instructions, personas, design system, project knowledge, and pending queue remain in `markdowns/`; its new README maps them. Path references were updated. No files were deleted, and `old images/` was untouched.
+
 - 2026-09-29: Cleared the root of two one-off HTML prototypes, a pre-HSK4 HTML snapshot, and two loose screenshots. They are preserved under `_docs/prototypes/`, `_docs/snapshots/`, and `_docs/captures/`, with a root `README.md` explaining the live app, operational scripts, and reference folders. `moria.html` and its companion `moria/` remain together at the root because that is a separate active surface. No files were deleted; `old images/` was untouched.
 
 
@@ -136,7 +138,7 @@ cards with Supabase down. **This does not un-pause Supabase** — free-tier proj
 ### 2026-07-24 — HSK6 enrichment complete: all 2500 cards (IDs 5001–7500) done
 This session (continuing directly after the 7280 checkpoint below) enriched the remaining cards 7281–7500 (11 batches of 20) in `data/hsk6-enriched.json`, adding `pos`, `semanticNote`, `components`, and `examples` for each, per the user's "run until you get stopped by the compute limit" instruction. Verified after every batch: zero R1–R10 rule violations. Final check confirmed 2500/2500 cards present, IDs 5001–7500, zero gaps, zero duplicates.
 **Why:** Completes the multi-session HSK6 enrichment project started 2026-06-12.
-**How to apply:** The enrichment project is fully done — `node upload-hsk6-enriched.js` was run this session, all 2500 cards upserted to Supabase, live app now serves the complete dataset. `/tmp/append_hsk6.py` will need to be rewritten again from `markdowns/hsk6-enrichment-selfcontained.md` if a similar bulk-JSON-append workflow is needed for a future dataset, since sandbox `/tmp` doesn't persist across sessions.
+**How to apply:** The enrichment project is fully done — `node upload-hsk6-enriched.js` was run this session, all 2500 cards upserted to Supabase, live app now serves the complete dataset. `/tmp/append_hsk6.py` will need to be rewritten again from `_docs/hsk6/hsk6-enrichment-selfcontained.md` if a similar bulk-JSON-append workflow is needed for a future dataset, since sandbox `/tmp` doesn't persist across sessions.
 
 ### 2026-07-24 — HSK6 enrichment continued to 7280 (IDs 6941–7280 complete, 340/560 cards this leg)
 This session enriched cards 6941–7280 (17 batches of 20) in `data/hsk6-enriched.json`, adding `pos`, `semanticNote`, `components`, and `examples` for each. Verified after every batch: zero R1–R10 rule violations, checked programmatically batch by batch. Total 1900→2280.
@@ -146,7 +148,7 @@ This session enriched cards 6941–7280 (17 batches of 20) in `data/hsk6-enriche
 ### 2026-07-23 — HSK6 enrichment continued to 6940 (IDs 6901–6940 complete, 40/560 cards this leg)
 This session enriched cards 6901–6940 (2 batches of 20) in `data/hsk6-enriched.json`, adding `pos`, `semanticNote`, `components`, and `examples` for each. Verified before/after: 1900→1940 total cards, zero R1–R10 rule violations on both batches (checked programmatically).
 **Why:** Continuing the multi-session HSK6 enrichment project toward ID 7500.
-**How to apply:** `/tmp/append_hsk6.py` and `/tmp/patch_hsk6.py` from prior sessions were gone (sandbox `/tmp` doesn't persist across sessions) — rewrote `append_hsk6.py` from the spec in `markdowns/hsk6-enrichment-selfcontained.md`, with one addition: it now also sets `category: "hsk6"` and `depth: "basic"` on each new card and pulls `english` from the skeleton, matching the actual schema found in existing cards (which the enrichment doc's schema section doesn't mention). Next session should rewrite the script the same way before continuing.
+**How to apply:** `/tmp/append_hsk6.py` and `/tmp/patch_hsk6.py` from prior sessions were gone (sandbox `/tmp` doesn't persist across sessions) — rewrote `append_hsk6.py` from the spec in `_docs/hsk6/hsk6-enrichment-selfcontained.md`, with one addition: it now also sets `category: "hsk6"` and `depth: "basic"` on each new card and pulls `english` from the skeleton, matching the actual schema found in existing cards (which the enrichment doc's schema section doesn't mention). Next session should rewrite the script the same way before continuing.
 
 ### 2026-07-01 — HSK6 enrichment continued to 6900 (IDs 6841–6900 complete, 60/600 cards this leg)
 This session enriched cards 6841–6900 (3 batches of 20) in `data/hsk6-enriched.json`, adding `pos`, `semanticNote`, `components`, and `examples` for each. Verified before/after: 1840→1900 total cards, max ID 6840→6900, zero errors from `/tmp/patch_hsk6.py`.

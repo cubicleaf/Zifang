@@ -1,3 +1,5 @@
+**Document status: Archived — 2026-09-29.** Preserved for historical reference.
+
 # 字坊 · Full UX Audit
 *April 3, 2026 · Design System + UX Copy + User Flows*
 

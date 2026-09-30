@@ -1,3 +1,5 @@
+**Document status: Archived — 2026-09-29.** Preserved for historical reference.
+
 # Jerry Call Prep Sheet
 **Contact:** Jerry Yang | Kaohsiung, Taiwan | Traditional | WhatsApp
 **Last updated:** 2026-04-03

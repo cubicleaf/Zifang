@@ -1,3 +1,5 @@
+**Document status: Archived — 2026-09-29.** Preserved for historical reference.
+
 # 字坊 Zifang — Audit
 *2026-05-14 · Playbook-relative re-evaluation · Compared against 2026-04-29 audit baseline*
 
@@ -312,7 +314,7 @@ These are real findings but they live in Zifang's design-system doc and code, no
 To be appended at the end of the existing ledger table:
 
 ```
-| 2026-05-14 | Zifang | markdowns/zifang-audit-2026-05-14.md | Drift corrections to Section 3 (typography — "reserved fonts" reframed), Section 4 (animation — 1.5s bloom example, stagger numbers, slow-bloom easing string), Section 5 (touch target floor tightened to 2.75rem), Section 7 (anti-pattern #1 flashcard-theme carve-out). No promotions to [CONFIRMED]. Ledger candidates added (recorded here for future cross-project evaluation, not promoted into body): squircle clip-path shape primitive (now 12 `url(#squircle-clip)` references in Zifang, was a deferred candidate 2026-04-29); coordinated-sibling rAF animation (the dot-control rewrite — replaces the prior CSS bloom); filter:blur() containing-block-trap as a named anti-pattern; per-theme font tokens; the single-file vanilla-JS constraint is now being deliberately retired (Supabase migration in flight). Live contradiction noted but not resolved in the playbook: tab transitions still use filter:blur() despite design-system §11 #2 forbidding it — needs Tim's call on whether this is a carve-out he wants to keep or a real fix. |
+| 2026-05-14 | Zifang | _docs/audits/zifang-audit-2026-05-14.md | Drift corrections to Section 3 (typography — "reserved fonts" reframed), Section 4 (animation — 1.5s bloom example, stagger numbers, slow-bloom easing string), Section 5 (touch target floor tightened to 2.75rem), Section 7 (anti-pattern #1 flashcard-theme carve-out). No promotions to [CONFIRMED]. Ledger candidates added (recorded here for future cross-project evaluation, not promoted into body): squircle clip-path shape primitive (now 12 `url(#squircle-clip)` references in Zifang, was a deferred candidate 2026-04-29); coordinated-sibling rAF animation (the dot-control rewrite — replaces the prior CSS bloom); filter:blur() containing-block-trap as a named anti-pattern; per-theme font tokens; the single-file vanilla-JS constraint is now being deliberately retired (Supabase migration in flight). Live contradiction noted but not resolved in the playbook: tab transitions still use filter:blur() despite design-system §11 #2 forbidding it — needs Tim's call on whether this is a carve-out he wants to keep or a real fix. |
 ```
 
 ---

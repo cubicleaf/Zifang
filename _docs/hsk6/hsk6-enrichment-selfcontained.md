@@ -1,3 +1,5 @@
+**Document status: Archived — 2026-09-29.** Preserved for historical reference.
+
 # HSK6 Enrichment — Self-Contained Continuation Prompt
 
 **You are picking this up cold. This document contains everything you need. Read it fully before writing a single line of JSON.**

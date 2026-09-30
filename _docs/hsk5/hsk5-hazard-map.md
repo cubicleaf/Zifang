@@ -5,10 +5,10 @@
 **Target IDs:** 2401–3700 (continues from HSK 4)
 **Output:** `data/hsk5-staging.json`
 **Inputs synthesized from:**
-- `markdowns/hsk5-scout-A-trad-taiwan.md` — Trad/Simp + Taiwan-vs-Mainland
-- `markdowns/hsk5-scout-B-duplicates.md` — Cross-deck duplicate audit
-- `markdowns/hsk5-scout-C-pinyin-hazards.md` — pypinyin override list (~140 entries)
-- `markdowns/hsk5-scout-D-grammar-register.md` — Special semanticNote handling (~130 entries)
+- `_docs/hsk5/hsk5-scout-A-trad-taiwan.md` — Trad/Simp + Taiwan-vs-Mainland
+- `_docs/hsk5/hsk5-scout-B-duplicates.md` — Cross-deck duplicate audit
+- `_docs/hsk5/hsk5-scout-C-pinyin-hazards.md` — pypinyin override list (~140 entries)
+- `_docs/hsk5/hsk5-scout-D-grammar-register.md` — Special semanticNote handling (~130 entries)
 
 ---
 

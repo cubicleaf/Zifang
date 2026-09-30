@@ -48,7 +48,7 @@ HSK 1–4 and the original nugget decks are hardcoded arrays in `index.html`. HS
 
 ### Supabase Decks (fetched at runtime)
 
-**HSK 5 deck:** 1,291 cards (category: `hsk5`). IDs 2401–3691. Source: `HSK Official 2012 L5.txt`. Skeleton generated via `scripts/hsk5_skeleton.py`. In Supabase as of 2026-05. ~30 cards enriched (early sample batch only) — enrichment pipeline not yet started in earnest. See `markdowns/hsk5-pipeline.md` for full pipeline spec.
+**HSK 5 deck:** 1,291 cards (category: `hsk5`). IDs 2401–3691. Source: `HSK Official 2012 L5.txt`. Skeleton generated via `scripts/hsk5_skeleton.py`. In Supabase as of 2026-05. ~30 cards enriched (early sample batch only) — enrichment pipeline not yet started in earnest. See `_docs/hsk5/hsk5-pipeline.md` for full pipeline spec.
 
 **HSK 6 deck:** 2,500 cards (category: `hsk6`). IDs 5001–7500. Source: `data/hsk6-source-with-defs.txt` (from `glxxyz/hskhsk.com`, `HSK Official With Definitions 2012 L6.txt`). Skeleton at `data/hsk6-skeleton.json`.
 
@@ -192,7 +192,7 @@ Current state: "Move to another deck" button exists in delete modal but is disab
 
 **Backup format updated to v1.1** — adds `cardScores` and `sessions` keys to the JSON export at `exportZifangBackup()`.
 
-**Spec doc:** `markdowns/zifang-session-system-plan.md`.
+**Spec doc:** `_docs/proposals/zifang-session-system-plan.md`.
 
 ### Cross-Tab State Consistency (established 2026-04-13)
 - **Principle:** All 4 tabs must reflect state changes in real-time without page refresh. Deleting, hiding, or adding a card in one tab must immediately propagate to all others.
@@ -243,7 +243,7 @@ Each item below is a discrete session task. Tackle one at a time.
 ## Related Docs
 
 - `markdowns/zifang-design-system.md` — Full component inventory, token list, UX specifications
-- `markdowns/zifang-audit-checklist.md` — Periodic audit procedure
-- `markdowns/zifang-audit-2026-04-09.md` — Most recent audit
-- `markdowns/HSK_Framework_Report_Nuggets_Stage.md` — Workshop HSK constraints
-- `markdowns/spicy-mode-upgrade-proposal.md` — Workshop explicit dialogue generation proposal
+- `SKILLs/ux-playbook/TRIANGULATE.md` — Current workspace-wide audit method
+- `_docs/audits/zifang-audit-2026-05-14.md` — Latest preserved Zifang UX audit
+- `_docs/learning-and-workshop/HSK_Framework_Report_Nuggets_Stage.md` — Workshop HSK constraints
+- `_docs/proposals/spicy-mode-upgrade-proposal.md` — Workshop explicit dialogue generation proposal

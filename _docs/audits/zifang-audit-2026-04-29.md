@@ -1,3 +1,5 @@
+**Document status: Archived — 2026-09-29.** Preserved for historical reference.
+
 # 字坊 Zifang — Updated Full Audit
 *April 29, 2026 · Multi-agent · Compared against 2026-04-03 baseline*
 
