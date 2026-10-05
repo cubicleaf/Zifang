@@ -15797,6 +15797,25 @@ function syncForgeBtn() {
 
 document.addEventListener('DOMContentLoaded', async () => {
   try {
+  // Forge must remain usable while the Supabase card library is loading.
+  // The full handler below takes over once the rest of the UI is ready.
+  let forgeHandlersReady = false;
+  const earlyForge = () => {
+    if (forgeHandlersReady) return;
+    const word = document.getElementById('forge-word-input').value.trim();
+    if (!word) return;
+    const model = localStorage.getItem('default-model') || 'groq';
+    const keyName = model === 'anthropic' ? 'anthropic-api-key' : 'groq-api-key';
+    if (!localStorage.getItem(keyName)) {
+      document.getElementById('settings-btn').click();
+      return;
+    }
+    forgeGate(word);
+  };
+  document.getElementById('forge-btn').addEventListener('click', earlyForge);
+  document.getElementById('forge-word-input').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !forgeHandlersReady) { e.preventDefault(); earlyForge(); }
+  });
   try {
     _remoteCards = await fetchCards();
     if (_remoteCards.length) {
@@ -16078,10 +16097,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     forgeGate(currentWord);
   });
 
-  // Stuck-detector — polls every 5s. If the forge-btn has been disabled for
-  // more than 30s straight, that means a fetch never resolved AND .finally
-  // never fired. Logs a warning with a state snapshot so we can catch the
-  // "nothing happens" bug without needing to repro it live.
+  // Recover the Forge button if an in-flight request never completes.
   (function installForgeBtnStuckDetector() {
     let disabledSince = null;
     setInterval(() => {
@@ -16090,7 +16106,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (btn.disabled) {
         if (disabledSince === null) disabledSince = Date.now();
         const heldMs = Date.now() - disabledSince;
-        if (heldMs > 30000 && heldMs < 35000) {
+        if (heldMs > 35000) {
           console.warn('[forge-btn] STUCK — disabled for >30s. State:', {
             heldMs,
             loading: btn.classList.contains('loading'),
@@ -16100,6 +16116,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             pendingCard: !!forgeReviewState.pendingCard,
             selectedWord: forgeReviewState.selectedWord
           });
+          btn.disabled = false;
+          btn.classList.remove('loading');
+          const status = document.getElementById('forge-status');
+          if (status) {
+            status.className = 'forge-status error';
+            status.textContent = 'That request stalled. You can try again.';
+          }
+          disabledSince = null;
         }
       } else {
         disabledSince = null;
@@ -16118,6 +16142,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       forgeGate(word);
     }
   });
+  forgeHandlersReady = true;
 
   document.getElementById('forge-opus-close').addEventListener('click', () => {
     document.getElementById('forge-opus-modal').style.display = 'none';
