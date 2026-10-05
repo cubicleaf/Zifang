@@ -2,7 +2,7 @@
 attention: Active
 state: Live
 form: Website
-updated: 2026-09-29
+updated: 2026-10-05
 live_url: null
 ---
 
@@ -16,7 +16,7 @@ live_url: null
 - When an idea matures into a decision, move it. When a decision is superseded, strike it through and note what replaced it.
 - Reference [INTENT.md](INTENT.md) for LLM doctrine, the pending queue for backlog, [markdowns/zifang-design-system.md](markdowns/zifang-design-system.md) for architecture.
 
-**Last updated:** 2026-09-17
+**Last updated:** 2026-10-05
 
 ## Where I left off
 
@@ -66,6 +66,9 @@ Scratchpad wording is kept verbatim so the notes and this file stay greppable ag
 - 2026-07-15: Migrated the header from the retired `relationship / kind` pilot to the canonical `attention / state / form` schema. Zifang now reads as `Active / Live / Website`: a real deployed working surface, not just a prototype shorthand.
 
 ## Decisions
+
+### 2026-10-05 — Forge responds while the card library loads
+The Supabase project was restored and reported Healthy in Tim's dashboard. Forge now wires its click and Enter actions before the asynchronous card load, so a slow card request cannot leave the control inert. Groq key edits save immediately, Settings has a reveal toggle, lookup errors show their actual category, and a stalled Forge request releases the disabled button. These changes are deployed; Safari behavior still needs a fresh live-site retest.
 
 ### 2026-09-17 — Offline fallback shipped as an IndexedDB cache, not localStorage
 **What:** `fetchCards()` results are now cached to IndexedDB (`zifang-cache` / `kv` / `remote-cards-v1`)
